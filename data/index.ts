@@ -110,33 +110,33 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Working with SystemR was a game-changer for our business. Their expertise in web development helped us create a seamless digital experience. Highly recommended!",
+    name: "Sarah Thompson",
+    title: "CEO of InnovateTech",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "The team at SystemR exceeded our expectations. Their dedication, technical prowess, and attention to detail made our project a success. Looking forward to future collaborations!",
+    name: "James Carter",
+    title: "Founder of Carter Solutions",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "SystemR delivered a high-quality software solution on time and within budget. Their communication and problem-solving skills truly set them apart in the industry.",
+    name: "Emma Roberts",
+    title: "Product Manager at Nexa Corp",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "SystemR’s innovative approach and technical expertise helped us scale our platform effortlessly. Their team is professional, responsive, and results-driven.",
+    name: "David Wilson",
+    title: "CTO of BrightWave Technologies",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "From concept to execution, SystemR provided outstanding service. Their commitment to quality and efficiency made our collaboration seamless and successful.",
+    name: "Laura Mitchell",
+    title: "Operations Head at TechVista",
   },
 ];
 
@@ -176,29 +176,29 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    title: "Proven Track Record",
+    desc: "Delivering cutting-edge software solutions across industries with innovative technology.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+    title: "Diverse Portfolio",
+    desc: "From web and mobile apps to AI-driven automation, we craft solutions that drive impact.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    title: "Client-Centric Approach",
+    desc: "Collaborating closely with businesses to build scalable, high-performance products.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    title: "Agile Development ",
+    desc: "Rapid iterations, continuous feedback, and seamless deployment for optimal efficiency.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },

@@ -1,65 +1,185 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
+import styled from "styled-components";
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
 const Approach = () => {
   return (
     <section className="w-full py-20">
       <h1 className="heading">
-        My <span className="text-purple">approach</span>
+        Our <span className="text-red-700">approach</span>
       </h1>
       {/* remove bg-white dark:bg-black */}
-      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
+      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-20">
         {/* add des prop */}
-        <Card
-          title="Planning & Strategy"
-          icon={<AceternityIcon order="Phase 1" />}
-          des="We'll collaborate to map out your website's goals, target audience, 
-          and key functionalities. We'll discuss things like site structure, 
-          navigation, and content requirements."
-        >
-          <CanvasRevealEffect
-            animationSpeed={5.1}
-            // add these classed for the border rounded overflowing -> rounded-3xl overflow-hidden
-            containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
-          />
-        </Card>
-        <Card
-          title="Development & Progress Update"
-          icon={<AceternityIcon order="Phase 2" />}
-          des="Once we agree on the plan, I cue my lofi playlist and dive into
-          coding. From initial sketches to polished code, I keep you updated
-          every step of the way."
-        >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            // change bg-black to bg-pink-900
-            containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
-            colors={[
-              // change the colors of the
-              [255, 166, 158],
-              [221, 255, 247],
-            ]}
-            dotSize={2}
-          />
-          {/* Radial gradient for the cute fade */}
-          {/* remove this one */}
-          {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
-        </Card>
-        <Card
-          title="Development & Launch"
-          icon={<AceternityIcon order="Phase 3" />}
-          des="This is where the magic happens! Based on the approved design, 
-          I'll translate everything into functional code, building your website
-          from the ground up."
-        >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
-            colors={[[125, 211, 252]]}
-          />
-        </Card>
+        <StyledWrapper>
+          <div className="container noselect">
+            <div className="canvas">
+              <div className="tracker tr-1" />
+              <div className="tracker tr-2" />
+              <div className="tracker tr-3" />
+              <div className="tracker tr-4" />
+              <div className="tracker tr-5" />
+              <div className="tracker tr-6" />
+              <div className="tracker tr-7" />
+              <div className="tracker tr-8" />
+              <div className="tracker tr-9" />
+              <div id="card">
+                <div className="card-content">
+                  <div className="card-glare" />
+                  <div className="cyber-lines">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <p id="prompt">
+                    Understanding your goals, defining requirements, and
+                    crafting a strategic roadmap.
+                  </p>
+                  <div className="title">
+                    Phase
+                    <br />1
+                  </div>
+                  <div className="glowing-elements">
+                    <div className="glow-1" />
+                    <div className="glow-2" />
+                    <div className="glow-3" />
+                  </div>
+                  <div className="subtitle">
+                    <span className="highlight">Innovate</span>
+                  </div>
+                  <div className="card-particles">
+                    <span />
+                    <span />
+                    <span /> <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="corner-elements">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="scan-line" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </StyledWrapper>
+        <StyledWrapper>
+          <div className="container noselect">
+            <div className="canvas">
+              <div className="tracker tr-1" />
+              <div className="tracker tr-2" />
+              <div className="tracker tr-3" />
+              <div className="tracker tr-4" />
+              <div className="tracker tr-5" />
+              <div className="tracker tr-6" />
+              <div className="tracker tr-7" />
+              <div className="tracker tr-8" />
+              <div className="tracker tr-9" />
+              <div id="card">
+                <div className="card-content">
+                  <div className="card-glare" />
+                  <div className="cyber-lines">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <p id="prompt">
+                    Building scalable, high-performance solutions with agile
+                    methodologies.
+                  </p>
+                  <div className="title">
+                    Phase
+                    <br />2
+                  </div>
+                  <div className="glowing-elements">
+                    <div className="glow-1" />
+                    <div className="glow-2" />
+                    <div className="glow-3" />
+                  </div>
+                  <div className="subtitle">
+                    <span className="highlight">Build</span>
+                  </div>
+                  <div className="card-particles">
+                    <span />
+                    <span />
+                    <span /> <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="corner-elements">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="scan-line" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </StyledWrapper>
+        <StyledWrapper>
+          <div className="container noselect">
+            <div className="canvas">
+              <div className="tracker tr-1" />
+              <div className="tracker tr-2" />
+              <div className="tracker tr-3" />
+              <div className="tracker tr-4" />
+              <div className="tracker tr-5" />
+              <div className="tracker tr-6" />
+              <div className="tracker tr-7" />
+              <div className="tracker tr-8" />
+              <div className="tracker tr-9" />
+              <div id="card">
+                <div className="card-content">
+                  <div className="card-glare" />
+                  <div className="cyber-lines">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <p id="prompt">
+                    Launching, optimizing, and ensuring long-term success with
+                    continuous support.
+                  </p>
+                  <div className="title">
+                    Phase
+                    <br />3
+                  </div>
+                  <div className="glowing-elements">
+                    <div className="glow-1" />
+                    <div className="glow-2" />
+                    <div className="glow-3" />
+                  </div>
+                  <div className="subtitle">
+                    <span className="highlight">Scale</span>
+                  </div>
+                  <div className="card-particles">
+                    <span />
+                    <span />
+                    <span /> <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="corner-elements">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="scan-line" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </StyledWrapper>
       </div>
     </section>
   );
@@ -67,136 +187,660 @@ const Approach = () => {
 
 export default Approach;
 
-const Card = ({
-  title,
-  icon,
-  children,
-  // add this one for the desc
-  des,
-}: {
-  title: string;
-  icon: React.ReactNode;
-  children?: React.ReactNode;
-  des: string;
-}) => {
-  const [hovered, setHovered] = React.useState(false);
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      // change h-[30rem] to h-[35rem], add rounded-3xl
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center
-       dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative lg:h-[35rem] rounded-3xl "
-      style={{
-        //   add these two
-        //   you can generate the color from here https://cssgradient.io/
-        background: "rgb(4,7,29)",
-        backgroundColor:
-          "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-      }}
-    >
-      {/* change to h-10 w-10 , add opacity-30  */}
-      <Icon className="absolute h-10 w-10 -top-3 -left-3 dark:text-white text-black opacity-30" />
-      <Icon className="absolute h-10 w-10 -bottom-3 -left-3 dark:text-white text-black opacity-30" />
-      <Icon className="absolute h-10 w-10 -top-3 -right-3 dark:text-white text-black opacity-30" />
-      <Icon className="absolute h-10 w-10 -bottom-3 -right-3 dark:text-white text-black opacity-30" />
+const StyledWrapper = styled.div`
+  .container {
+    position: relative;
+    width: 250px;
+    height: 354px;
+    transition: 200ms;
+  }
 
-      <AnimatePresence>
-        {hovered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="h-full w-full absolute inset-0"
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
+  .container:active {
+    width: 180px;
+    height: 245px;
+  }
 
-      <div className="relative z-20 px-10">
-        <div
-          // add this for making it center
-          // absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-          className="text-center group-hover/canvas-card:-translate-y-4 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] 
-        group-hover/canvas-card:opacity-0 transition duration-200 min-w-40 mx-auto flex items-center justify-center"
-        >
-          {icon}
-        </div>
-        <h2
-          // change text-3xl, add text-center
-          className="dark:text-white text-center text-3xl opacity-0 group-hover/canvas-card:opacity-100
-         relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white 
-         group-hover/canvas-card:-translate-y-2 transition duration-200"
-        >
-          {title}
-        </h2>
-        {/* add this one for the description */}
-        <p
-          className="text-sm opacity-0 group-hover/canvas-card:opacity-100
-         relative z-10 mt-4 group-hover/canvas-card:text-white text-center
-         group-hover/canvas-card:-translate-y-2 transition duration-200"
-          style={{ color: "#E4ECFF" }}
-        >
-          {des}
-        </p>
-      </div>
-    </div>
-  );
-};
-// add order prop for the Phase number change
-const AceternityIcon = ({ order }: { order: string }) => {
-  return (
-    <div>
-      {/* this btn is from https://ui.aceternity.com/components/tailwindcss-buttons border magic */}
-      {/* change rounded-lg, text-purple px-5 py-2 */}
-      {/* remove focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 cuz we don't need to focus */}
-      {/* remove text-sm font-medium h-12 , add font-bold text-2xl */}
-      <button className="relative inline-flex overflow-hidden rounded-full p-[1px] ">
-        <span
-          className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite]
-         bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
-        />
-        <span
-          className="inline-flex h-full w-full cursor-pointer items-center 
-        justify-center rounded-full bg-slate-950 px-5 py-2 text-purple backdrop-blur-3xl font-bold text-2xl"
-        >
-          {order}
-        </span>
-      </button>
-    </div>
-    // remove the svg and add the button
-    // <svg
-    //   width="66"
-    //   height="65"
-    //   viewBox="0 0 66 65"
-    //   fill="none"
-    //   xmlns="http://www.w3.org/2000/svg"
-    //   className="h-10 w-10 text-black dark:text-white group-hover/canvas-card:text-white "
-    // >
-    //   <path
-    //     d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-    //     stroke="currentColor"
-    //     strokeWidth="15"
-    //     strokeMiterlimit="3.86874"
-    //     strokeLinecap="round"
-    //     style={{ mixBlendMode: "darken" }}
-    //   />
-    // </svg>
-  );
-};
+  #card {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: 700ms;
+    background: linear-gradient(45deg, #1a1a1a, #262626);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.2);
+  }
 
-export const Icon = ({ className, ...rest }: any) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-      className={className}
-      {...rest}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-    </svg>
-  );
-};
+  .card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #prompt {
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: 300ms ease-in-out;
+    position: absolute;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+
+  .title {
+    opacity: 0;
+    transition: 300ms ease-in-out;
+    position: absolute;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+    background: linear-gradient(45deg, rgb(255, 0, 60), rgb(255, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(255, 0, 21, 0.3));
+    text-shadow: 0 0 10px rgba(255, 92, 92, 0.5),
+      0 0 20px rgba(255, 92, 92, 0.3);
+  }
+
+  .subtitle {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transform: translateY(30px);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .highlight {
+    color: rgb(200, 0, 255);
+    margin-left: 5px;
+    background: linear-gradient(90deg, rgb(255, 92, 92), #ad51ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+
+  .glowing-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .glow-1,
+  .glow-2,
+  .glow-3 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 106, 0, 0.3) 0%,
+      rgba(0, 255, 170, 0) 70%
+    );
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .glow-1 {
+    top: -20px;
+    left: -20px;
+  }
+  .glow-2 {
+    top: 50%;
+    right: -30px;
+    transform: translateY(-50%);
+  }
+  .glow-3 {
+    bottom: -20px;
+    left: 30%;
+  }
+
+  .card-particles span {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgb(212, 0, 255);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Hover effects */
+  .tracker:hover ~ #card .title {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  .tracker:hover ~ #card .glowing-elements div {
+    opacity: 1;
+  }
+
+  .tracker:hover ~ #card .card-particles span {
+    animation: particleFloat 2s infinite;
+  }
+
+  @keyframes particleFloat {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(var(--x, 0) * 30px), calc(var(--y, 0) * 30px));
+      opacity: 0;
+    }
+  }
+
+  /* Particle positions */
+  .card-particles span:nth-child(1) {
+    --x: 1;
+    --y: -1;
+    top: 40%;
+    left: 20%;
+  }
+  .card-particles span:nth-child(2) {
+    --x: -1;
+    --y: -1;
+    top: 60%;
+    right: 20%;
+  }
+  .card-particles span:nth-child(3) {
+    --x: 0.5;
+    --y: 1;
+    top: 20%;
+    left: 40%;
+  }
+  .card-particles span:nth-child(4) {
+    --x: -0.5;
+    --y: 1;
+    top: 80%;
+    right: 40%;
+  }
+  .card-particles span:nth-child(5) {
+    --x: 1;
+    --y: 0.5;
+    top: 30%;
+    left: 60%;
+  }
+  .card-particles span:nth-child(6) {
+    --x: -1;
+    --y: 0.5;
+    top: 70%;
+    right: 60%;
+  }
+
+  #card::before {
+    content: "";
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 255, 170, 0.1) 0%,
+      rgba(0, 162, 255, 0.05) 50%,
+      transparent 100%
+    );
+    filter: blur(20px);
+    opacity: 0;
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+  }
+
+  .tracker:hover ~ #card::before {
+    opacity: 1;
+  }
+
+  .tracker {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+  }
+
+  .tracker:hover {
+    cursor: pointer;
+  }
+
+  .tracker:hover ~ #card #prompt {
+    opacity: 1;
+  }
+
+  .tracker:hover ~ #card {
+    transition: 300ms;
+    filter: brightness(1.1);
+  }
+
+  .container:hover #card::before {
+    transition: 200ms;
+    content: "";
+    opacity: 80%;
+  }
+
+  .canvas {
+    perspective: 800px;
+    inset: 0;
+    z-index: 200;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "tr-1 tr-2 tr-3 tr-4 tr-5"
+      "tr-6 tr-7 tr-8 tr-9 tr-10"
+      "tr-11 tr-12 tr-13 tr-14 tr-15"
+      "tr-16 tr-17 tr-18 tr-19 tr-20"
+      "tr-21 tr-22 tr-23 tr-24 tr-25";
+  }
+
+  .tr-1 {
+    grid-area: tr-1;
+  }
+
+  .tr-2 {
+    grid-area: tr-2;
+  }
+
+  .tr-3 {
+    grid-area: tr-3;
+  }
+
+  .tr-4 {
+    grid-area: tr-4;
+  }
+
+  .tr-5 {
+    grid-area: tr-5;
+  }
+
+  .tr-6 {
+    grid-area: tr-6;
+  }
+
+  .tr-7 {
+    grid-area: tr-7;
+  }
+
+  .tr-8 {
+    grid-area: tr-8;
+  }
+
+  .tr-9 {
+    grid-area: tr-9;
+  }
+
+  .tr-10 {
+    grid-area: tr-10;
+  }
+
+  .tr-11 {
+    grid-area: tr-11;
+  }
+
+  .tr-12 {
+    grid-area: tr-12;
+  }
+
+  .tr-13 {
+    grid-area: tr-13;
+  }
+
+  .tr-14 {
+    grid-area: tr-14;
+  }
+
+  .tr-15 {
+    grid-area: tr-15;
+  }
+
+  .tr-16 {
+    grid-area: tr-16;
+  }
+
+  .tr-17 {
+    grid-area: tr-17;
+  }
+
+  .tr-18 {
+    grid-area: tr-18;
+  }
+
+  .tr-19 {
+    grid-area: tr-19;
+  }
+
+  .tr-20 {
+    grid-area: tr-20;
+  }
+
+  .tr-21 {
+    grid-area: tr-21;
+  }
+
+  .tr-22 {
+    grid-area: tr-22;
+  }
+
+  .tr-23 {
+    grid-area: tr-23;
+  }
+
+  .tr-24 {
+    grid-area: tr-24;
+  }
+
+  .tr-25 {
+    grid-area: tr-25;
+  }
+
+  .tr-1:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg);
+  }
+
+  .tr-2:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
+  }
+
+  .tr-3:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  .tr-4:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
+  }
+
+  .tr-5:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
+  }
+
+  .tr-6:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
+  }
+
+  .tr-7:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
+  }
+
+  .tr-8:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  .tr-9:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
+  }
+
+  .tr-10:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
+  }
+
+  .tr-11:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
+  }
+
+  .tr-12:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
+  }
+
+  .tr-13:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  .tr-14:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
+  }
+
+  .tr-15:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
+  }
+
+  .tr-16:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+  }
+
+  .tr-17:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
+  }
+
+  .tr-18:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  .tr-19:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
+  }
+
+  .tr-20:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
+  }
+
+  .tr-21:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
+  }
+
+  .tr-22:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
+  }
+
+  .tr-23:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  .tr-24:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
+  }
+
+  .tr-25:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
+  }
+
+  .noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+  									supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  .card-glare {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      125deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 55%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .cyber-lines span {
+    position: absolute;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(92, 103, 255, 0.2),
+      transparent
+    );
+  }
+
+  .cyber-lines span:nth-child(1) {
+    top: 20%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineGrow 3s linear infinite;
+  }
+
+  .cyber-lines span:nth-child(2) {
+    top: 40%;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: right;
+    animation: lineGrow 3s linear infinite 1s;
+  }
+
+  .cyber-lines span:nth-child(3) {
+    top: 60%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineGrow 3s linear infinite 2s;
+  }
+
+  .cyber-lines span:nth-child(4) {
+    top: 80%;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: right;
+    animation: lineGrow 3s linear infinite 1.5s;
+  }
+
+  .corner-elements span {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(92, 103, 255, 0.3);
+  }
+
+  .corner-elements span:nth-child(1) {
+    top: 10px;
+    left: 10px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .corner-elements span:nth-child(2) {
+    top: 10px;
+    right: 10px;
+    border-left: 0;
+    border-bottom: 0;
+  }
+
+  .corner-elements span:nth-child(3) {
+    bottom: 10px;
+    left: 10px;
+    border-right: 0;
+    border-top: 0;
+  }
+
+  .corner-elements span:nth-child(4) {
+    bottom: 10px;
+    right: 10px;
+    border-left: 0;
+    border-top: 0;
+  }
+
+  .scan-line {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(92, 103, 255, 0.1),
+      transparent
+    );
+    transform: translateY(-100%);
+    animation: scanMove 2s linear infinite;
+  }
+
+  @keyframes lineGrow {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes scanMove {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  /* Modyfikacja istniejących styli */
+  #card:hover .card-glare {
+    opacity: 1;
+  }
+
+  .corner-elements span {
+    transition: all 0.3s ease;
+  }
+
+  #card:hover .corner-elements span {
+    border-color: rgba(92, 103, 255, 0.8);
+    box-shadow: 0 0 10px rgba(92, 103, 255, 0.5);
+  }
+`;
