@@ -10,7 +10,7 @@ const RecentProjects = () => {
     <div className="py-20">
       <h1 className="heading">
         A small selection of{" "}
-        <span className="text-purple">recent projects</span>
+        <span className="text-red-700">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
         {projects.map((item) => (
@@ -25,7 +25,7 @@ const RecentProjects = () => {
               <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
-                  style={{ backgroundColor: "#13162D" }}
+                  style={{ backgroundColor: "#2d1313" }}
                 >
                   <img src="/bg.png" alt="bgimg" />
                 </div>
@@ -43,7 +43,7 @@ const RecentProjects = () => {
               <p
                 className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
                 style={{
-                  color: "#BEC1DD",
+                  color: "#ddbebf",
                   margin: "1vh 0",
                 }}
               >
@@ -69,7 +69,7 @@ const RecentProjects = () => {
                   <p className="flex lg:text-xl md:text-xs text-sm text-purple">
                     Check Live Site
                   </p>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  <FaLocationArrow className="ms-3" color="#BEC1DD" />
                 </div>
               </div>
             </PinContainer>

@@ -46,7 +46,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="pb-20 pt-36 relative " onMouseMove={handleMouseMove}>
+    <div className="pb-10 pt-36 relative " onMouseMove={handleMouseMove}>
       {/* Background Grid with Cursor Effect */}
       {waves.map((wave) => (
         <motion.div
@@ -80,7 +80,7 @@ const Hero = () => {
       ))}
 
       {/* Main Content */}
-      <div className="flex justify-center relative my-20 z-10">
+      <div className="flex justify-center relative  z-10">
         <div>
           <Spotlight
             className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
@@ -92,7 +92,7 @@ const Hero = () => {
           />
           <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="red" />
         </div>
-        <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
+        <div className=" md:max-w-2xl  flex flex-col items-center justify-center">
           <p className="uppercase tracking-widest text-xs text-center text-red-100 max-w-80">
             Dynamic Web Magic with SystemR
           </p>
@@ -115,8 +115,8 @@ const Hero = () => {
             />
           </a>
 
-          <div className="flex justify-center items-center flex-col text-center mt-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="flex w-full justify-center items-center flex-col text-center mt-10">
+            <div className="grid w-full grid-cols-3 ">
               {counterData.map((item) => (
                 <CounterCard
                   key={item.id}

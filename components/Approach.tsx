@@ -37,10 +37,7 @@ const Approach = () => {
                     Understanding your goals, defining requirements, and
                     crafting a strategic roadmap.
                   </p>
-                  <div className="title">
-                    Phase
-                    <br />1
-                  </div>
+                  <div className="title">Phase 1</div>
                   <div className="glowing-elements">
                     <div className="glow-1" />
                     <div className="glow-2" />
@@ -93,10 +90,7 @@ const Approach = () => {
                     Building scalable, high-performance solutions with agile
                     methodologies.
                   </p>
-                  <div className="title">
-                    Phase
-                    <br />2
-                  </div>
+                  <div className="title">Phase 2</div>
                   <div className="glowing-elements">
                     <div className="glow-1" />
                     <div className="glow-2" />
@@ -149,10 +143,7 @@ const Approach = () => {
                     Launching, optimizing, and ensuring long-term success with
                     continuous support.
                   </p>
-                  <div className="title">
-                    Phase
-                    <br />3
-                  </div>
+                  <div className="title">Phase 3</div>
                   <div className="glowing-elements">
                     <div className="glow-1" />
                     <div className="glow-2" />
@@ -224,6 +215,7 @@ const StyledWrapper = styled.div`
   #prompt {
     bottom: 100px;
     left: 50%;
+    height: 50%;
     transform: translateX(-50%);
     z-index: 20;
     font-size: 16px;

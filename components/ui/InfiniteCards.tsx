@@ -97,9 +97,9 @@ export const InfiniteMovingCards = ({
               //     "linear-gradient(180deg, var(--slate-800), var(--slate-900)", //remove this one
               //   add these two
               //   you can generate the color from here https://cssgradient.io/
-              background: "rgb(4,7,29)",
+              background: "rgb(29, 4, 4)",
               backgroundColor:
-                "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+                "linear-gradient(90deg, rgb(29, 4, 4) 0%, rgb(35, 12, 13) 100%)",
             }}
             // change to idx cuz we have the same name
             key={idx}

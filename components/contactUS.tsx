@@ -3,280 +3,167 @@ import styled from "styled-components";
 
 const ContactUS = () => {
   return (
-    <StyledWrapper className="w-full pt-20 pb-10 display-flex justify-center">
-      <h1 className="heading w-full text-center">
-        <span className="text-red-700">Contact</span> US
-      </h1>
-      <div className="w-full pt-20 pb-10 container_chat_bot">
-        <div className="container-chat-options">
-          <div className="chat">
-            <div className="chat-bot">
-              <textarea
-                id="chat_bot"
-                name="chat_bot"
-                placeholder="Connect to chat"
-                defaultValue={""}
-              />
+    <StyledWrapper>
+      <div id="form-ui">
+        <form action="#" method="post" id="form">
+          <div id="form-body">
+            <div id="welcome-lines">
+              <div id="welcome-line-1">Contact Us</div>
+              <div id="welcome-line-2">We'd love to hear from you!</div>
             </div>
-            <div className="options">
-              <div className="btns-add">
-                <button>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M7 8v8a5 5 0 1 0 10 0V6.5a3.5 3.5 0 1 0-7 0V15a2 2 0 0 0 4 0V8"
-                    />
-                  </svg>
-                </button>
-                <button>
-                  <svg
-                    viewBox="0 0 24 24"
-                    height={20}
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zm0 10a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zm10 0a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1zm0-8h6m-3-3v6"
-                      strokeWidth={2}
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                      stroke="currentColor"
-                      fill="none"
-                    />
-                  </svg>
-                </button>
-                <button>
-                  <svg
-                    viewBox="0 0 24 24"
-                    height={20}
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m-2.29-2.333A17.9 17.9 0 0 1 8.027 13H4.062a8.01 8.01 0 0 0 5.648 6.667M10.03 13c.151 2.439.848 4.73 1.97 6.752A15.9 15.9 0 0 0 13.97 13zm9.908 0h-3.965a17.9 17.9 0 0 1-1.683 6.667A8.01 8.01 0 0 0 19.938 13M4.062 11h3.965A17.9 17.9 0 0 1 9.71 4.333A8.01 8.01 0 0 0 4.062 11m5.969 0h3.938A15.9 15.9 0 0 0 12 4.248A15.9 15.9 0 0 0 10.03 11m4.259-6.667A17.9 17.9 0 0 1 15.973 11h3.965a8.01 8.01 0 0 0-5.648-6.667"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </button>
+            <div id="input-area">
+              <div className="form-inp">
+                <input placeholder="Full Name" type="text" required />
               </div>
-              <button className="btn-submit">
-                <i>
-                  <svg viewBox="0 0 512 512">
-                    <path
-                      fill="currentColor"
-                      d="M473 39.05a24 24 0 0 0-25.5-5.46L47.47 185h-.08a24 24 0 0 0 1 45.16l.41.13l137.3 58.63a16 16 0 0 0 15.54-3.59L422 80a7.07 7.07 0 0 1 10 10L226.66 310.26a16 16 0 0 0-3.59 15.54l58.65 137.38c.06.2.12.38.19.57c3.2 9.27 11.3 15.81 21.09 16.25h1a24.63 24.63 0 0 0 23-15.46L478.39 64.62A24 24 0 0 0 473 39.05"
-                    />
-                  </svg>
-                </i>
+              <div className="form-inp">
+                <input placeholder="Phone Number" type="tel" required />
+              </div>
+              <div className="form-inp">
+                <input placeholder="Email Address" type="email" required />
+              </div>
+              <div className="form-inp">
+                <textarea
+                  placeholder="Your Message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div id="submit-button-cvr">
+              <button id="submit-button" type="submit">
+                Send Message
               </button>
             </div>
           </div>
-        </div>
-        <div className="tags">
-          <span>Create An Image</span>
-          <span>Analyse Data</span>
-          <span>More</span>
-        </div>
+        </form>
       </div>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-  .container_chat_bot {
-    display: flex;
-    flex-direction: column;
-    max-width: 460px;
-    width: 100%;
+  #form {
+    display: grid;
+    place-items: center;
+    width: 800px;
+    height: auto;
+    padding: 25px;
+    background-color: rgba(22, 3, 3, 0.75);
+    box-shadow: 0px 15px 60px rgb(24, 1, 7);
+    outline: 1px solid rgba(299, 9, 20);
   }
 
-  .container_chat_bot .container-chat-options {
-    height: 200px;
+  #form-body {
     position: relative;
-    display: flex;
-    background: linear-gradient(
-      to bottom right,
-      #7e7e7e,
-      #363636,
-      #363636,
-      #363636,
-      #363636
-    );
-    border-radius: 16px;
-    padding: 1.5px;
-    overflow: hidden;
-
-    &::after {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -10px;
-      background: radial-gradient(
-        ellipse at center,
-        #ffffff,
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 0.1),
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0)
-      );
-      width: 30px;
-      height: 30px;
-      filter: blur(1px);
-    }
-  }
-
-  .container_chat_bot .container-chat-options .chat {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
     width: 100%;
-    overflow: hidden;
+    text-align: center;
   }
 
-  .container_chat_bot .container-chat-options .chat .chat-bot {
-    position: relative;
-    display: flex;
+  #welcome-lines {
+    text-align: center;
+    line-height: 1;
   }
 
-  .container_chat_bot .chat .chat-bot textarea {
-    background-color: transparent;
-    border-radius: 16px;
-    border: none;
-    width: 100%;
-    height: 50px;
+  #welcome-line-1 {
+    color: rgb(241, 236, 238);
+    font-weight: 600;
+    font-size: 28px;
+  }
+
+  #welcome-line-2 {
     color: #ffffff;
-    font-family: sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  #input-area {
+    margin-top: 30px;
+  }
+
+  .form-inp {
+    padding: 12px 15px;
+    background: transparent;
+    border: 1px solid #f40b0b;
+    line-height: 1;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .form-inp input,
+  .form-inp textarea {
+    width: 100%;
+    background: none;
+    font-size: 14px;
+    color: rgb(244, 243, 243);
+    border: none;
+    padding: 0;
+    margin: 0;
     resize: none;
+  }
+
+  .form-inp input:focus,
+  .form-inp textarea:focus {
     outline: none;
-
-    &::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555;
-      cursor: pointer;
-    }
-
-    &::placeholder {
-      color: #f3f6fd;
-      transition: all 0.3s ease;
-    }
-    &:focus::placeholder {
-      color: #363636;
-    }
+    border-bottom: 2px solid rgb(234, 224, 227);
   }
 
-  .container_chat_bot .chat .options {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 10px;
+  #submit-button-cvr {
+    margin-top: 20px;
   }
 
-  .container_chat_bot .chat .options .btns-add {
-    display: flex;
-    gap: 8px;
-
-    & button {
-      display: flex;
-      color: rgba(255, 255, 255, 0.1);
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-5px);
-        color: #ffffff;
-      }
-    }
-  }
-
-  .container_chat_bot .chat .options .btn-submit {
-    display: flex;
-    padding: 2px;
-    background-image: linear-gradient(to top, #292929, #555555, #292929);
-    border-radius: 10px;
-    box-shadow: inset 0 6px 2px -4px rgba(255, 255, 255, 0.5);
+  #submit-button {
+    display: block;
+    width: 100%;
+    color: #f40b0b;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+    padding: 14px 13px;
+    border: 0;
+    outline: 1px solid rgb(142, 10, 43);
+    line-height: 1;
     cursor: pointer;
-    border: none;
-    outline: none;
-    transition: all 0.15s ease;
-
-    & i {
-      width: 30px;
-      height: 30px;
-      padding: 6px;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      backdrop-filter: blur(3px);
-      color: #8b8b8b;
-    }
-    & svg {
-      transition: all 0.3s ease;
-    }
-    &:hover svg {
-      color: #f3f6fd;
-      filter: drop-shadow(0 0 5px #ffffff);
-    }
-
-    &:focus svg {
-      color: #f3f6fd;
-      filter: drop-shadow(0 0 5px #ffffff);
-      transform: scale(1.2) rotate(45deg) translateX(-2px) translateY(1px);
-    }
-
-    &:active {
-      transform: scale(0.92);
-    }
+    transition: all ease-in-out 0.3s;
   }
 
-  .container_chat_bot .tags {
-    padding: 14px 0;
-    display: flex;
-    color: #ffffff;
-    font-size: 10px;
-    gap: 4px;
+  #submit-button:hover {
+    background-color: rgb(228, 12, 66);
+    color: #1a001a;
+    cursor: pointer;
+  }
 
-    & span {
-      padding: 4px 8px;
-      background-color: #1b1b1b;
-      border: 1.5px solid #363636;
-      border-radius: 10px;
-      cursor: pointer;
-      user-select: none;
+  #bar {
+    position: absolute;
+    left: 50%;
+    bottom: -30px;
+    width: 28px;
+    height: 8px;
+    margin-left: -14px;
+    background-color: #ff3366;
+    border-radius: 10px;
+  }
+
+  #bar:before,
+  #bar:after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ff99cc;
+    border-radius: 50%;
+  }
+
+  #bar:before {
+    right: -20px;
+  }
+
+  #bar:after {
+    right: -38px;
+  }
+  @media (max-width: 768px) {
+    #form {
+      width: 370px;
     }
   }
 `;

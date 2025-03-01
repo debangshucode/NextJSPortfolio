@@ -10,14 +10,17 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
     "@sentry/nextjs": "^7.105.0",
+    "@studio-freight/lenis": "^1.0.42",
     "@tabler/icons-react": "^3.1.0",
     "@types/three": "^0.163.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.25",
+    "fullpage.js": "^4.0.33",
     "lucide-react": "^0.365.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "^14.1.4",
