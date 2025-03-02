@@ -92,6 +92,7 @@ const Hero = () => {
           />
           <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="red" />
         </div>
+
         <div className=" md:max-w-2xl  flex flex-col items-center justify-center">
           <p className="uppercase tracking-widest text-xs text-center text-red-100 max-w-80">
             Dynamic Web Magic with SystemR
@@ -114,9 +115,21 @@ const Hero = () => {
               position="right"
             />
           </a>
+          <div className="hidden lg:flex absolute top-0 right-0 mt-4 mr-4 flex-col gap-4">
+            {counterData.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.5 }}
+              >
+                <CounterCard count={item.count} label={item.label} />
+              </motion.div>
+            ))}
+          </div>
 
-          <div className="flex w-full justify-center items-center flex-col text-center mt-10">
-            <div className="grid w-full grid-cols-3 ">
+          <div className="flex w-full  justify-center items-center flex-row text-center mt-10 md:hidden">
+            <div className="grid w-full grid-cols-3">
               {counterData.map((item) => (
                 <CounterCard
                   key={item.id}
