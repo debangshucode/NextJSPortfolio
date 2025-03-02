@@ -79,7 +79,7 @@ function Services() {
           </h1>
         </motion.div>
         <motion.p
-          className="text-sm text-gray-400 text-center mb-12 max-w-lg mx-auto"
+          className="text-sm text-gray-400 text-center mb-[10rem] max-w-lg mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -91,14 +91,24 @@ function Services() {
         <div className="relative h-[500px] flex items-center justify-center">
           {/* Center Circle */}
           <motion.div
-            className="absolute z-10"
+            className="absolute z-10 top[10%]"
             initial="initial"
             animate="pulse"
             variants={pulseVariants}
           >
-            <div className="w-40 h-40 rounded-full bg-black border-4 border-red-500/30 flex items-center justify-center">
-              <div className="w-32 h-32 rounded-full bg-red-500/20 flex items-center justify-center">
-                <Shield className="w-16 h-16 text-red-400" />
+            <div className="relative w-[7.5rem] h-[7.5rem] ">
+              {/* Outer Pentagon (Border Effect) */}
+              <div
+                className="absolute top-0 left-0 w-[7.5rem] h-[7.5rem]  
+                  clip-pentagon bg-red-500 flex items-center justify-center"
+              >
+                {/* Inner Pentagon (Filled Shape) */}
+                <div className="w-[7rem] h-[7rem]  clip-pentagon bg-black flex items-center justify-center">
+                  {/* Shield Icon Container */}
+                  <div className="w-16 h-16  clip-pentagon bg-red-500/20 flex items-center justify-center">
+                    <Shield className="w-10 h-10 sm:w-8 sm:h-8 text-red-400" />
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -110,9 +120,9 @@ function Services() {
             initial="hidden"
             animate="visible"
           >
-            {/* Step 01 - Top Left */}
+            {/* Step 01 - Top  */}
             <motion.div
-              className="absolute left-0 top-0 w-[250px]"
+              className="absolute left-[40%] z-10 top-[-15%] w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -126,13 +136,43 @@ function Services() {
                     01
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">xyz</p>
+                <p className="text-xs text-gray-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                  odit earum vel nulla dolorem, eveniet enim illo corrupti,
+                  harum quae ipsa ipsum ullam alias quia, aut iure deleniti
+                  soluta nam?
+                </p>
+              </div>
+            </motion.div>
+            {/* Step 01 - Top Left */}
+            <motion.div
+              className="absolute left-[10%] z-10 top-0 w-[250px]"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
+                    <Layers className="w-4 h-4 text-red-400" />
+                  </div>
+                  <span className="font-medium">Front-End</span>
+                  <span className="ml-auto text-xl font-bold text-gray-500">
+                    02
+                  </span>
+                </div>
+                <p className="text-xs text-gray-400">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Harum consectetur voluptate quo, quam repellat suscipit nulla
+                  quae, unde dolorem necessitatibus adipisci ipsum quia
+                  recusandae aliquam voluptates, officia cupiditate distinctio
+                  tenetur.
+                </p>
               </div>
             </motion.div>
 
             {/* Step 02 - Top Right */}
             <motion.div
-              className="absolute right-0 top-0 w-[250px]"
+              className="absolute right-[10%] z-10 top-0 w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -143,35 +183,21 @@ function Services() {
                   </div>
                   <span className="font-medium">Back-end</span>
                   <span className="ml-auto text-xl font-bold text-gray-500">
-                    02
-                  </span>
-                </div>
-                <p className="text-xs text-gray-400">xyz</p>
-              </div>
-            </motion.div>
-
-            {/* Step 03 - Bottom Right */}
-            <motion.div
-              className="absolute right-0 top-[40%] w-[250px]"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <AlertCircle className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">Dev-ops</span>
-                  <span className="ml-auto text-xl font-bold text-gray-500">
                     03
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">xyz</p>
+                <p className="text-xs text-gray-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolorem error quibusdam debitis pariatur! Tenetur illum est
+                  facere fugiat aut tempora labore explicabo asperiores quisquam
+                  assumenda ipsa maiores, facilis commodi aliquam.
+                </p>
               </div>
             </motion.div>
+
             {/* Step 06 - Bottom Right */}
             <motion.div
-              className="absolute right-0 bottom-0 w-[250px]"
+              className="absolute right-[10%] z-10 bottom-0 w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -185,13 +211,19 @@ function Services() {
                     06
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">xyz</p>
+                <p className="text-xs text-gray-400">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Sequi omnis in illo exercitationem? Voluptates saepe deserunt,
+                  obcaecati, cum incidunt ipsum possimus maiores pariatur
+                  aperiam quidem minima, suscipit consequuntur accusantium
+                  veritatis!
+                </p>
               </div>
             </motion.div>
 
             {/* Step 04 - Bottom Left */}
             <motion.div
-              className="absolute left-0 bottom-0 w-[250px]"
+              className="absolute left-[10%] z-10 bottom-0 w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -205,27 +237,12 @@ function Services() {
                     04
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">xyx</p>
-              </div>
-            </motion.div>
-
-            {/* Step 05 - Middle Left */}
-            <motion.div
-              className="absolute left-0 top-[40%] transform -translate-y-1/2 w-[250px]"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <Shield className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">Others</span>
-                  <span className="ml-auto text-xl font-bold text-gray-500">
-                    05
-                  </span>
-                </div>
-                <p className="text-xs text-gray-400">xyz</p>
+                <p className="text-xs text-gray-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+                  totam repudiandae animi qui corrupti laborum fugit. Accusamus
+                  quia tempore amet molestiae voluptatibus, officia molestias
+                  ipsam aspernatur itaque impedit necessitatibus. Voluptate?
+                </p>
               </div>
             </motion.div>
 
@@ -241,7 +258,7 @@ function Services() {
                   cy="300"
                   r="180"
                   fill="none"
-                  stroke="rgba(239, 68, 68, 0.2)"
+                  stroke="rgba(209, 34, 34, 0.33)"
                   strokeWidth="1"
                   strokeDasharray="5,5"
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -251,9 +268,9 @@ function Services() {
 
                 <motion.line
                   x1="400"
-                  y1="300" // Start from Shield (center)
-                  x2="50"
-                  y2="100" // Top-left box
+                  y1="350" // Start from Shield (center)
+                  x2="400"
+                  y2="100" // Top
                   stroke="rgba(239, 68, 68, 0.8)"
                   strokeWidth="2"
                   strokeDasharray="10,20"
@@ -263,9 +280,9 @@ function Services() {
                 />
 
                 <motion.line
-                  x1="400"
+                  x1="450"
                   y1="300" // Start from Shield (center)
-                  x2="750"
+                  x2="700"
                   y2="100" // Top-right box
                   stroke="rgba(239, 68, 68, 0.8)"
                   strokeWidth="2"
@@ -277,7 +294,7 @@ function Services() {
 
                 <motion.line
                   x1="400"
-                  y1="300" // Start from Shield (center)
+                  y1="345" // Start from Shield (center)
                   x2="750"
                   y2="500" // Bottom-right box
                   stroke="rgba(239, 68, 68, 0.8)"
@@ -290,7 +307,7 @@ function Services() {
 
                 <motion.line
                   x1="400"
-                  y1="300" // Start from Shield (center)
+                  y1="345" // Start from Shield (center)
                   x2="50"
                   y2="500" // Bottom-left box
                   stroke="rgba(239, 68, 68, 0.8)"
@@ -302,23 +319,10 @@ function Services() {
                 />
 
                 <motion.line
-                  x1="400"
-                  y1="300" // Start from Shield (center)
-                  x2="00"
-                  y2="300" // Left-side box
-                  stroke="rgba(239, 68, 68, 0.8)"
-                  strokeWidth="2"
-                  strokeDasharray="10,20"
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate="visible"
-                />
-
-                <motion.line
-                  x1="400"
-                  y1="300" // Start from Shield (center)
-                  x2="800"
-                  y2="300" // Right-side box
+                  x1="350"
+                  y1="300" // Start from Pentagon Center
+                  x2="100"
+                  y2="100" // Top-left (Mirrored to Top-right)
                   stroke="rgba(239, 68, 68, 0.8)"
                   strokeWidth="2"
                   strokeDasharray="10,20"

@@ -48,9 +48,9 @@ const StyledWrapper = styled.div`
     width: 800px;
     height: auto;
     padding: 25px;
-    background-color: rgba(22, 3, 3, 0.75);
-    box-shadow: 0px 15px 60px rgb(24, 1, 7);
-    outline: 1px solid rgba(299, 9, 20);
+    background-color: rgba(22, 3, 3, 0.27);
+    box-shadow: 0px 15px 60px rgba(24, 1, 7, 0.52);
+    border-radius: 10px;
   }
 
   #form-body {
@@ -119,6 +119,7 @@ const StyledWrapper = styled.div`
     font-weight: 600;
     font-size: 14px;
     margin: 0;
+    border-radius: 5px;
     padding: 14px 13px;
     border: 0;
     outline: 1px solid rgb(142, 10, 43);
