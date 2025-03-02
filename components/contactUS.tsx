@@ -83,7 +83,7 @@ const StyledWrapper = styled.div`
   .form-inp {
     padding: 12px 15px;
     background: transparent;
-    border: 1px solid #f40b0b;
+
     line-height: 1;
     margin-bottom: 15px;
     width: 100%;
