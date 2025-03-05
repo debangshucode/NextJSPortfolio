@@ -112,7 +112,7 @@ const Hero = () => {
             />
           </a>
           {/* Counter Data (For Large Screens) */}
-          <div className="hidden lg:flex absolute top-1/2 right-[-40px] transform -translate-y-1/2 flex-col gap-4">
+          <div className="hidden lg:flex absolute top-1/2 right-[0px] transform -translate-y-1/2 flex-col gap-4">
             {counterData.map((item, index) => (
               <motion.div
                 key={item.id}
