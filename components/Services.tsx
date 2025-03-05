@@ -79,7 +79,7 @@ function Services() {
           </h1>
         </motion.div>
         <motion.p
-          className="text-sm text-gray-400 text-center mb-[10rem] max-w-lg mx-auto"
+          className="text-sm text-gray-400 text-center max-w-lg mx-auto sm:mb-[0px] lg:mb-[10rem]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -96,7 +96,23 @@ function Services() {
             animate="pulse"
             variants={pulseVariants}
           >
-            <div className="relative w-[7.5rem] h-[7.5rem] ">
+            <div className=" relative w-[4.5rem] h-[4.5rem] lg:hidden">
+              {/* Outer Pentagon (Border Effect) */}
+              <div
+                className="absolute top-0 left-0 w-[4.5rem] h-[4.5rem]  
+                  clip-pentagon bg-red-500 flex items-center justify-center"
+              >
+                {/* Inner Pentagon (Filled Shape) */}
+                <div className="w-[4rem] h-[4rem]  clip-pentagon bg-black flex items-center justify-center">
+                  {/* Shield Icon Container */}
+                  <div className="w-16 h-16  clip-pentagon bg-red-500/20 flex items-center justify-center">
+                    <Shield className="w-10 h-10 sm:w-8 sm:h-8 text-red-400" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* large screen */}
+            <div className="hidden lg:block relative w-[7.5rem] h-[7.5rem] ">
               {/* Outer Pentagon (Border Effect) */}
               <div
                 className="absolute top-0 left-0 w-[7.5rem] h-[7.5rem]  
@@ -122,7 +138,22 @@ function Services() {
           >
             {/* Step 01 - Top  */}
             <motion.div
-              className="absolute left-[40%] z-10 top-[-15%] w-[250px]"
+              className="absolute left-[30%] z-10 top-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden "
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
+                    <Layers className="w-4 h-4 text-red-400" />
+                  </div>
+                  <span className="font-medium">Front-End</span>
+                </div>
+              </div>
+            </motion.div>
+            {/* large screen  */}
+            <motion.div
+              className="hidden lg:block absolute left-[40%] z-10 top-[-15%] w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -144,9 +175,25 @@ function Services() {
                 </p>
               </div>
             </motion.div>
-            {/* Step 01 - Top Left */}
+            {/* Step 02 - Top Left */}
             <motion.div
-              className="absolute left-[10%] z-10 top-0 w-[250px]"
+              className="absolute left-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
+                    <Layers className="w-4 h-4 text-red-400" />
+                  </div>
+                  <span className="font-medium">Front-End</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* large screen */}
+            <motion.div
+              className="hidden lg:block absolute left-[10%] z-10 top-0 w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -172,7 +219,22 @@ function Services() {
 
             {/* Step 02 - Top Right */}
             <motion.div
-              className="absolute right-[10%] z-10 top-0 w-[250px]"
+              className="absolute right-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
+                    <BarChart2 className="w-4 h-4 text-red-400" />
+                  </div>
+                  <span className="font-medium">Back-end</span>
+                </div>
+              </div>
+            </motion.div>
+            {/* large */}
+            <motion.div
+              className="hidden lg:block absolute right-[10%] z-10 top-0 w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -197,7 +259,22 @@ function Services() {
 
             {/* Step 06 - Bottom Right */}
             <motion.div
-              className="absolute right-[10%] z-10 bottom-0 w-[250px]"
+              className="absolute right-[-15%] z-10 bottom-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              <div className="bg-gray-800  rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
+                    <Zap className="w-4 h-4 text-red-400" />
+                  </div>
+                  <span className="font-medium">Version control</span>
+                </div>
+              </div>
+            </motion.div>
+            {/* large */}
+            <motion.div
+              className="hidden lg:block absolute right-[10%] z-10 bottom-0 w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -223,7 +300,22 @@ function Services() {
 
             {/* Step 04 - Bottom Left */}
             <motion.div
-              className="absolute left-[10%] z-10 bottom-0 w-[250px]"
+              className="absolute left-[-15%] z-10 bottom-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
+                    <RefreshCw className="w-4 h-4 text-red-400" />
+                  </div>
+                  <span className="font-medium">Cyber-security</span>
+                </div>
+              </div>
+            </motion.div>
+            {/* large */}
+            <motion.div
+              className="hidden lg:block absolute left-[10%] z-10 bottom-0 w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >

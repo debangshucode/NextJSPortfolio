@@ -235,8 +235,8 @@ export const socialMedia = [
 
 export const counterData = [
   { id: 1, count: 120, label: "Clients Every Year" },
-  { id: 2, count: 9, label: "International Partners" },
-  { id: 3, count: 36, label: "Experts" },
+  { id: 2, count: 36, label: "Experts" },
+  { id: 3, count: 9, label: "International Partners" },
 ];
 
 export const skillsData = [
