@@ -1,3 +1,7 @@
+import { motion } from "framer-motion";
+import CounterCard from "./ui/CounterCard";
+import { counterData } from "@/data";
+
 {
   /* Counter Data (For Large Screens) */
 }

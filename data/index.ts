@@ -126,30 +126,42 @@ export const testimonials = [
     quote:
       "Working with SystemR was a game-changer for our business. Their expertise in web development helped us create a seamless digital experience. Highly recommended!",
     name: "Sarah Thompson",
+    image: logo1,
     title: "CEO of InnovateTech",
   },
   {
     quote:
       "The team at SystemR exceeded our expectations. Their dedication, technical prowess, and attention to detail made our project a success. Looking forward to future collaborations!",
     name: "James Carter",
+    image: logo2,
     title: "Founder of Carter Solutions",
   },
   {
     quote:
       "SystemR delivered a high-quality software solution on time and within budget. Their communication and problem-solving skills truly set them apart in the industry.",
     name: "Emma Roberts",
+    image: logo3,
     title: "Product Manager at Nexa Corp",
   },
   {
     quote:
       "SystemR’s innovative approach and technical expertise helped us scale our platform effortlessly. Their team is professional, responsive, and results-driven.",
     name: "David Wilson",
+    image: logo1,
     title: "CTO of BrightWave Technologies",
   },
   {
     quote:
       "From concept to execution, SystemR provided outstanding service. Their commitment to quality and efficiency made our collaboration seamless and successful.",
     name: "Laura Mitchell",
+    image: logo1,
+    title: "Operations Head at TechVista",
+  },
+  {
+    quote:
+      "From concept to execution, SystemR provided outstanding service. Their commitment to quality and efficiency made our collaboration seamless and successful.",
+    name: "Laura Mitchell",
+    image: logo1,
     title: "Operations Head at TechVista",
   },
 ];
