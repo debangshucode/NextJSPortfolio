@@ -34,7 +34,7 @@ const RecentProjects = () => {
   ];
 
   return (
-    <section id="" className="relative w-full py-16 text-white">
+    <section id="projects" className="relative w-full py-16 text-white">
       <div className="container mx-auto text-center mt-10">
         <h1 className="heading">
           Completed

@@ -1,7 +1,48 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
 
 const ContactUS = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const [isSent, setIsSent] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_4mh8d69", // Replace with your EmailJS Service ID
+        "template_n4a6avr", // Replace with your EmailJS Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        "6z5XS5sT4d8LWTPMP" // Replace with your EmailJS Public Key
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully!", response);
+          setIsSent(true);
+          setFormData({ name: "", phone: "", email: "", message: "" });
+        },
+        (error) => {
+          console.log("Email sending failed:", error);
+        }
+      );
+  };
+
   return (
     <StyledWrapper>
       <div className="contact-container">
@@ -14,29 +55,11 @@ const ContactUS = () => {
             solution, or just want to say hello, we're here to help. Our team is
             ready to assist you and provide the support you need.
           </p>
-          <div className="contact-info">
-            <div className="info-item">
-              <h3>Email</h3>
-              <p>contact@example.com</p>
-            </div>
-            <div className="info-item">
-              <h3>Phone</h3>
-              <p>+1 (555) 123-4567</p>
-            </div>
-            <div className="info-item">
-              <h3>Address</h3>
-              <p>
-                123 Business Street, Suite 100
-                <br />
-                New York, NY 10001
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Right Side Form */}
         <div id="form-ui">
-          <form action="#" method="post" id="form">
+          <form id="form" onSubmit={sendEmail}>
             <div id="form-body">
               <div id="welcome-lines">
                 <div id="welcome-line-1">Contact Us</div>
@@ -44,18 +67,42 @@ const ContactUS = () => {
               </div>
               <div id="input-area">
                 <div className="form-inp">
-                  <input placeholder="Full Name" type="text" required />
+                  <input
+                    name="name"
+                    placeholder="Full Name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="form-inp">
-                  <input placeholder="Phone Number" type="tel" required />
+                  <input
+                    name="phone"
+                    placeholder="Phone Number"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="form-inp">
-                  <input placeholder="Email Address" type="email" required />
+                  <input
+                    name="email"
+                    placeholder="Email Address"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="form-inp">
                   <textarea
+                    name="message"
                     placeholder="Your Message"
                     rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
                     required
                   ></textarea>
                 </div>
@@ -65,6 +112,11 @@ const ContactUS = () => {
                   Send Message
                 </button>
               </div>
+              {isSent && (
+                <p style={{ color: "white", marginTop: "10px" }}>
+                  Message Sent Successfully!
+                </p>
+              )}
             </div>
           </form>
         </div>

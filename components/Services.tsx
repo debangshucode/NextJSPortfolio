@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Shield,
   Layers,
@@ -7,9 +7,58 @@ import {
   RefreshCw,
   Zap,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+interface ServiceInfo {
+  id: number;
+  title: string;
+  icon: React.ReactNode;
+  description: string;
+}
 
 function Services() {
+  const [selectedService, setSelectedService] = useState<ServiceInfo | null>(
+    null
+  );
+
+  const services: ServiceInfo[] = [
+    {
+      id: 1,
+      title: "Front-End",
+      icon: <Layers className="w-4 h-4 text-red-400" />,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At odit earum vel nulla dolorem, eveniet enim illo corrupti, harum quae ipsa ipsum ullam alias quia, aut iure deleniti soluta nam?",
+    },
+    {
+      id: 2,
+      title: "Back-End",
+      icon: <BarChart2 className="w-4 h-4 text-red-400" />,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error quibusdam debitis pariatur! Tenetur illum est facere fugiat aut tempora labore explicabo asperiores quisquam assumenda ipsa maiores, facilis commodi aliquam.",
+    },
+    {
+      id: 3,
+      title: "Cyber-security",
+      icon: <RefreshCw className="w-4 h-4 text-red-400" />,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio totam repudiandae animi qui corrupti laborum fugit. Accusamus quia tempore amet molestiae voluptatibus, officia molestias ipsam aspernatur itaque impedit necessitatibus.",
+    },
+    {
+      id: 4,
+      title: "Version Control",
+      icon: <Zap className="w-4 h-4 text-red-400" />,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis in illo exercitationem? Voluptates saepe deserunt, obcaecati, cum incidunt ipsum possimus maiores pariatur aperiam quidem minima, suscipit consequuntur accusantium veritatis!",
+    },
+    {
+      id: 5,
+      title: "Data Analysis",
+      icon: <AlertCircle className="w-4 h-4 text-red-400" />,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At odit earum vel nulla dolorem, eveniet enim illo corrupti, harum quae ipsa ipsum ullam alias quia, aut iure deleniti soluta nam?",
+    },
+  ];
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,8 +109,29 @@ function Services() {
     },
   };
 
+  const mobileTextVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const handleServiceClick = (service: ServiceInfo) => {
+    setSelectedService(selectedService?.id === service.id ? null : services);
+  };
+
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+    <div
+      className="min-h-screen bg-black flex items-center justify-center p-4"
+      id="services"
+    >
       <motion.div
         className=" w-full bg-black rounded-lg p-8 text-white"
         initial={{ opacity: 0, y: 30 }}
@@ -136,10 +206,10 @@ function Services() {
             initial="hidden"
             animate="visible"
           >
-            {/* Step 01 - Top  */}
             <motion.div
               className="absolute left-[30%] z-10 top-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden "
               variants={itemVariants}
+              onClick={() => handleServiceClick(services[0])}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
               <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
@@ -147,7 +217,7 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Layers className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Front-End</span>
+                  <span className="font-medium">{services[0].title}</span>
                 </div>
               </div>
             </motion.div>
@@ -177,8 +247,9 @@ function Services() {
             </motion.div>
             {/* Step 02 - Top Left */}
             <motion.div
-              className="absolute left-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              className="absolute left-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden "
               variants={itemVariants}
+              onClick={() => handleServiceClick(services[1])}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
               <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
@@ -186,7 +257,7 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Layers className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Front-End</span>
+                  <span className="font-medium">{services[1].title}</span>
                 </div>
               </div>
             </motion.div>
@@ -219,6 +290,7 @@ function Services() {
 
             {/* Step 02 - Top Right */}
             <motion.div
+              onClick={() => handleServiceClick(services[0])}
               className="absolute right-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -228,7 +300,7 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <BarChart2 className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Back-end</span>
+                  <span className="font-medium">{services[2].title}</span>
                 </div>
               </div>
             </motion.div>
@@ -259,6 +331,7 @@ function Services() {
 
             {/* Step 06 - Bottom Right */}
             <motion.div
+              onClick={() => handleServiceClick(services[3])}
               className="absolute right-[-15%] z-10 bottom-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -268,7 +341,7 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Zap className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Version control</span>
+                  <span className="font-medium">{services[3].title}</span>
                 </div>
               </div>
             </motion.div>
@@ -300,6 +373,7 @@ function Services() {
 
             {/* Step 04 - Bottom Left */}
             <motion.div
+              onClick={() => handleServiceClick(services[4])}
               className="absolute left-[-15%] z-10 bottom-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -309,7 +383,7 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <RefreshCw className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Cyber-security</span>
+                  <span className="font-medium">{services[4].title}</span>
                 </div>
               </div>
             </motion.div>
@@ -422,10 +496,43 @@ function Services() {
                   initial="hidden"
                   animate="visible"
                 />
+                {selectedService && (
+                  <motion.line
+                    x1="400"
+                    y1="350"
+                    x2="400"
+                    y2="1000"
+                    stroke="rgba(239, 68, 68, 0.8)"
+                    strokeWidth="2"
+                    strokeDasharray="5,5"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="lg:hidden"
+                  />
+                )}
               </svg>
             </div>
           </motion.div>
         </div>
+        <AnimatePresence>
+          {selectedService && (
+            <motion.div
+              className="lg:hidden bg-gray-800 rounded-lg p-4 border border-red-500"
+              variants={mobileTextVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <h3 className="text-lg font-semibold mb-2">
+                {selectedService.title}
+              </h3>
+              <p className="text-sm text-gray-400">
+                {selectedService.description}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </div>
   );
