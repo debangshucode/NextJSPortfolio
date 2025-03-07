@@ -13,7 +13,7 @@ interface ServiceInfo {
   id: number;
   title: string;
   icon: React.ReactNode;
-  description: string;
+  description: string[];
 }
 
 function Services() {
@@ -26,36 +26,31 @@ function Services() {
       id: 1,
       title: "Front-End",
       icon: <Layers className="w-4 h-4 text-red-400" />,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At odit earum vel nulla dolorem, eveniet enim illo corrupti, harum quae ipsa ipsum ullam alias quia, aut iure deleniti soluta nam?",
+      description: ["React", "Bootstrap", "Tailwind"],
     },
     {
       id: 2,
       title: "Back-End",
       icon: <BarChart2 className="w-4 h-4 text-red-400" />,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error quibusdam debitis pariatur! Tenetur illum est facere fugiat aut tempora labore explicabo asperiores quisquam assumenda ipsa maiores, facilis commodi aliquam.",
+      description: ["Node.js", "Express", "MongoDB"],
     },
     {
       id: 3,
       title: "Cyber-security",
       icon: <RefreshCw className="w-4 h-4 text-red-400" />,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio totam repudiandae animi qui corrupti laborum fugit. Accusamus quia tempore amet molestiae voluptatibus, officia molestias ipsam aspernatur itaque impedit necessitatibus.",
+      description: ["Kali Linux", "Burp Suite", "Metasploit"],
     },
     {
       id: 4,
       title: "Version Control",
       icon: <Zap className="w-4 h-4 text-red-400" />,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis in illo exercitationem? Voluptates saepe deserunt, obcaecati, cum incidunt ipsum possimus maiores pariatur aperiam quidem minima, suscipit consequuntur accusantium veritatis!",
+      description: ["Git", "GitHub", "Bitbucket"],
     },
     {
       id: 5,
       title: "Data Analysis",
       icon: <AlertCircle className="w-4 h-4 text-red-400" />,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At odit earum vel nulla dolorem, eveniet enim illo corrupti, harum quae ipsa ipsum ullam alias quia, aut iure deleniti soluta nam?",
+      description: ["Python", "Pandas", "NumPy"],
     },
   ];
 
@@ -237,9 +232,16 @@ function Services() {
                     01
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">
-                  {services[0].description}
-                </p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {services[0].description.map((item, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
             {/* Step 02 - Top Left */}
@@ -275,9 +277,16 @@ function Services() {
                     02
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">
-                  {services[1].description}
-                </p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {services[1].description.map((item, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -313,9 +322,16 @@ function Services() {
                     03
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">
-                  {services[2].description}
-                </p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {services[2].description.map((item, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -351,9 +367,16 @@ function Services() {
                     06
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">
-                  {services[3].description}
-                </p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {services[3].description.map((item, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -389,9 +412,16 @@ function Services() {
                     04
                   </span>
                 </div>
-                <p className="text-xs text-gray-400">
-                  {services[4].description}
-                </p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {services[4].description.map((item, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -510,9 +540,16 @@ function Services() {
               <h3 className="text-lg font-semibold mb-2">
                 {selectedService.title}
               </h3>
-              <p className="text-sm text-gray-400">
-                {selectedService.description}
-              </p>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {selectedService.description.map((item, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
