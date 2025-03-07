@@ -47,7 +47,6 @@ const Hero = () => {
 
   return (
     <div className="pb-10 pt-36 relative" onMouseMove={handleMouseMove}>
-      {/* Background Grid with Cursor Effect */}
       {waves.map((wave) => (
         <motion.div
           key={wave.id}
@@ -111,6 +110,7 @@ const Hero = () => {
               position="right"
             />
           </a>
+
           {/* Counter Data (For Large Screens) */}
           <div className="hidden lg:flex absolute top-1/2 right-[-150px] transform -translate-y-1/2 flex-col gap-4">
             {counterData.map((item, index) => (
@@ -119,12 +119,15 @@ const Hero = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative"
+                className={`relative ${
+                  index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
+                }`}
               >
                 <CounterCard count={item.count} label={item.label} />
               </motion.div>
             ))}
           </div>
+
           {/* Counter Data (For Mobile) */}
           <div className="flex w-full justify-center items-center flex-row text-center mt-10 md:hidden">
             <div className="grid w-full grid-cols-3 gap-4">
