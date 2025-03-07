@@ -124,7 +124,7 @@ function Services() {
   };
 
   const handleServiceClick = (service: ServiceInfo) => {
-    setSelectedService(selectedService?.id === service.id ? null : services);
+    setSelectedService(selectedService?.id === service.id ? null : service);
   };
 
   return (
@@ -207,7 +207,7 @@ function Services() {
             animate="visible"
           >
             <motion.div
-              className="absolute left-[30%] z-10 top-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden "
+              className="absolute left-[30%] z-10 top-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden "
               variants={itemVariants}
               onClick={() => handleServiceClick(services[0])}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -247,7 +247,7 @@ function Services() {
             </motion.div>
             {/* Step 02 - Top Left */}
             <motion.div
-              className="absolute left-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden "
+              className="absolute left-[-15%] z-10 top-[30%] w-[110px] h-[100px] overflow-hidden lg:hidden "
               variants={itemVariants}
               onClick={() => handleServiceClick(services[1])}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -290,8 +290,8 @@ function Services() {
 
             {/* Step 02 - Top Right */}
             <motion.div
-              onClick={() => handleServiceClick(services[0])}
-              className="absolute right-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              onClick={() => handleServiceClick(services[2])}
+              className="absolute right-[-15%] z-10 top-[30%] w-[110px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -332,7 +332,7 @@ function Services() {
             {/* Step 06 - Bottom Right */}
             <motion.div
               onClick={() => handleServiceClick(services[3])}
-              className="absolute right-[-15%] z-10 bottom-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              className="absolute right-[-15%] z-10 bottom-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -374,7 +374,7 @@ function Services() {
             {/* Step 04 - Bottom Left */}
             <motion.div
               onClick={() => handleServiceClick(services[4])}
-              className="absolute left-[-15%] z-10 bottom-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              className="absolute left-[-15%] z-10 bottom-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
