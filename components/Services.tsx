@@ -8,16 +8,12 @@ import {
   Zap,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo1 from "@/public/logo1.png";
-import logo2 from "@/public/logo2.png";
-import logo3 from "@/public/logo3.png";
 
 interface ServiceInfo {
   id: number;
   title: string;
   icon: React.ReactNode;
-  logos: string[]; // Added missing logos property
-  techNames: string[]; // Added missing techNames property
+  description: string;
 }
 
 function Services() {
@@ -30,36 +26,36 @@ function Services() {
       id: 1,
       title: "Front-End",
       icon: <Layers className="w-4 h-4 text-red-400" />,
-      logos: [logo1, logo2, logo3],
-      techNames: ["React", "Bootstrap", "Tailwind"],
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At odit earum vel nulla dolorem, eveniet enim illo corrupti, harum quae ipsa ipsum ullam alias quia, aut iure deleniti soluta nam?",
     },
     {
       id: 2,
       title: "Back-End",
       icon: <BarChart2 className="w-4 h-4 text-red-400" />,
-      logos: [logo1, logo2, logo3],
-      techNames: ["Node.js", "Express", "MongoDB"],
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error quibusdam debitis pariatur! Tenetur illum est facere fugiat aut tempora labore explicabo asperiores quisquam assumenda ipsa maiores, facilis commodi aliquam.",
     },
     {
       id: 3,
       title: "Cyber-security",
       icon: <RefreshCw className="w-4 h-4 text-red-400" />,
-      logos: [logo1, logo2, logo3],
-      techNames: ["Kali Linux", "Burp Suite", "Metasploit"],
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio totam repudiandae animi qui corrupti laborum fugit. Accusamus quia tempore amet molestiae voluptatibus, officia molestias ipsam aspernatur itaque impedit necessitatibus.",
     },
     {
       id: 4,
       title: "Version Control",
       icon: <Zap className="w-4 h-4 text-red-400" />,
-      logos: [logo1, logo2, logo3],
-      techNames: ["Git", "GitHub", "Bitbucket"],
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi omnis in illo exercitationem? Voluptates saepe deserunt, obcaecati, cum incidunt ipsum possimus maiores pariatur aperiam quidem minima, suscipit consequuntur accusantium veritatis!",
     },
     {
       id: 5,
       title: "Data Analysis",
       icon: <AlertCircle className="w-4 h-4 text-red-400" />,
-      logos: [logo1, logo2, logo3],
-      techNames: ["Python", "Pandas", "NumPy"],
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At odit earum vel nulla dolorem, eveniet enim illo corrupti, harum quae ipsa ipsum ullam alias quia, aut iure deleniti soluta nam?",
     },
   ];
 
