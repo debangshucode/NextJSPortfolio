@@ -254,10 +254,13 @@ function Services() {
             initial="hidden"
             animate="visible"
           >
+            <div className="absolute  left-1/2 transform -translate-x-1/2 bg-gray-700 text-white text-xs px-2 py-1 rounded shadow-lg">
+              Click here
+            </div>
             <motion.div
               className="absolute left-[30%] z-10 top-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden "
               variants={itemVariants}
-              onClick={() => handleServiceClick(services[0])}
+              onClick={() => handleServiceClick(services[3])}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
               <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
@@ -265,7 +268,7 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Layers className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">{services[0].title}</span>
+                  <span className="font-medium">{services[3].title}</span>
                 </div>
               </div>
             </motion.div>
@@ -280,13 +283,13 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Layers className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">{services[0].title}</span>
+                  <span className="font-medium">{services[3].title}</span>
                   <span className="ml-auto text-xl font-bold text-gray-500">
                     01
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  {services[0].description.map((item, index) => (
+                  {services[3].description.map((item, index) => (
                     <span
                       key={index}
                       className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
@@ -390,7 +393,7 @@ function Services() {
 
             {/* Step 06 - Bottom Right */}
             <motion.div
-              onClick={() => handleServiceClick(services[3])}
+              onClick={() => handleServiceClick(services[0])}
               className="absolute right-[-15%] z-10 bottom-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -400,13 +403,13 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Zap className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">{services[3].title}</span>
+                  <span className="font-medium">{services[0].title}</span>
                 </div>
               </div>
             </motion.div>
             {/* large */}
             <motion.div
-              className="hidden lg:block absolute right-[10%] z-10 bottom-0 w-[250px]"
+              className="hidden lg:block absolute right-[10%] z-10 bottom-[-25%] w-[250px]"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -415,13 +418,13 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Zap className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">{services[3].title}</span>
+                  <span className="font-medium">{services[0].title}</span>
                   <span className="ml-auto text-xl font-bold text-gray-500">
                     06
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  {services[3].description.map((item, index) => (
+                  {services[0].description.map((item, index) => (
                     <span
                       key={index}
                       className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
