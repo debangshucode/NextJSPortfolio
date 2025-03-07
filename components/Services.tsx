@@ -128,7 +128,7 @@ function Services() {
   };
 
   const handleServiceClick = (service: ServiceInfo) => {
-    setSelectedService(selectedService?.id === service.id ? null : services);
+    setSelectedService(selectedService?.id === service.id ? null : service);
   };
 
   return (
@@ -211,7 +211,7 @@ function Services() {
             animate="visible"
           >
             <motion.div
-              className="absolute left-[30%] z-10 top-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden "
+              className="absolute left-[30%] z-10 top-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden "
               variants={itemVariants}
               onClick={() => handleServiceClick(services[0])}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -236,22 +236,19 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Layers className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Front-End</span>
+                  <span className="font-medium">{services[0].title}</span>
                   <span className="ml-auto text-xl font-bold text-gray-500">
                     01
                   </span>
                 </div>
                 <p className="text-xs text-gray-400">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                  odit earum vel nulla dolorem, eveniet enim illo corrupti,
-                  harum quae ipsa ipsum ullam alias quia, aut iure deleniti
-                  soluta nam?
+                  {services[0].description}
                 </p>
               </div>
             </motion.div>
             {/* Step 02 - Top Left */}
             <motion.div
-              className="absolute left-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden "
+              className="absolute left-[-15%] z-10 top-[30%] w-[110px] h-[100px] overflow-hidden lg:hidden "
               variants={itemVariants}
               onClick={() => handleServiceClick(services[1])}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -277,25 +274,21 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Layers className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Front-End</span>
+                  <span className="font-medium">{services[1].title}</span>
                   <span className="ml-auto text-xl font-bold text-gray-500">
                     02
                   </span>
                 </div>
                 <p className="text-xs text-gray-400">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Harum consectetur voluptate quo, quam repellat suscipit nulla
-                  quae, unde dolorem necessitatibus adipisci ipsum quia
-                  recusandae aliquam voluptates, officia cupiditate distinctio
-                  tenetur.
+                  {services[1].description}
                 </p>
               </div>
             </motion.div>
 
             {/* Step 02 - Top Right */}
             <motion.div
-              onClick={() => handleServiceClick(services[0])}
-              className="absolute right-[-15%] z-10 top-[30%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              onClick={() => handleServiceClick(services[2])}
+              className="absolute right-[-15%] z-10 top-[30%] w-[110px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -319,16 +312,13 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <BarChart2 className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Back-end</span>
+                  <span className="font-medium">{services[2].title}</span>
                   <span className="ml-auto text-xl font-bold text-gray-500">
                     03
                   </span>
                 </div>
                 <p className="text-xs text-gray-400">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolorem error quibusdam debitis pariatur! Tenetur illum est
-                  facere fugiat aut tempora labore explicabo asperiores quisquam
-                  assumenda ipsa maiores, facilis commodi aliquam.
+                  {services[2].description}
                 </p>
               </div>
             </motion.div>
@@ -336,7 +326,7 @@ function Services() {
             {/* Step 06 - Bottom Right */}
             <motion.div
               onClick={() => handleServiceClick(services[3])}
-              className="absolute right-[-15%] z-10 bottom-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              className="absolute right-[-15%] z-10 bottom-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -360,17 +350,13 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <Zap className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Version_control</span>
+                  <span className="font-medium">{services[3].title}</span>
                   <span className="ml-auto text-xl font-bold text-gray-500">
                     06
                   </span>
                 </div>
                 <p className="text-xs text-gray-400">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Sequi omnis in illo exercitationem? Voluptates saepe deserunt,
-                  obcaecati, cum incidunt ipsum possimus maiores pariatur
-                  aperiam quidem minima, suscipit consequuntur accusantium
-                  veritatis!
+                  {services[3].description}
                 </p>
               </div>
             </motion.div>
@@ -378,7 +364,7 @@ function Services() {
             {/* Step 04 - Bottom Left */}
             <motion.div
               onClick={() => handleServiceClick(services[4])}
-              className="absolute left-[-15%] z-10 bottom-[15%] w-[120px] h-[100px] overflow-hidden lg:hidden"
+              className="absolute left-[-15%] z-10 bottom-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden"
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
@@ -402,16 +388,13 @@ function Services() {
                   <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
                     <RefreshCw className="w-4 h-4 text-red-400" />
                   </div>
-                  <span className="font-medium">Cyber-security</span>
+                  <span className="font-medium">{services[4].title}</span>
                   <span className="ml-auto text-xl font-bold text-gray-500">
                     04
                   </span>
                 </div>
                 <p className="text-xs text-gray-400">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-                  totam repudiandae animi qui corrupti laborum fugit. Accusamus
-                  quia tempore amet molestiae voluptatibus, officia molestias
-                  ipsam aspernatur itaque impedit necessitatibus. Voluptate?
+                  {services[4].description}
                 </p>
               </div>
             </motion.div>
