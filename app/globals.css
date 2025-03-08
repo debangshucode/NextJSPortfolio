@@ -6,6 +6,24 @@
     clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
   }
 }
+
+@keyframes scrollVertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-vertical {
+  animation: scrollVertical 45s linear infinite;
+}
+
+/* Pause animation on hover */
+.animate-scroll-vertical:hover {
+  animation-play-state: paused;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
