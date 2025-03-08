@@ -37,7 +37,7 @@ const domains: Domain[] = [
       "Material UI",
       "Shopify/Wordpress/Craft",
     ],
-    icon: <Layout className="w-8 h-8" />,
+    icon: <Layout className="w-8 h-8 text-red-500" />,
   },
   {
     id: "backend",
@@ -57,13 +57,13 @@ const domains: Domain[] = [
       " MongoDB",
       " CMS",
     ],
-    icon: <Server className="w-8 h-8" />,
+    icon: <Server className="w-8 h-8 text-red-500" />,
   },
   {
     id: "version-control",
     title: "Version Control",
     description: ["Git", "GitHub", "Bitbucket", "Gitlab", "Jira", " Trello"],
-    icon: <GitBranch className="w-8 h-8" />,
+    icon: <GitBranch className="w-8 h-8 text-red-500" />,
   },
   {
     id: "cybersecurity",
@@ -84,7 +84,7 @@ const domains: Domain[] = [
       "Retina",
       "Aircrack-ng",
     ],
-    icon: <Shield className="w-8 h-8" />,
+    icon: <Shield className="w-8 h-8 text-red-500" />,
   },
   {
     id: "data-analysis",
@@ -98,7 +98,7 @@ const domains: Domain[] = [
       " Linux",
       " Proxy",
     ],
-    icon: <BarChart3 className="w-8 h-8" />,
+    icon: <BarChart3 className="w-8 h-8 text-red-500" />,
   },
 ];
 
@@ -143,7 +143,7 @@ function Services() {
               <div
                 key={domain.id}
                 onClick={() => handleDomainClick(domain)}
-                className={`border border-gray-900 rounded-xl p-6 cursor-pointer 
+                className={`border border-red-600 rounded-xl p-6 cursor-pointer 
                 transform transition-all duration-300 
                 hover:bg-red-700 hover:-translate-y-1 hover:shadow-2xl hover:scale-105
                 ${
@@ -166,7 +166,7 @@ function Services() {
           {selectedDomain && (
             <div
               ref={descriptionRef}
-              className="md:w-1/3 border border-gray-900 rounded-xl p-6 h-fit sticky top-4"
+              className="md:w-1/3 border border-red-600 rounded-xl p-6 h-fit sticky top-4"
             >
               <div className="flex justify-between items-start mb-6">
                 <div className="bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center">

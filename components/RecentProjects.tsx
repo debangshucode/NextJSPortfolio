@@ -1,6 +1,6 @@
 import React from "react";
 import { Github, Globe, ExternalLink } from "lucide-react";
-
+import Image from "next/image";
 interface ProjectCard {
   title: string;
   description: string;
@@ -65,7 +65,7 @@ const projects: ProjectCard[] = [
 function ProjectCard({ project }: { project: ProjectCard }) {
   return (
     <div className="flex-shrink-0 w-[350px] bg-zinc-900 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 border border-red-800/20 hover:border-red-600/50">
-      <img
+      <Image
         src={project.image}
         alt={project.title}
         className="w-full h-50 object-cover opacity-80 hover:opacity-100 transition-opacity"
@@ -121,7 +121,8 @@ function RecentProjects() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden h-[500px]">
+        <div className="relative overflow-hidden h-[500px] group">
+          <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
           <div className="animate-scroll-vertical">
             <div className="flex justify-center gap-6 mb-6">
               {projects.slice(0, 3).map((project, index) => (
@@ -151,6 +152,7 @@ function RecentProjects() {
               ))}
             </div>
           </div>
+          <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent z-10"></div>
         </div>
       </div>
     </div>
