@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   X,
   ChevronRight,
@@ -54,15 +54,15 @@ const domains: Domain[] = [
       " RESTful API",
       "GraphQL",
       "MySql/Postgresql",
-      " MongoDB",
-      " CMS",
+      " MongoDB",
+      " CMS",
     ],
     icon: <Server className="w-8 h-8" />,
   },
   {
     id: "version-control",
     title: "Version Control",
-    description: ["Git", "GitHub", "Bitbucket", "Gitlab", "Jira", " Trell"],
+    description: ["Git", "GitHub", "Bitbucket", "Gitlab", "Jira", " Trello"],
     icon: <GitBranch className="w-8 h-8" />,
   },
   {
@@ -95,8 +95,8 @@ const domains: Domain[] = [
       "CloudFlare",
       "Apache",
       "Nginx",
-      " Linux",
-      " Prox,",
+      " Linux",
+      " Proxy",
     ],
     icon: <BarChart3 className="w-8 h-8" />,
   },
@@ -104,14 +104,26 @@ const domains: Domain[] = [
 
 function Services() {
   const [selectedDomain, setSelectedDomain] = useState<Domain | null>(null);
+  const descriptionRef = useRef<HTMLDivElement | null>(null);
+
+  const handleDomainClick = (domain: Domain) => {
+    setSelectedDomain(domain);
+
+    // Scroll to description only on small screens
+    if (window.innerWidth < 768 && descriptionRef.current) {
+      setTimeout(() => {
+        descriptionRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 200); // Adding a slight delay for smooth transition
+    }
+  };
 
   return (
-    <div className=" text-white p-4 md:p-8">
+    <div className="text-white p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div className="w-full">
             <h1 className="heading">
-              Our <span className="text-red-700">Servicrs</span>
+              Our <span className="text-red-700">Services</span>
             </h1>
             <p className="text-gray-400 text-lg text-center">
               Our tech experts come from all backgrounds and specialize in
@@ -130,17 +142,13 @@ function Services() {
             {domains.map((domain) => (
               <div
                 key={domain.id}
-                onClick={() => setSelectedDomain(domain)}
-                className={`
-                border border-gray-900 rounded-xl p-6 cursor-pointer 
+                onClick={() => handleDomainClick(domain)}
+                className={`border border-gray-900 rounded-xl p-6 cursor-pointer 
                 transform transition-all duration-300 
                 hover:bg-red-700 hover:-translate-y-1 hover:shadow-2xl hover:scale-105
-                  ${
-                    selectedDomain?.id === domain.id
-                      ? "ring-2 ring-red-500"
-                      : ""
-                  }
-                `}
+                ${
+                  selectedDomain?.id === domain.id ? "ring-2 ring-red-500" : ""
+                }`}
               >
                 <div className="bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   {domain.icon}
@@ -156,7 +164,10 @@ function Services() {
 
           {/* Side Panel */}
           {selectedDomain && (
-            <div className="md:w-1/3 border border-gray-900 rounded-xl p-6 h-fit sticky top-4">
+            <div
+              ref={descriptionRef}
+              className="md:w-1/3 border border-gray-900 rounded-xl p-6 h-fit sticky top-4"
+            >
               <div className="flex justify-between items-start mb-6">
                 <div className="bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center">
                   {selectedDomain.icon}
@@ -172,7 +183,7 @@ function Services() {
                 {selectedDomain.title}
               </h2>
 
-              <div className="flex flex-wrap gap-2 mt-2 mb-6 ">
+              <div className="flex flex-wrap gap-2 mt-2 mb-6">
                 {selectedDomain.description.map((item, index) => (
                   <span
                     key={index}
