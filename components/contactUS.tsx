@@ -201,6 +201,7 @@ const StyledWrapper = styled.div`
   }
 
   #form {
+    border-radius: 10px;
     display: grid;
     place-items: center;
     width: 100%;
