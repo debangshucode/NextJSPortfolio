@@ -121,7 +121,8 @@ function RecentProjects() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden h-[500px]">
+        <div className="relative overflow-hidden h-[500px] group">
+          <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
           <div className="animate-scroll-vertical">
             <div className="flex justify-center gap-6 mb-6">
               {projects.slice(0, 3).map((project, index) => (
@@ -151,6 +152,7 @@ function RecentProjects() {
               ))}
             </div>
           </div>
+          <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent z-10"></div>
         </div>
       </div>
     </div>
