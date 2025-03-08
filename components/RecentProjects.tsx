@@ -110,7 +110,7 @@ function ProjectCard({ project }: { project: ProjectCard }) {
 
 function RecentProjects() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className=" bg-black">
       <div className="container mx-auto ">
         <div className="text-center mb-12">
           <h1 className="heading">
