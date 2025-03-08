@@ -12,7 +12,7 @@ import {
 interface Domain {
   id: string;
   title: string;
-  description: string;
+  description: string[];
   icon: React.ReactNode;
 }
 
@@ -20,36 +20,84 @@ const domains: Domain[] = [
   {
     id: "frontend",
     title: "Frontend Development",
-    description:
-      "Master modern web technologies including React, Vue, Angular, and responsive design principles.",
+    description: [
+      "Vue/Vuex",
+      "React/Redux",
+      "HTML5",
+      "CSS3",
+      "Javascript",
+      "JQuery",
+      "Bootstrap",
+      "Grid",
+      "FlexBox",
+      "SASS/LESS",
+      "Webpack",
+      "GulpThree.js/Babylonjs",
+      "FabricJs",
+      "Material UI",
+      "Shopify/Wordpress/Craft",
+    ],
     icon: <Layout className="w-8 h-8" />,
   },
   {
     id: "backend",
     title: "Backend Development",
-    description:
-      "Build scalable server-side applications using Node.js, Python, Java, and database management systems.",
+    description: [
+      "PHP",
+      "Javascript",
+      "Liquid",
+      "Python",
+      "Laravel",
+      " Node/Express",
+      "RoR",
+      "Django",
+      " RESTful API",
+      "GraphQL",
+      "MySql/Postgresql",
+      " MongoDB",
+      " CMS",
+    ],
     icon: <Server className="w-8 h-8" />,
   },
   {
     id: "version-control",
     title: "Version Control",
-    description:
-      "Learn Git workflows, branching strategies, and collaborative development practices.",
+    description: ["Git", "GitHub", "Bitbucket", "Gitlab", "Jira", " Trell"],
     icon: <GitBranch className="w-8 h-8" />,
   },
   {
     id: "cybersecurity",
     title: "Cybersecurity",
-    description:
-      "Protect systems and data through security best practices, threat analysis, and penetration testing.",
+    description: [
+      "Kali Linux",
+      "Burp Suite",
+      "Metasploit",
+      "Nmap",
+      "WireShark",
+      "Netsparker",
+      "Astra",
+      "John the Ripper",
+      "sqlmap",
+      "Nessus",
+      "w3af",
+      "Hydra",
+      "Retina",
+      "Aircrack-ng",
+    ],
     icon: <Shield className="w-8 h-8" />,
   },
   {
     id: "data-analysis",
-    title: "Data Analysis",
-    description:
-      "Transform raw data into actionable insights using statistical methods and visualization tools.",
+    title: "DevOps",
+    description: [
+      "CI/CD",
+      "AWS services",
+      "CloudFlare",
+      "Apache",
+      "Nginx",
+      " Linux",
+      " Prox,",
+    ],
     icon: <BarChart3 className="w-8 h-8" />,
   },
 ];
@@ -62,8 +110,8 @@ function Services() {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Our Services
+            <h1 className="heading">
+              Our <span className="text-red-700">Servicrs</span>
             </h1>
             <p className="text-gray-400 text-lg">
               Our tech experts come from all backgrounds and specialize in
@@ -123,7 +171,17 @@ function Services() {
               <h2 className="text-2xl font-bold mb-4">
                 {selectedDomain.title}
               </h2>
-              <p className="text-gray-400 mb-6">{selectedDomain.description}</p>
+
+              <div className="flex flex-wrap gap-2 mt-2 mb-6 ">
+                {selectedDomain.description.map((item, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
               <a
                 href="#contact"
                 className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg transition-colors text-center block"
