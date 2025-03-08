@@ -1,6 +1,6 @@
 import React from "react";
 import { Github, Globe, ExternalLink } from "lucide-react";
-
+import Image from "next/image";
 interface ProjectCard {
   title: string;
   description: string;
@@ -65,7 +65,7 @@ const projects: ProjectCard[] = [
 function ProjectCard({ project }: { project: ProjectCard }) {
   return (
     <div className="flex-shrink-0 w-[350px] bg-zinc-900 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 border border-red-800/20 hover:border-red-600/50">
-      <img
+      <Image
         src={project.image}
         alt={project.title}
         className="w-full h-50 object-cover opacity-80 hover:opacity-100 transition-opacity"
