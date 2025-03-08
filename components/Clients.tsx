@@ -22,7 +22,7 @@ const Clients = () => {
                        hover:drop-shadow-[0_0_25px_rgba(255,0,0,1)] 
                        transition-all duration-300"
           >
-            <div className="flex items-center mt-4">
+            <div className="flex items-center mt-4 mb-3">
               <Image
                 src={testimonial.image}
                 alt={testimonial.name}
@@ -34,7 +34,7 @@ const Clients = () => {
                            transition-all duration-300"
               />
               <h3 className="ml-3 font-semibold text-lg text-red-700">
-                - {testimonial.name}
+                {testimonial.name}
               </h3>
             </div>
             <p className="text-gray-200">{testimonial.quote}</p>
