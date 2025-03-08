@@ -1,90 +1,124 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
 
 const ContactUS = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const [isSent, setIsSent] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_4mh8d69", // Replace with your EmailJS Service ID
+        "template_n4a6avr", // Replace with your EmailJS Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        "6z5XS5sT4d8LWTPMP" // Replace with your EmailJS Public Key
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully!", response);
+          setIsSent(true);
+          setFormData({ name: "", phone: "", email: "", message: "" });
+        },
+        (error) => {
+          console.log("Email sending failed:", error);
+        }
+      );
+  };
+
   return (
-    <StyledWrapper className="w-full pt-20 pb-10 display-flex justify-center">
-      <h1 className="heading w-full text-center">
-        <span className="text-red-700">Contact</span> US
-      </h1>
-      <div className="w-full pt-20 pb-10 container_chat_bot">
-        <div className="container-chat-options">
-          <div className="chat">
-            <div className="chat-bot">
-              <textarea
-                id="chat_bot"
-                name="chat_bot"
-                placeholder="Connect to chat"
-                defaultValue={""}
-              />
-            </div>
-            <div className="options">
-              <div className="btns-add">
-                <button>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M7 8v8a5 5 0 1 0 10 0V6.5a3.5 3.5 0 1 0-7 0V15a2 2 0 0 0 4 0V8"
-                    />
-                  </svg>
-                </button>
-                <button>
-                  <svg
-                    viewBox="0 0 24 24"
-                    height={20}
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zm0 10a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zm10 0a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1zm0-8h6m-3-3v6"
-                      strokeWidth={2}
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                      stroke="currentColor"
-                      fill="none"
-                    />
-                  </svg>
-                </button>
-                <button>
-                  <svg
-                    viewBox="0 0 24 24"
-                    height={20}
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m-2.29-2.333A17.9 17.9 0 0 1 8.027 13H4.062a8.01 8.01 0 0 0 5.648 6.667M10.03 13c.151 2.439.848 4.73 1.97 6.752A15.9 15.9 0 0 0 13.97 13zm9.908 0h-3.965a17.9 17.9 0 0 1-1.683 6.667A8.01 8.01 0 0 0 19.938 13M4.062 11h3.965A17.9 17.9 0 0 1 9.71 4.333A8.01 8.01 0 0 0 4.062 11m5.969 0h3.938A15.9 15.9 0 0 0 12 4.248A15.9 15.9 0 0 0 10.03 11m4.259-6.667A17.9 17.9 0 0 1 15.973 11h3.965a8.01 8.01 0 0 0-5.648-6.667"
-                      fill="currentColor"
-                    />
-                  </svg>
+    <StyledWrapper>
+      <div className="contact-container">
+        {/* Left Side Content */}
+        <div className="content-section">
+          <h1>Get in Touch</h1>
+          <h2>Let's Start a Conversation</h2>
+          <p>
+            Whether you have a question about our services, need a custom
+            solution, or just want to say hello, we're here to help. Our team is
+            ready to assist you and provide the support you need.
+          </p>
+        </div>
+
+        {/* Right Side Form */}
+        <div id="form-ui">
+          <form id="form" onSubmit={sendEmail}>
+            <div id="form-body">
+              <div id="welcome-lines">
+                <div id="welcome-line-1">Contact Us</div>
+                <div id="welcome-line-2">We'd love to hear from you!</div>
+              </div>
+              <div id="input-area">
+                <div className="form-inp">
+                  <input
+                    name="name"
+                    placeholder="Full Name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-inp">
+                  <input
+                    name="phone"
+                    placeholder="Phone Number"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-inp">
+                  <input
+                    name="email"
+                    placeholder="Email Address"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-inp">
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div id="submit-button-cvr">
+                <button id="submit-button" type="submit">
+                  Send Message
                 </button>
               </div>
-              <button className="btn-submit">
-                <i>
-                  <svg viewBox="0 0 512 512">
-                    <path
-                      fill="currentColor"
-                      d="M473 39.05a24 24 0 0 0-25.5-5.46L47.47 185h-.08a24 24 0 0 0 1 45.16l.41.13l137.3 58.63a16 16 0 0 0 15.54-3.59L422 80a7.07 7.07 0 0 1 10 10L226.66 310.26a16 16 0 0 0-3.59 15.54l58.65 137.38c.06.2.12.38.19.57c3.2 9.27 11.3 15.81 21.09 16.25h1a24.63 24.63 0 0 0 23-15.46L478.39 64.62A24 24 0 0 0 473 39.05"
-                    />
-                  </svg>
-                </i>
-              </button>
+              {isSent && (
+                <p style={{ color: "white", marginTop: "10px" }}>
+                  Message Sent Successfully!
+                </p>
+              )}
             </div>
-          </div>
-        </div>
-        <div className="tags">
-          <span>Create An Image</span>
-          <span>Analyse Data</span>
-          <span>More</span>
+          </form>
         </div>
       </div>
     </StyledWrapper>
@@ -92,191 +126,216 @@ const ContactUS = () => {
 };
 
 const StyledWrapper = styled.div`
+  min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: #000;
+  padding: 2rem 0;
 
-  .container_chat_bot {
-    display: flex;
-    flex-direction: column;
-    max-width: 460px;
-    width: 100%;
-  }
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    align-items: center;
 
-  .container_chat_bot .container-chat-options {
-    height: 200px;
-    position: relative;
-    display: flex;
-    background: linear-gradient(
-      to bottom right,
-      #7e7e7e,
-      #363636,
-      #363636,
-      #363636,
-      #363636
-    );
-    border-radius: 16px;
-    padding: 1.5px;
-    overflow: hidden;
-
-    &::after {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -10px;
-      background: radial-gradient(
-        ellipse at center,
-        #ffffff,
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 0.1),
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0)
-      );
-      width: 30px;
-      height: 30px;
-      filter: blur(1px);
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
   }
 
-  .container_chat_bot .container-chat-options .chat {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    width: 100%;
-    overflow: hidden;
-  }
+  .content-section {
+    color: white;
+    padding: 2rem;
 
-  .container_chat_bot .container-chat-options .chat .chat-bot {
-    position: relative;
-    display: flex;
-  }
-
-  .container_chat_bot .chat .chat-bot textarea {
-    background-color: transparent;
-    border-radius: 16px;
-    border: none;
-    width: 100%;
-    height: 50px;
-    color: #ffffff;
-    font-family: sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    padding: 10px;
-    resize: none;
-    outline: none;
-
-    &::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #b91c1c, #ff99cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    &::-webkit-scrollbar-track {
-      background: transparent;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #f4f3f3;
     }
 
-    &::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 5px;
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #f4f3f3;
+      margin-bottom: 2rem;
     }
 
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555;
-      cursor: pointer;
-    }
+    .contact-info {
+      margin-top: 2rem;
+      border-left: 3px solid #b91c1c;
+      padding-left: 2rem;
 
-    &::placeholder {
-      color: #f3f6fd;
-      transition: all 0.3s ease;
-    }
-    &:focus::placeholder {
-      color: #363636;
-    }
-  }
+      .info-item {
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease;
 
-  .container_chat_bot .chat .options {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 10px;
-  }
+        &:hover {
+          transform: translateX(10px);
+        }
 
-  .container_chat_bot .chat .options .btns-add {
-    display: flex;
-    gap: 8px;
+        h3 {
+          font-size: 1.2rem;
+          color: #b91c1c;
+          margin-bottom: 0.5rem;
+        }
 
-    & button {
-      display: flex;
-      color: rgba(255, 255, 255, 0.1);
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-5px);
-        color: #ffffff;
+        p {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
       }
     }
   }
 
-  .container_chat_bot .chat .options .btn-submit {
-    display: flex;
-    padding: 2px;
-    background-image: linear-gradient(to top, #292929, #555555, #292929);
-    border-radius: 10px;
-    box-shadow: inset 0 6px 2px -4px rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    border: none;
-    outline: none;
-    transition: all 0.15s ease;
+  #form {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    padding: 25px;
+    background: linear-gradient(to right, #b91c1c, rgb(89, 5, 122));
+    box-shadow: 0px 15px 60px rgba(85, 2, 24, 0.56);
+    backdrop-filter: blur(10px);
+  }
 
-    & i {
-      width: 30px;
-      height: 30px;
-      padding: 6px;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      backdrop-filter: blur(3px);
-      color: #8b8b8b;
-    }
-    & svg {
-      transition: all 0.3s ease;
-    }
-    &:hover svg {
-      color: #f3f6fd;
-      filter: drop-shadow(0 0 5px #ffffff);
-    }
+  #form-body {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
 
-    &:focus svg {
-      color: #f3f6fd;
-      filter: drop-shadow(0 0 5px #ffffff);
-      transform: scale(1.2) rotate(45deg) translateX(-2px) translateY(1px);
-    }
+  #welcome-lines {
+    text-align: center;
+    line-height: 1;
+  }
 
-    &:active {
-      transform: scale(0.92);
+  #welcome-line-1 {
+    color: rgb(241, 236, 238);
+    font-weight: 600;
+    font-size: 28px;
+  }
+
+  #welcome-line-2 {
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  #input-area {
+    margin-top: 30px;
+  }
+
+  .form-inp {
+    padding: 12px 15px;
+    background: transparent;
+    line-height: 1;
+    margin-bottom: 15px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-bottom-color: rgba(255, 255, 255, 0.4);
     }
   }
 
-  .container_chat_bot .tags {
-    padding: 14px 0;
-    display: flex;
-    color: #ffffff;
-    font-size: 10px;
-    gap: 4px;
+  .form-inp input,
+  .form-inp textarea {
+    width: 100%;
+    background: none;
+    font-size: 14px;
+    color: rgb(244, 243, 243);
+    border: none;
+    padding: 0;
+    margin: 0;
+    resize: none;
+  }
 
-    & span {
-      padding: 4px 8px;
-      background-color: #1b1b1b;
-      border: 1.5px solid #363636;
-      border-radius: 10px;
-      cursor: pointer;
-      user-select: none;
+  .form-inp input:focus,
+  .form-inp textarea:focus {
+    outline: none;
+    border-bottom: 2px solid rgb(234, 224, 227);
+  }
+
+  #submit-button-cvr {
+    margin-top: 20px;
+  }
+
+  #submit-button {
+    display: block;
+    width: 100%;
+    color: rgb(244, 234, 234);
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+    border-radius: 5px;
+    padding: 14px 13px;
+    border: 0;
+    outline: 1px solid rgba(214, 190, 196, 0);
+    line-height: 1;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+  }
+
+  #submit-button:hover {
+    background-color: rgb(228, 12, 66);
+    color: #1a001a;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .contact-container {
+      padding: 1rem;
+      gap: 3rem;
+    }
+
+    #form {
+      width: 100%;
+      max-width: 370px;
+    }
+
+    .content-section {
+      padding: 1rem;
+      text-align: center;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .contact-info {
+        border-left: none;
+        border-top: 3px solid #b91c1c;
+        padding-left: 0;
+        padding-top: 2rem;
+        text-align: left;
+      }
     }
   }
 `;

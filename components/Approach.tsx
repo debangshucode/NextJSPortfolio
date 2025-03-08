@@ -37,10 +37,7 @@ const Approach = () => {
                     Understanding your goals, defining requirements, and
                     crafting a strategic roadmap.
                   </p>
-                  <div className="title">
-                    Phase
-                    <br />1
-                  </div>
+                  <div className="title">Phase 1</div>
                   <div className="glowing-elements">
                     <div className="glow-1" />
                     <div className="glow-2" />
@@ -93,10 +90,7 @@ const Approach = () => {
                     Building scalable, high-performance solutions with agile
                     methodologies.
                   </p>
-                  <div className="title">
-                    Phase
-                    <br />2
-                  </div>
+                  <div className="title">Phase 2</div>
                   <div className="glowing-elements">
                     <div className="glow-1" />
                     <div className="glow-2" />
@@ -149,10 +143,7 @@ const Approach = () => {
                     Launching, optimizing, and ensuring long-term success with
                     continuous support.
                   </p>
-                  <div className="title">
-                    Phase
-                    <br />3
-                  </div>
+                  <div className="title">Phase 3</div>
                   <div className="glowing-elements">
                     <div className="glow-1" />
                     <div className="glow-2" />
@@ -223,7 +214,8 @@ const StyledWrapper = styled.div`
 
   #prompt {
     bottom: 100px;
-    left: 50%;
+
+    height: 40%;
     transform: translateX(-50%);
     z-index: 20;
     font-size: 16px;
@@ -234,10 +226,11 @@ const StyledWrapper = styled.div`
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    opacity: 0;
   }
 
   .title {
-    opacity: 0;
+    opacity: 1;
     transition: 300ms ease-in-out;
     position: absolute;
     font-size: 28px;
@@ -322,7 +315,11 @@ const StyledWrapper = styled.div`
   }
 
   /* Hover effects */
-  .tracker:hover ~ #card .title {
+  .card-content:hover #prompt {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  .tracker:hover ~ #card #prompt {
     opacity: 1;
     transform: translateY(-10px);
   }

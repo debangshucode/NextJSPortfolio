@@ -1,9 +1,13 @@
+"use client";
+
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import CounterCard from "./ui/CounterCard";
+import { counterData } from "@/data";
 
 interface Wave {
   id: number;
@@ -42,8 +46,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="pb-20 pt-36 relative " onMouseMove={handleMouseMove}>
-      {/* Background Grid with Cursor Effect */}
+    <div className="pb-10 pt-36 relative" onMouseMove={handleMouseMove}>
       {waves.map((wave) => (
         <motion.div
           key={wave.id}
@@ -53,7 +56,6 @@ const Hero = () => {
             height: "100px",
             left: "0",
             top: "0",
-            // transform: "translate(-50%, -50%)",
             background:
               "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)",
           }}
@@ -77,7 +79,7 @@ const Hero = () => {
       ))}
 
       {/* Main Content */}
-      <div className="flex justify-center relative my-20 z-10">
+      <div className="flex justify-center relative z-10">
         <div>
           <Spotlight
             className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
@@ -89,21 +91,18 @@ const Hero = () => {
           />
           <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="red" />
         </div>
-        <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
+        <div className="md:max-w-2xl flex flex-col items-center justify-center">
           <p className="uppercase tracking-widest text-xs text-center text-red-100 max-w-80">
             Dynamic Web Magic with SystemR
           </p>
-
           <TextGenerateEffect
             words="Transforming Ideas Into Seamless Digital Experiences"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
-
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            SystemR – Delivering cutting-edge IT solutions with Next.js and
-            modern web technologies.
+            System<span className="text-red-500">R</span> – Delivering
+            cutting-edge IT solutions with Next.js and modern web technologies.
           </p>
-
           <a href="#about">
             <MagicButton
               title="Get in Touch"
@@ -111,6 +110,36 @@ const Hero = () => {
               position="right"
             />
           </a>
+
+          {/* Counter Data (For Large Screens) */}
+          <div className="hidden lg:flex absolute top-1/2 right-[-150px] transform -translate-y-1/2 flex-col gap-4">
+            {counterData.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className={`relative ${
+                  index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
+                }`}
+              >
+                <CounterCard count={item.count} label={item.label} />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Counter Data (For Mobile) */}
+          <div className="flex w-full justify-center items-center flex-row text-center mt-10 md:hidden">
+            <div className="grid w-full grid-cols-3 gap-4">
+              {counterData.map((item) => (
+                <CounterCard
+                  key={item.id}
+                  count={item.count}
+                  label={item.label}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
