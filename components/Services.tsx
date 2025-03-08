@@ -1,615 +1,139 @@
 import React, { useState } from "react";
 import {
+  X,
+  ChevronRight,
+  Layout,
+  Server,
+  GitBranch,
   Shield,
-  Layers,
-  BarChart2,
-  AlertCircle,
-  RefreshCw,
-  Zap,
+  BarChart3,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
-interface ServiceInfo {
-  id: number;
+interface Domain {
+  id: string;
   title: string;
+  description: string;
   icon: React.ReactNode;
-  description: string[];
 }
 
+const domains: Domain[] = [
+  {
+    id: "frontend",
+    title: "Frontend Development",
+    description:
+      "Master modern web technologies including React, Vue, Angular, and responsive design principles.",
+    icon: <Layout className="w-8 h-8" />,
+  },
+  {
+    id: "backend",
+    title: "Backend Development",
+    description:
+      "Build scalable server-side applications using Node.js, Python, Java, and database management systems.",
+    icon: <Server className="w-8 h-8" />,
+  },
+  {
+    id: "version-control",
+    title: "Version Control",
+    description:
+      "Learn Git workflows, branching strategies, and collaborative development practices.",
+    icon: <GitBranch className="w-8 h-8" />,
+  },
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity",
+    description:
+      "Protect systems and data through security best practices, threat analysis, and penetration testing.",
+    icon: <Shield className="w-8 h-8" />,
+  },
+  {
+    id: "data-analysis",
+    title: "Data Analysis",
+    description:
+      "Transform raw data into actionable insights using statistical methods and visualization tools.",
+    icon: <BarChart3 className="w-8 h-8" />,
+  },
+];
+
 function Services() {
-  const [selectedService, setSelectedService] = useState<ServiceInfo | null>(
-    null
-  );
-
-  const services: ServiceInfo[] = [
-    {
-      id: 1,
-      title: "Front-End",
-      icon: <Layers className="w-4 h-4 text-red-400" />,
-      description: [
-        "Vue/Vuex",
-        "React/Redux",
-        "HTML5",
-        "CSS3",
-        "Javascript",
-        "JQuery",
-        "Bootstrap",
-        "Grid",
-        "FlexBox",
-        "SASS/LESS",
-        "Webpack",
-        "GulpThree.js/Babylonjs",
-        "FabricJs",
-        "Material UI",
-        "Shopify/Wordpress/Craft",
-      ],
-    },
-    {
-      id: 2,
-      title: "Back-End",
-      icon: <BarChart2 className="w-4 h-4 text-red-400" />,
-      description: [
-        "PHP",
-        "Javascript",
-        "Liquid",
-        "Python",
-        "Laravel",
-        " Node/Express",
-        "RoR",
-        "Django",
-        " RESTful API",
-        "GraphQL",
-        "MySql/Postgresql",
-        " MongoDB",
-        " CMS",
-      ],
-    },
-    {
-      id: 3,
-      title: "Cyber-security",
-      icon: <RefreshCw className="w-4 h-4 text-red-400" />,
-      description: [
-        "Kali Linux",
-        "Burp Suite",
-        "Metasploit",
-        "Nmap",
-        "WireShark",
-        "Netsparker",
-        "Astra",
-        "John the Ripper",
-        "sqlmap",
-        "Nessus",
-        "w3af",
-        "Hydra",
-        "Retina",
-        "Aircrack-ng",
-      ],
-    },
-    {
-      id: 4,
-      title: "Version Control",
-      icon: <Zap className="w-4 h-4 text-red-400" />,
-      description: ["Git", "GitHub", "Bitbucket", "Gitlab", "Jira", " Trell"],
-    },
-    {
-      id: 5,
-      title: "DevOps",
-      icon: <AlertCircle className="w-4 h-4 text-red-400" />,
-      description: [
-        "CI/CD",
-        "AWS services",
-        "CloudFlare",
-        "Apache",
-        "Nginx",
-        " Linux",
-        " Prox,",
-      ],
-    },
-  ];
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
-  const pulseVariants = {
-    initial: { scale: 1 },
-    pulse: {
-      scale: [1, 1.05, 1],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "reverse",
-      },
-    },
-  };
-
-  const lineVariants = {
-    hidden: { pathLength: 0, opacity: 0, strokeDashoffset: 50 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      strokeDashoffset: 0,
-      transition: {
-        duration: 2.5,
-        ease: "easeOut",
-        delay: 0.5,
-        repeat: Infinity,
-        repeatType: "reverse",
-        repeatDelay: 1.5,
-      },
-    },
-  };
-
-  const mobileTextVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const handleServiceClick = (service: ServiceInfo) => {
-    setSelectedService(selectedService?.id === service.id ? null : service);
-  };
+  const [selectedDomain, setSelectedDomain] = useState<Domain | null>(null);
 
   return (
-    <div
-      className="min-h-screen bg-black flex items-center justify-center p-4"
-      id="services"
-    >
-      <motion.div
-        className=" w-full bg-black rounded-lg p-8 text-white"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <motion.div
-          className="text-2xl font-bold text-center mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <h1 className="heading">
-            Our <span className="text-red-700">Services</span>
-          </h1>
-        </motion.div>
-        <motion.p
-          className="text-sm text-gray-400 text-center max-w-lg mx-auto sm:mb-[0px] lg:mb-[10rem]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Flexible monitoring integrates with business-oriented systems for
-          end-to-end process visibility & powerful tools for all security needs.
-        </motion.p>
-
-        <div className="relative h-[500px] flex items-center justify-center">
-          {/* Center Circle */}
-          <motion.div
-            className="absolute z-10 top[10%]"
-            initial="initial"
-            animate="pulse"
-            variants={pulseVariants}
-          >
-            <div className=" relative w-[4.5rem] h-[4.5rem] lg:hidden">
-              {/* Outer Pentagon (Border Effect) */}
-              <div
-                className="absolute top-0 left-0 w-[4.5rem] h-[4.5rem]  
-                  clip-pentagon bg-red-500 flex items-center justify-center"
-              >
-                {/* Inner Pentagon (Filled Shape) */}
-                <div className="w-[4rem] h-[4rem]  clip-pentagon bg-black flex items-center justify-center">
-                  {/* Shield Icon Container */}
-                  <div className="w-16 h-16  clip-pentagon bg-red-500/20 flex items-center justify-center">
-                    <Shield className="w-10 h-10 sm:w-8 sm:h-8 text-red-400" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* large screen */}
-            <div className="hidden lg:block relative w-[7.5rem] h-[7.5rem] ">
-              {/* Outer Pentagon (Border Effect) */}
-              <div
-                className="absolute top-0 left-0 w-[7.5rem] h-[7.5rem]  
-                  clip-pentagon bg-red-500 flex items-center justify-center"
-              >
-                {/* Inner Pentagon (Filled Shape) */}
-                <div className="w-[7rem] h-[7rem]  clip-pentagon bg-black flex items-center justify-center">
-                  {/* Shield Icon Container */}
-                  <div className="w-16 h-16  clip-pentagon bg-red-500/20 flex items-center justify-center">
-                    <Shield className="w-10 h-10 sm:w-8 sm:h-8 text-red-400" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Steps Container */}
-          <motion.div
-            className="absolute inset-0"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <div className="absolute  left-1/2 transform -translate-x-1/2 bg-gray-700 text-white text-xs px-2 py-1 rounded shadow-lg">
-              Click here
-            </div>
-            <motion.div
-              className="absolute left-[30%] z-10 top-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden "
-              variants={itemVariants}
-              onClick={() => handleServiceClick(services[3])}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <Layers className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[3].title}</span>
-                </div>
-              </div>
-            </motion.div>
-            {/* large screen  */}
-            <motion.div
-              className="hidden lg:block absolute left-[40%] z-10 top-[-15%] w-[250px]"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <Layers className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[3].title}</span>
-                  <span className="ml-auto text-xl font-bold text-gray-500">
-                    01
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {services[3].description.map((item, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-            {/* Step 02 - Top Left */}
-            <motion.div
-              className="absolute left-[-15%] z-10 top-[30%] w-[110px] h-[100px] overflow-hidden lg:hidden "
-              variants={itemVariants}
-              onClick={() => handleServiceClick(services[1])}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <Layers className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[1].title}</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* large screen */}
-            <motion.div
-              className="hidden lg:block absolute left-[10%] z-10 top-0 w-[250px]"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <Layers className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[1].title}</span>
-                  <span className="ml-auto text-xl font-bold text-gray-500">
-                    02
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {services[1].description.map((item, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Step 02 - Top Right */}
-            <motion.div
-              onClick={() => handleServiceClick(services[2])}
-              className="absolute right-[-15%] z-10 top-[30%] w-[110px] h-[100px] overflow-hidden lg:hidden"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <BarChart2 className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[2].title}</span>
-                </div>
-              </div>
-            </motion.div>
-            {/* large */}
-            <motion.div
-              className="hidden lg:block absolute right-[10%] z-10 top-0 w-[250px]"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <BarChart2 className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[2].title}</span>
-                  <span className="ml-auto text-xl font-bold text-gray-500">
-                    03
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {services[2].description.map((item, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Step 06 - Bottom Right */}
-            <motion.div
-              onClick={() => handleServiceClick(services[0])}
-              className="absolute right-[-15%] z-10 bottom-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800  rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <Zap className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[0].title}</span>
-                </div>
-              </div>
-            </motion.div>
-            {/* large */}
-            <motion.div
-              className="hidden lg:block absolute right-[10%] z-10 bottom-[-25%] w-[250px]"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <Zap className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[0].title}</span>
-                  <span className="ml-auto text-xl font-bold text-gray-500">
-                    06
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {services[0].description.map((item, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Step 04 - Bottom Left */}
-            <motion.div
-              onClick={() => handleServiceClick(services[4])}
-              className="absolute left-[-15%] z-10 bottom-[15%] w-[110px] h-[100px] overflow-hidden lg:hidden"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <RefreshCw className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[4].title}</span>
-                </div>
-              </div>
-            </motion.div>
-            {/* large */}
-            <motion.div
-              className="hidden lg:block absolute left-[10%] z-10 bottom-0 w-[250px]"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-red-500 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mr-2">
-                    <RefreshCw className="w-4 h-4 text-red-400" />
-                  </div>
-                  <span className="font-medium">{services[4].title}</span>
-                  <span className="ml-auto text-xl font-bold text-gray-500">
-                    04
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {services[4].description.map((item, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Connection lines with SVG */}
-            <div className="absolute inset-0 pointer-events-none">
-              <svg
-                className="w-full h-full"
-                viewBox="0 0 800 600"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <motion.circle
-                  cx="400"
-                  cy="300"
-                  r="180"
-                  fill="none"
-                  stroke="rgba(209, 34, 34, 0.33)"
-                  strokeWidth="1"
-                  strokeDasharray="5,5"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1 }}
-                />
-
-                <motion.line
-                  x1="400"
-                  y1="350" // Start from Shield (center)
-                  x2="400"
-                  y2="100" // Top
-                  stroke="rgba(239, 68, 68, 0.8)"
-                  strokeWidth="2"
-                  strokeDasharray="10,20"
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate="visible"
-                />
-
-                <motion.line
-                  x1="450"
-                  y1="300" // Start from Shield (center)
-                  x2="700"
-                  y2="100" // Top-right box
-                  stroke="rgba(239, 68, 68, 0.8)"
-                  strokeWidth="2"
-                  strokeDasharray="10,20"
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate="visible"
-                />
-
-                <motion.line
-                  x1="400"
-                  y1="345" // Start from Shield (center)
-                  x2="750"
-                  y2="500" // Bottom-right box
-                  stroke="rgba(239, 68, 68, 0.8)"
-                  strokeWidth="2"
-                  strokeDasharray="10,20"
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate="visible"
-                />
-
-                <motion.line
-                  x1="400"
-                  y1="345" // Start from Shield (center)
-                  x2="50"
-                  y2="500" // Bottom-left box
-                  stroke="rgba(239, 68, 68, 0.8)"
-                  strokeWidth="2"
-                  strokeDasharray="10,20"
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate="visible"
-                />
-
-                <motion.line
-                  x1="350"
-                  y1="300" // Start from Pentagon Center
-                  x2="100"
-                  y2="100" // Top-left (Mirrored to Top-right)
-                  stroke="rgba(239, 68, 68, 0.8)"
-                  strokeWidth="2"
-                  strokeDasharray="10,20"
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate="visible"
-                />
-                {selectedService && (
-                  <motion.line
-                    x1="400"
-                    y1="350"
-                    x2="400"
-                    y2="1000"
-                    stroke="rgba(239, 68, 68, 0.8)"
-                    strokeWidth="2"
-                    strokeDasharray="5,5"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="lg:hidden"
-                  />
-                )}
-              </svg>
-            </div>
-          </motion.div>
+    <div className=" text-white p-4 md:p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Our Services
+            </h1>
+            <p className="text-gray-400 text-lg">
+              Our tech experts come from all backgrounds and specialize in
+              various domains of modern technology.
+            </p>
+          </div>
         </div>
-        <AnimatePresence>
-          {selectedService && (
-            <motion.div
-              className="lg:hidden bg-gray-800 rounded-lg p-4 border border-red-500"
-              variants={mobileTextVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              <h3 className="text-lg font-semibold mb-2">
-                {selectedService.title}
-              </h3>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {selectedService.description.map((item, index) => (
-                  <span
-                    key={index}
-                    className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
-                  >
-                    {item}
-                  </span>
-                ))}
+
+        <div className="relative flex flex-col md:flex-row gap-4">
+          {/* Main Grid */}
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ${
+              selectedDomain ? "md:w-2/3" : "w-full"
+            }`}
+          >
+            {domains.map((domain) => (
+              <div
+                key={domain.id}
+                onClick={() => setSelectedDomain(domain)}
+                className={`
+                border border-gray-900 rounded-xl p-6 cursor-pointer 
+                transform transition-all duration-300 
+                hover:bg-red-700 hover:-translate-y-1 hover:shadow-2xl hover:scale-105
+                  ${
+                    selectedDomain?.id === domain.id
+                      ? "ring-2 ring-red-500"
+                      : ""
+                  }
+                `}
+              >
+                <div className="bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  {domain.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{domain.title}</h3>
+                <div className="flex items-center text-gray-400 hover:text-red-400">
+                  <span>Learn more</span>
+                  <ChevronRight className="w-4 h-4 ml-1" />
+                </div>
               </div>
-            </motion.div>
+            ))}
+          </div>
+
+          {/* Side Panel */}
+          {selectedDomain && (
+            <div className="md:w-1/3 border border-gray-900 rounded-xl p-6 h-fit sticky top-4">
+              <div className="flex justify-between items-start mb-6">
+                <div className="bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center">
+                  {selectedDomain.icon}
+                </div>
+                <button
+                  onClick={() => setSelectedDomain(null)}
+                  className="text-gray-400 hover:text-white"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              <h2 className="text-2xl font-bold mb-4">
+                {selectedDomain.title}
+              </h2>
+              <p className="text-gray-400 mb-6">{selectedDomain.description}</p>
+              <a
+                href="#contact"
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg transition-colors text-center block"
+              >
+                Contact Now
+              </a>
+            </div>
           )}
-        </AnimatePresence>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
