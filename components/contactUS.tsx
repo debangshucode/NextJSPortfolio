@@ -12,11 +12,13 @@ const ContactUS = () => {
 
   const [isSent, setIsSent] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     emailjs
@@ -49,11 +51,11 @@ const ContactUS = () => {
         {/* Left Side Content */}
         <div className="content-section">
           <h1>Get in Touch</h1>
-          <h2>Let's Start a Conversation</h2>
+          <h2>Let &apos; s Start a Conversation</h2>
           <p>
             Whether you have a question about our services, need a custom
-            solution, or just want to say hello, we're here to help. Our team is
-            ready to assist you and provide the support you need.
+            solution, or just want to say hello, we&apos;re here to help. Our
+            team is ready to assist you and provide the support you need.
           </p>
         </div>
 
@@ -63,7 +65,7 @@ const ContactUS = () => {
             <div id="form-body">
               <div id="welcome-lines">
                 <div id="welcome-line-1">Contact Us</div>
-                <div id="welcome-line-2">We'd love to hear from you!</div>
+                <div id="welcome-line-2">We&apos;d love to hear from you!</div>
               </div>
               <div id="input-area">
                 <div className="form-inp">
@@ -100,7 +102,7 @@ const ContactUS = () => {
                   <textarea
                     name="message"
                     placeholder="Your Message"
-                    rows="4"
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     required
