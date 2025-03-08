@@ -109,11 +109,11 @@ function Services() {
     <div className=" text-white p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <div>
+          <div className="w-full">
             <h1 className="heading">
               Our <span className="text-red-700">Servicrs</span>
             </h1>
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-400 text-lg text-center">
               Our tech experts come from all backgrounds and specialize in
               various domains of modern technology.
             </p>
