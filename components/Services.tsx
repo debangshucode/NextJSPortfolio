@@ -154,7 +154,7 @@ function Services() {
                   {domain.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{domain.title}</h3>
-                <div className="flex items-center text-gray-400 hover:text-red-400">
+                <div className="flex items-center text-gray-400 hover:bg-red-400">
                   <span>Learn more</span>
                   <ChevronRight className="w-4 h-4 ml-1" />
                 </div>
