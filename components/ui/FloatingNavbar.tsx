@@ -46,11 +46,15 @@ export const FloatingNav = ({
   return (
     <AnimatePresence mode="wait">
       <div className="absolute top-[-1.5rem] left-4 z-20 ">
-        <img
-          src="/SystemR_logo.png"
-          alt="Logo"
-          className="w-[6rem] h-[6rem] md:w-[10rem] md:h-[10rem]"
-        />
+        <Link href="/">
+          {" "}
+          {/* ✅ Clicking the logo will go to the home page */}
+          <img
+            src="/SystemR_logo.png"
+            alt="Logo"
+            className="w-[6rem] h-[6rem] md:w-[10rem] md:h-[10rem] cursor-pointer"
+          />
+        </Link>
       </div>
 
       <motion.div
