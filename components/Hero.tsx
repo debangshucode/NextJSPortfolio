@@ -103,7 +103,7 @@ const Hero = () => {
             System<span className="text-red-500">R</span> – Delivering
             cutting-edge IT solutions with Next.js and modern web technologies.
           </p>
-          <a href="#about">
+          <a href="#contact">
             <MagicButton
               title="Get in Touch"
               icon={<FaLocationArrow />}
