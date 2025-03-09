@@ -5,12 +5,12 @@ import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
 const Approach = () => {
   return (
-    <section className="w-full py-20" id="approach">
+    <section className="w-full py-10" id="approach">
       <h1 className="heading">
         Our <span className="text-red-700">approach</span>
       </h1>
       {/* remove bg-white dark:bg-black */}
-      <div className="my-20 flex flex-wrap flex-col md:flex-row lg:flex-row items-center justify-center w-full max-w-screen-xl px-4 md:px-8 gap-10 md:gap-16 lg:gap-20">
+      <div className="my-10 flex flex-wrap flex-col md:flex-row lg:flex-row items-center justify-center w-full max-w-screen-xl px-4 md:px-8 gap-10 md:gap-16 lg:gap-20">
         {/* add des prop */}
         <StyledWrapper>
           <div className="container noselect">
