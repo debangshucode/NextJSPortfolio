@@ -96,7 +96,7 @@ function Project() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <FloatingNav navItems={navItems} />
+      {/* <FloatingNav navItems={navItems} /> */}
       {/* Hero Section */}
       <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div

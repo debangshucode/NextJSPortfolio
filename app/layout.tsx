@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import { navItems } from "@/data";
+import { FloatingNav } from "@/components/ui/FloatingNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* ✅ Navbar appears on all pages */}
+          <FloatingNav navItems={navItems} />
           {children}
         </ThemeProvider>
       </body>
