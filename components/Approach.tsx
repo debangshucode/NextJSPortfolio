@@ -10,7 +10,7 @@ const Approach = () => {
         Our <span className="text-red-700">approach</span>
       </h1>
       {/* remove bg-white dark:bg-black */}
-      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-20">
+      <div className="my-20 flex flex-wrap flex-col md:flex-row lg:flex-row items-center justify-center w-full max-w-screen-xl px-4 md:px-8 gap-10 md:gap-16 lg:gap-20">
         {/* add des prop */}
         <StyledWrapper>
           <div className="container noselect">
