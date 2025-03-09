@@ -20,6 +20,25 @@
     @apply translate-x-[-180%];
   }
 }
+.text-stroke {
+  color: white;
+  -webkit-text-stroke: 0.4px rgba(59, 10, 10, 0.984); /* Softer black stroke */
+  text-shadow: 1px 1px 3px rgb(60, 6, 6);
+}
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.9);
+  }
+}
+
+.animate-glow {
+  animation: glow 1.5s infinite alternate ease-in-out;
+}
+
 @keyframes scrollVertical {
   0% {
     transform: translateY(0);
