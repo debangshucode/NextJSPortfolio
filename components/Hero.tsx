@@ -129,7 +129,7 @@ const Hero = () => {
           </div>
 
           {/* Counter Data (For Mobile) */}
-          <div className="flex w-full justify-center items-center flex-row text-center mt-10 md:hidden">
+          <div className="flex w-full justify-center items-center flex-row text-center mt-10 lg:hidden">
             <div className="grid w-full grid-cols-3 gap-4">
               {counterData.map((item) => (
                 <CounterCard
