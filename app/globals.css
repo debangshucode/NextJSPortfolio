@@ -6,7 +6,20 @@
     clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
   }
 }
+@layer components {
+  .glaze-hover {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
 
+  .glaze-hover::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-white/10 
+           transform translate-x-full skew-x-12 transition-transform duration-700 ease-out;
+  }
+
+  .glaze-hover:hover::before {
+    @apply translate-x-[-180%];
+  }
+}
 @keyframes scrollVertical {
   0% {
     transform: translateY(0);

@@ -117,7 +117,7 @@ function Services() {
             <h1 className="heading">
               Our <span className="text-red-700">Services</span>
             </h1>
-            <p className="text-gray-400 text-lg text-center">
+            <p className="text-gray-400 text-lg text-center md:mt-10 my-5">
               Our tech experts come from all backgrounds and specialize in
               various domains of modern technology.
             </p>
