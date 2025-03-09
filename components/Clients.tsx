@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Clients = () => {
   return (
-    <section id="testimonials" className="py-20 px-4">
+    <section id="testimonials" className="py-10 px-4">
       <h1 className="heading">
         Kind words from
         <span className="text-red-700"> satisfied clients</span>
@@ -22,10 +22,7 @@ const Clients = () => {
                        hover:drop-shadow-[0_0_25px_rgba(255,0,0,1)] 
                        transition-all duration-300"
           >
-            <p className="text-gray-200">{testimonial.quote}</p>
-
-            {/* Image & Name Container */}
-            <div className="flex items-center mt-4">
+            <div className="flex items-center mt-4 mb-3">
               <Image
                 src={testimonial.image}
                 alt={testimonial.name}
@@ -37,9 +34,12 @@ const Clients = () => {
                            transition-all duration-300"
               />
               <h3 className="ml-3 font-semibold text-lg text-red-700">
-                - {testimonial.name}
+                {testimonial.name}
               </h3>
             </div>
+            <p className="text-gray-200">{testimonial.quote}</p>
+
+            {/* Image & Name Container */}
           </div>
         ))}
       </div>

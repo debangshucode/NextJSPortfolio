@@ -7,24 +7,23 @@ import Grid from "@/components/Grid";
 import Footer from "@/components/Footer";
 import Clients from "@/components/Clients";
 import Approach from "@/components/Approach";
-import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import Services from "@/components/Services";
+import Industries from "@/components/industries";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 
 const Home = () => {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
-        <FloatingNav navItems={navItems} />
+        {/* <FloatingNav navItems={navItems} /> */}
         <Hero />
         <Grid />
         <Services />
         <Approach />
-        <RecentProjects />
+        <Industries />
+        {/* <RecentProjects /> */}
         <Clients />
-        {/* <Experience /> */}
-        {/* <ContactUS /> */}
         <Footer />
       </div>
     </main>

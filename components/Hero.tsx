@@ -103,7 +103,7 @@ const Hero = () => {
             System<span className="text-red-500">R</span> – Delivering
             cutting-edge IT solutions with Next.js and modern web technologies.
           </p>
-          <a href="#about">
+          <a href="#contact">
             <MagicButton
               title="Get in Touch"
               icon={<FaLocationArrow />}
@@ -112,7 +112,7 @@ const Hero = () => {
           </a>
 
           {/* Counter Data (For Large Screens) */}
-          <div className="hidden lg:flex absolute top-1/2 right-[-150px] transform -translate-y-1/2 flex-col gap-4">
+          <div className="hidden lg:flex absolute top-1/2 right-[-130px] transform -translate-y-1/2 flex-col gap-4">
             {counterData.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -129,7 +129,7 @@ const Hero = () => {
           </div>
 
           {/* Counter Data (For Mobile) */}
-          <div className="flex w-full justify-center items-center flex-row text-center mt-10 md:hidden">
+          <div className="flex w-full justify-center items-center flex-row text-center mt-10 lg:hidden">
             <div className="grid w-full grid-cols-3 gap-4">
               {counterData.map((item) => (
                 <CounterCard

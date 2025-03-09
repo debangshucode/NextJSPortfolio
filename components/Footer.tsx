@@ -5,7 +5,7 @@ import ContactUS from "./contactUS"; // Import the Contact Form
 
 const Footer = () => {
   return (
-    <footer className="w-full pt-20 pb-10 relative" id="contact">
+    <footer className="w-full pt-10 pb-10 relative" id="contact">
       {/* Background grid */}
       <div className="w-full absolute left-0 -bottom-72 min-h-96">
         <img
@@ -24,7 +24,7 @@ const Footer = () => {
           Reach out to us today and let&apos;s discuss how we can help you
           achieve your goals.
         </p>
-        <a href="mailto:contact@jsmastery.pro">
+        <a href="mailto:systemr@gmail.com">
           <MagicButton
             title="Let's get in touch"
             icon={<FaLocationArrow />}
@@ -34,7 +34,7 @@ const Footer = () => {
       </div>
 
       {/* Contact Form Section */}
-      <div className="flex justify-center mt-16">
+      <div className="flex justify-center mt-10">
         <ContactUS />
       </div>
 

@@ -14,7 +14,7 @@ import logo13 from "@/public/logo13.png";
 
 export const navItems = [
   { name: "About", link: "#about" },
-  { name: "Projects", link: "#projects" },
+  { name: "Projects", link: "/project" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
   { name: "Services", link: "#services" },
@@ -23,23 +23,23 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "We prioritize client collaboration, fostering open communication ",
+    title: "We are flexible with time zone communications",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh] ",
     imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
-    img: "/b1.jpg",
-    spareImg: "",
+    titleClassName: "justify-start",
+    img: "/grid.svg",
+    spareImg: "/grid.svg",
   },
   {
     id: 2,
-    title: "We are flexible with time zone communications",
+    title: " We prioritize client collaboration, fostering open communication ",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
+    imgClassName: "w-full h-full",
+    titleClassName: "justify-end",
+    img: "/b1.jpg",
+    spareImg: "/grid.svg",
   },
   {
     id: 3,
@@ -251,11 +251,11 @@ export const workExperience = [
 export const socialMedia = [
   {
     id: 1,
-    img: "/git.svg",
+    img: "/fb.svg",
   },
   {
     id: 2,
-    img: "/twit.svg",
+    img: "/insta.svg",
   },
   {
     id: 3,
@@ -265,7 +265,7 @@ export const socialMedia = [
 
 export const counterData = [
   { id: 1, count: 120, label: "Clients Every Year" },
-  { id: 2, count: 36, label: "Experts" },
+  { id: 2, count: 36, label: "Expert Engineers" },
   { id: 3, count: 9, label: "International Partners" },
 ];
 
