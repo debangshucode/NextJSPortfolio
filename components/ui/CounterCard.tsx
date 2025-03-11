@@ -10,7 +10,7 @@ interface CounterCardProps {
 const CounterCard: React.FC<CounterCardProps> = ({ count, label }) => {
   const { ref, inView } = useInView({
     triggerOnce: true, // Ensures animation runs only once
-    threshold: 0.3, // Triggers when 30% of the card is visible
+    threshold: 0.5, // Triggers when 30% of the card is visible
   });
 
   return (
