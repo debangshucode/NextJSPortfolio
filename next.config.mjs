@@ -12,6 +12,7 @@ export default withSentryConfig(
     silent: true,
     org: "",
     project: "",
+    output : "export"
   },
   {
     // For all available options, see:
