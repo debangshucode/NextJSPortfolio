@@ -12,7 +12,7 @@ export default withSentryConfig(
     silent: true,
     org: "",
     project: "",
-    output : "export"
+    
   },
   {
     // Sentry Next.js SDK options
