@@ -9,6 +9,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const FloatingNav = ({
   navItems,
@@ -60,12 +61,15 @@ export const FloatingNav = ({
 
   return (
     <AnimatePresence mode="wait">
-      <div className="absolute top-[-1.5rem] left-[9rem] md:left-4 lg:left-4 z-20 ">
+      <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 md:left-4 md:transform-none lg:left-4 z-20">
         <Link href="/">
           <img
             src="/SystemR_logo.png"
             alt="Logo"
+            width="136"
+            height="136"
             className="w-[8.5rem] h-[8.5rem] md:w-[12rem] md:h-[12rem] cursor-pointer"
+            loading="lazy" // Ensures efficient loading
           />
         </Link>
       </div>
@@ -73,7 +77,7 @@ export const FloatingNav = ({
       <motion.div
         initial={{ opacity: 1, y: -100 }}
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         className={cn(
           "flex max-w-fit lg:min-w-fit fixed z-[5000] top-[3.5rem] lg:top-10 inset-x-0 mx-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg border border-black/10 shadow items-center justify-center space-x-4",
           className
