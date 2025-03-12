@@ -132,11 +132,18 @@ const Hero = () => {
           <div className="flex w-full justify-center items-center flex-row text-center mt-10 lg:hidden">
             <div className="grid w-full grid-cols-3 gap-4">
               {counterData.map((item) => (
-                <CounterCard
+                <motion.div
                   key={item.id}
-                  count={item.count}
-                  label={item.label}
-                />
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className={`relative `}
+                >
+                  <CounterCard
+                    key={item.id}
+                    count={item.count}
+                    label={item.label}
+                  />
+                </motion.div>
               ))}
             </div>
           </div>

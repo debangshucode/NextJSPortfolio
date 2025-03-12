@@ -60,12 +60,12 @@ export const FloatingNav = ({
 
   return (
     <AnimatePresence mode="wait">
-      <div className="absolute top-[-1.5rem] left-4 z-20 ">
+      <div className="absolute top-[-1.5rem] left-[9rem] md:left-4 lg:left-4 z-20 ">
         <Link href="/">
           <img
             src="/SystemR_logo.png"
             alt="Logo"
-            className="w-[6rem] h-[6rem] md:w-[10rem] md:h-[10rem] cursor-pointer"
+            className="w-[8.5rem] h-[8.5rem] md:w-[12rem] md:h-[12rem] cursor-pointer"
           />
         </Link>
       </div>
@@ -75,7 +75,7 @@ export const FloatingNav = ({
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className={cn(
-          "flex max-w-fit lg:min-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg border border-black/10 shadow items-center justify-center space-x-4",
+          "flex max-w-fit lg:min-w-fit fixed z-[5000] top-[3.5rem] lg:top-10 inset-x-0 mx-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg border border-black/10 shadow items-center justify-center space-x-4",
           className
         )}
         style={{
