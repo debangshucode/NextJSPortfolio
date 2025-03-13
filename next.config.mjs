@@ -2,7 +2,7 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: "export",
+  output: "export",
 };
 
 export default withSentryConfig(
@@ -12,7 +12,6 @@ export default withSentryConfig(
     silent: true,
     org: "",
     project: "",
-
   },
   {
     // Sentry Next.js SDK options

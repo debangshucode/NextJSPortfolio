@@ -77,6 +77,19 @@
     transform: translateY(-50%);
   }
 }
+@keyframes subtleGlow {
+  from {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+.spotlight {
+  animation: subtleGlow 3s infinite alternate ease-in-out;
+}
 
 .animate-scroll-vertical {
   animation: scrollVertical 45s linear infinite;

@@ -23,14 +23,6 @@ const Hero = () => {
   const [waves, setWaves] = useState<Wave[]>([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     setIsLoading(false); // Simulating when everything is loaded
-  //   }, 4000);
-
-  //   return () => clearTimeout(timeout);
-  // }, []);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setWaves((waves) => waves.filter((wave) => wave.opacity > 0));
@@ -54,19 +46,6 @@ const Hero = () => {
     setMousePos({ x: clientX, y: clientY });
     createWave(clientX, clientY);
   };
-
-  // if (isLoading) {
-  //   return (
-  //     <div className="flex items-center justify-center h-screen w-full bg-black">
-  //       <motion.div
-  //         className="w-16 h-16 border-4 border-t-white border-gray-400 rounded-full animate-spin"
-  //         initial={{ scale: 0 }}
-  //         animate={{ scale: 1 }}
-  //         transition={{ duration: 0.5 }}
-  //       />
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="pb-10 pt-36 relative" onMouseMove={handleMouseMove}>
