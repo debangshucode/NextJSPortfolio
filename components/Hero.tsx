@@ -135,13 +135,13 @@ const Hero = () => {
           </a>
 
           {/* Counter Data (For Large Screens) */}
-          <div className="hidden xl:flex absolute top-1/2 right-[-130px]  flex-col gap-4">
+          <div className="hidden xl:flex absolute top-1/2 right-[-130px] transform -translate-y-1/2 flex-col gap-4">
             {counterData.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0.5, x: 20 }}
+                initial={{ opacity: 0.8, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
+                transition={{ duration: 0.8, ease: "anticipate" }}
                 className={`relative ${
                   index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
                 }`}
