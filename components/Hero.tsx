@@ -135,7 +135,7 @@ const Hero = () => {
 
           {/* Counter Data (For Large Screens) */}
           <motion.div
-            className="flex w-full justify-center items-center flex-row text-center mt-10 xl:hidden"
+            className="hidden xl:flex absolute top-1/2 right-[-130px] transform -translate-y-1/2 flex-col gap-4"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
