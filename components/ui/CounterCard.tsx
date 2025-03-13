@@ -11,8 +11,7 @@ const CounterCard: React.FC<CounterCardProps> = memo(({ count, label }) => {
     <motion.div
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
       className="text-center p-4 sm:p-5 rounded-lg backdrop-blur-lg bg-white/10 border border-white/20 shadow-md w-full max-w-xs sm:max-w-sm md:max-w-52 lg:max-w-60"
     >
       <h2 className="text-3xl sm:text-4xl font-bold text-white">

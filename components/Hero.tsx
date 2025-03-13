@@ -118,7 +118,7 @@ const Hero = () => {
                 key={item.id}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.2 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
                 className={`relative ${
                   index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
                 }`}
@@ -136,6 +136,7 @@ const Hero = () => {
                   key={item.id}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                   className={`relative `}
                 >
                   <CounterCard
