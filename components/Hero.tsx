@@ -4,8 +4,25 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import debounce from "lodash/debounce";
+import { debounce } from "lodash";
 import { counterData } from "@/data";
+import Image from "next/image";
+// Dynamically load non-essential components
+const MagicButton = dynamic(() => import("./MagicButton"), {
+  ssr: false,
+  // loading: () => <p>Loading...</p>,
+});
+const Spotlight = dynamic(
+  () => import("./ui/Spotlight").then((mod) => mod.Spotlight),
+  { ssr: false }
+);
+const TextGenerateEffect = dynamic(
+  () => import("./ui/TextGenerateEffect").then((mod) => mod.TextGenerateEffect),
+  { ssr: false }
+);
+const CounterCard = dynamic(() => import("./ui/CounterCard"), {
+  ssr: false,
+});
 
 interface Wave {
   id: number;
@@ -15,20 +32,15 @@ interface Wave {
   opacity: number;
 }
 
-const MagicButton = dynamic(() => import("./MagicButton"), { ssr: false });
-const Spotlight = dynamic(
-  () => import("./ui/Spotlight").then((mod) => mod.Spotlight),
-  { ssr: false }
-);
-const TextGenerateEffect = dynamic(
-  () => import("./ui/TextGenerateEffect").then((mod) => mod.TextGenerateEffect),
-  { ssr: false }
-);
-const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
-
 const Hero = () => {
   const [waves, setWaves] = useState<Wave[]>([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 800); // Simulate loading
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,22 +51,17 @@ const Hero = () => {
 
   const createWave = useCallback(
     debounce((x: number, y: number) => {
-      const newWave: Wave = {
-        id: Date.now(),
-        x,
-        y,
-        scale: 0,
-        opacity: 0.5,
-      };
-      setWaves((waves) => [...waves, newWave]);
+      setWaves((waves) => [
+        ...waves,
+        { id: Date.now(), x, y, scale: 0, opacity: 0.5 },
+      ]);
     }, 100),
     []
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY } = e;
-    setMousePos({ x: clientX, y: clientY });
-    createWave(clientX, clientY);
+    setMousePos({ x: e.clientX, y: e.clientY });
+    createWave(e.clientX, e.clientY);
   };
 
   const counterItems = useMemo(
@@ -74,6 +81,20 @@ const Hero = () => {
       )),
     []
   );
+
+  // Show a loading screen while essential components load
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-black">
+        <Image
+          src="/SystemR_logo.png"
+          alt="SystemR Logo"
+          width={200}
+          height={100}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="pb-10 pt-36 relative" onMouseMove={handleMouseMove}>
