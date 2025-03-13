@@ -97,12 +97,16 @@ const config = {
         },
         spotlight: {
           "0%": {
-            opacity: "0",
-            transform: "translate(-72%, -62%) scale(0.5)",
+            opacity: "0.2",
+            transform: "translate(-70%, -55%) scale(0.9)",
+          },
+          "50%": {
+            opacity: "0.6",
+            transform: "translate(-60%, -45%) scale(0.95)",
           },
           "100%": {
-            opacity: "1",
-            transform: "translate(-50%,-40%) scale(1)",
+            opacity: "0.85",
+            transform: "translate(-50%, -40%) scale(1)",
           },
         },
         shimmer: {
@@ -155,7 +159,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        spotlight: "spotlight 2s ease .75s 1 forwards",
+        spotlight: "spotlight 2.5s ease-in-out .5s 1 forwards",
         shimmer: "shimmer 2s linear infinite",
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
