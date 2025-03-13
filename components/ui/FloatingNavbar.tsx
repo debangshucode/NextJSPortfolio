@@ -77,7 +77,7 @@ export const FloatingNav = ({
       <motion.div
         initial={{ opacity: 1, y: -100 }}
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
         className={cn(
           "flex max-w-fit lg:min-w-fit fixed z-[5000] top-[3.5rem] lg:top-10 inset-x-0 mx-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg border border-black/10 shadow items-center justify-center space-x-4",
           className
