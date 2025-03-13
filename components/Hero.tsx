@@ -21,6 +21,18 @@ const Hero = () => {
   const [waves, setWaves] = useState<Wave[]>([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
+  const containerVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        staggerChildren: 0.1, // Controls the delay between animations
+        ease: "easeInOut",
+        duration: 0.4,
+      },
+    },
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setWaves((waves) => waves.filter((wave) => wave.opacity > 0));
@@ -113,21 +125,28 @@ const Hero = () => {
 
           {/* Counter Data (For Large Screens) */}
           <div className="hidden xl:flex absolute top-1/2 right-[-130px] transform -translate-y-1/2 flex-col gap-4">
-            {counterData.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className={`relative ${
-                  index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
-                }`}
-              >
-                <CounterCard count={item.count} label={item.label} />
-              </motion.div>
-            ))}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {counterData.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  variants={{
+                    hidden: { opacity: 0, x: 20 },
+                    visible: { opacity: 1, x: 0 },
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className={`relative ${
+                    index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
+                  }`}
+                >
+                  <CounterCard count={item.count} label={item.label} />
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-
           {/* Counter Data (For Mobile) */}
           <div className="flex w-full justify-center items-center flex-row text-center mt-10  xl:hidden">
             <div className="grid w-full grid-cols-3 gap-4">
