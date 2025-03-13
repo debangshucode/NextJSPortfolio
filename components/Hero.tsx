@@ -137,37 +137,24 @@ const Hero = () => {
           {/* Counter Data (For Large Screens) */}
           <div className="hidden xl:flex absolute top-1/2 right-[-130px] transform -translate-y-1/2 flex-col gap-4">
             {counterData.map((item, index) => (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0.8, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "anticipate" }}
                 className={`relative ${
                   index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
                 }`}
               >
                 <CounterCard count={item.count} label={item.label} />
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Counter Data (For Mobile) */}
-          <div className="flex w-full justify-center items-center flex-row text-center mt-10  xl:hidden">
+          <div className="flex w-full justify-center items-center flex-row text-center mt-10 xl:hidden">
             <div className="grid w-full grid-cols-3 gap-4">
               {counterData.map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className={`relative `}
-                >
-                  <CounterCard
-                    key={item.id}
-                    count={item.count}
-                    label={item.label}
-                  />
-                </motion.div>
+                <div key={item.id} className="relative">
+                  <CounterCard count={item.count} label={item.label} />
+                </div>
               ))}
             </div>
           </div>

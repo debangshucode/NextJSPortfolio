@@ -34,6 +34,19 @@
     box-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.9);
   }
 }
+@keyframes fadeInSlide {
+  from {
+    opacity: 0.8;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fade-in {
+  animation: fadeInSlide 0.3s ease-out;
+}
 
 .animate-glow {
   animation: glow 1.5s infinite alternate ease-in-out;
