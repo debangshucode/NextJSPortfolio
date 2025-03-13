@@ -18,6 +18,30 @@ interface Wave {
 }
 
 const Hero = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading until Hero & Navbar are ready
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false); // Simulating when everything is loaded
+    }, 2000); // Adjust time based on real load speed
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full bg-black">
+        <motion.div
+          className="w-16 h-16 border-4 border-t-white border-gray-400 rounded-full animate-spin"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+      </div>
+    );
+  }
+
   const [waves, setWaves] = useState<Wave[]>([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
