@@ -14,35 +14,30 @@ function Industries() {
       icon: <Globe2 className="w-12 h-12" />,
       description:
         "We helped simplify one of the most complex and challenging processes for a leading logistics company in India and the Middle East.",
-      bg: "logistic.jpg",
     },
     {
       title: "Fintech Industry",
       icon: <CreditCard className="w-12 h-12" />,
       description:
         "We helped prominent banks and high-tech start-ups revolutionize the payment and banking sector in India, Middle-East, and Africa.",
-      bg: "fintech.jpg",
     },
     {
       title: "Liquor Industry",
       icon: <Wine className="w-12 h-12" />,
       description:
         "We digitized the whole sales process and the MIS of leading liquor stores.",
-      bg: "/liqure.jpg",
     },
     {
       title: "Ed-tech Industry",
       icon: <GraduationCap className="w-12 h-12" />,
       description:
         "We made learning fun and intriguing by creating engaging learning formats for an Ed-tech app.",
-      bg: "ed-tech.jpg",
     },
     {
       title: "FMCG Industry",
       icon: <ShoppingCart className="w-12 h-12" />,
       description:
         "We helped one of the largest retail supermarkets launch their social media presence and take their business to greater heights.",
-      bg: "fmcg.jpg",
     },
   ];
 
@@ -73,12 +68,7 @@ function Industries() {
               }`}
             >
               {/* Background Image with Hover Zoom Effect */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{
-                  backgroundImage: `url(${industry.bg})`,
-                }}
-              />
+              <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" />
 
               {/* Dark Overlay with Hover Brightness Effect */}
               <div className="absolute inset-0 bg-black/70 group-hover:bg-black/40 transition-all duration-500" />
