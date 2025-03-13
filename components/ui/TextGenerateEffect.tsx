@@ -16,7 +16,7 @@ export const TextGenerateEffect = ({
   useEffect(() => {
     if (!scope.current) return; // Ensure scope exists before animating
 
-    animate("span", { opacity: 1 }, { duration: 2, delay: stagger(0.2) });
+    animate("span", { opacity: 1 }, { duration: 2 });
   }, [animate, wordsArray, scope.current]); // Include scope.current instead of scope
 
   const renderWords = () => {
