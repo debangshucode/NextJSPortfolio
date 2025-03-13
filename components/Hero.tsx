@@ -1,12 +1,10 @@
 "use client";
 
 import { FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "./MagicButton";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import CounterCard from "./ui/CounterCard";
+import dynamic from "next/dynamic";
+import debounce from "lodash/debounce";
 import { counterData } from "@/data";
 
 interface Wave {
@@ -16,6 +14,17 @@ interface Wave {
   scale: number;
   opacity: number;
 }
+
+const MagicButton = dynamic(() => import("./MagicButton"), { ssr: false });
+const Spotlight = dynamic(
+  () => import("./ui/Spotlight").then((mod) => mod.Spotlight),
+  { ssr: false }
+);
+const TextGenerateEffect = dynamic(
+  () => import("./ui/TextGenerateEffect").then((mod) => mod.TextGenerateEffect),
+  { ssr: false }
+);
+const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
 
 const Hero = () => {
   const [waves, setWaves] = useState<Wave[]>([]);
@@ -28,22 +37,43 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const createWave = useCallback((x: number, y: number) => {
-    const newWave: Wave = {
-      id: Date.now(),
-      x,
-      y,
-      scale: 0,
-      opacity: 0.5,
-    };
-    setWaves((waves) => [...waves, newWave]);
-  }, []);
+  const createWave = useCallback(
+    debounce((x: number, y: number) => {
+      const newWave: Wave = {
+        id: Date.now(),
+        x,
+        y,
+        scale: 0,
+        opacity: 0.5,
+      };
+      setWaves((waves) => [...waves, newWave]);
+    }, 100),
+    []
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e;
     setMousePos({ x: clientX, y: clientY });
     createWave(clientX, clientY);
   };
+
+  const counterItems = useMemo(
+    () =>
+      counterData.map((item, index) => (
+        <motion.div
+          key={item.id}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, delay: index * 0.2 }}
+          className={`relative ${
+            index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
+          }`}
+        >
+          <CounterCard count={item.count} label={item.label} />
+        </motion.div>
+      )),
+    []
+  );
 
   return (
     <div className="pb-10 pt-36 relative" onMouseMove={handleMouseMove}>
@@ -59,26 +89,12 @@ const Hero = () => {
             background:
               "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)",
           }}
-          initial={{
-            x: wave.x,
-            y: wave.y,
-            scale: 0,
-            opacity: 0.5,
-          }}
-          animate={{
-            scale: [0, 4],
-            opacity: [0.5, 0],
-            x: wave.x,
-            y: wave.y,
-          }}
-          transition={{
-            duration: 2,
-            ease: "easeOut",
-          }}
+          initial={{ x: wave.x, y: wave.y, scale: 0, opacity: 0.5 }}
+          animate={{ scale: [0, 4], opacity: [0.5, 0], x: wave.x, y: wave.y }}
+          transition={{ duration: 2, ease: "easeOut" }}
         />
       ))}
 
-      {/* Main Content */}
       <div className="flex justify-center relative z-10">
         <div>
           <Spotlight
@@ -99,10 +115,6 @@ const Hero = () => {
             words="Transforming Ideas Into Seamless Digital Experiences"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
-
-          {/* <h1 className="text-center text-[40px] md:text-5xl lg:text-6xl">
-            Transforming Ideas Into Seamless Digital Experiences
-          </h1> */}
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             System<span className="text-red-500">R</span> – Delivering
             cutting-edge IT solutions with Next.js and modern web technologies.
@@ -115,41 +127,12 @@ const Hero = () => {
             />
           </a>
 
-          {/* Counter Data (For Large Screens) */}
           <div className="hidden xl:flex absolute top-1/2 right-[-130px] transform -translate-y-1/2 flex-col gap-4">
-            {counterData.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.2 }}
-                className={`relative ${
-                  index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
-                }`}
-              >
-                <CounterCard count={item.count} label={item.label} />
-              </motion.div>
-            ))}
+            {counterItems}
           </div>
 
-          {/* Counter Data (For Mobile) */}
-          <div className="flex w-full justify-center items-center flex-row text-center mt-10  xl:hidden">
-            <div className="grid w-full grid-cols-3 gap-4">
-              {counterData.map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className={`relative `}
-                >
-                  <CounterCard
-                    key={item.id}
-                    count={item.count}
-                    label={item.label}
-                  />
-                </motion.div>
-              ))}
-            </div>
+          <div className="flex w-full justify-center items-center flex-row text-center mt-10 xl:hidden">
+            <div className="grid w-full grid-cols-3 gap-4">{counterItems}</div>
           </div>
         </div>
       </div>
