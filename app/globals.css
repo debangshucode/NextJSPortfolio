@@ -47,6 +47,23 @@
 .fade-in {
   animation: fadeInSlide 0.3s ease-out;
 }
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nav-container {
+  animation: slideDown 0.2s ease-in-out;
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(22, 3, 3, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(229, 9, 20, 1);
+}
 
 .animate-glow {
   animation: glow 1.5s infinite alternate ease-in-out;

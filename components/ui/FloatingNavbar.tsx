@@ -74,20 +74,11 @@ export const FloatingNav = ({
         </Link>
       </div>
 
-      <motion.div
-        initial={{ opacity: 1, y: -100 }}
-        animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
-        transition={{ duration: 0.2, ease: "easeInOut" }}
+      <div
         className={cn(
-          "flex max-w-fit lg:min-w-fit fixed z-[5000] top-[3.5rem] lg:top-10 inset-x-0 mx-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg border border-black/10 shadow items-center justify-center space-x-4",
+          "flex max-w-fit lg:min-w-fit fixed z-[5000] top-[3.5rem] lg:top-10 inset-x-0 mx-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg border border-black/10 shadow items-center justify-center space-x-4 nav-container",
           className
         )}
-        style={{
-          backdropFilter: "blur(16px) saturate(180%)",
-          background: "rgba(22, 3, 3, 0.75)",
-          borderRadius: "12px",
-          border: "1px solid rgba(229, 9, 20, 1)",
-        }}
       >
         {navItems.map((navItem, idx) => (
           <button
@@ -98,7 +89,7 @@ export const FloatingNav = ({
             {navItem.name}
           </button>
         ))}
-      </motion.div>
+      </div>
     </AnimatePresence>
   );
 };
