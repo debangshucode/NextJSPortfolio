@@ -19,40 +19,17 @@ interface Wave {
 
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [waves, setWaves] = useState<Wave[]>([]);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  // Simulate loading until Hero & Navbar are ready
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false); // Simulating when everything is loaded
-    }, 2000); // Adjust time based on real load speed
+    }, 2000);
 
     return () => clearTimeout(timeout);
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-screen w-full bg-black">
-        <motion.div
-          className="w-16 h-16 border-4 border-t-white border-gray-400 rounded-full animate-spin"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-      </div>
-    );
-  }
-
-  const [waves, setWaves] = useState<Wave[]>([]);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  const containerVariants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { staggerChildren: 0.1, ease: "easeInOut", duration: 0.4 },
-    },
-  };
   useEffect(() => {
     const interval = setInterval(() => {
       setWaves((waves) => waves.filter((wave) => wave.opacity > 0));
@@ -76,6 +53,19 @@ const Hero = () => {
     setMousePos({ x: clientX, y: clientY });
     createWave(clientX, clientY);
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full bg-black">
+        <motion.div
+          className="w-16 h-16 border-4 border-t-white border-gray-400 rounded-full animate-spin"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="pb-10 pt-36 relative" onMouseMove={handleMouseMove}>
@@ -148,7 +138,8 @@ const Hero = () => {
             {counterData.map((item, index) => (
               <motion.div
                 key={item.id}
-                variants={containerVariants}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
                 className={`relative ${
                   index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
