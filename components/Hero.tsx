@@ -1,10 +1,10 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import CounterCard from "./ui/CounterCard";
 import { counterData } from "@/data";
