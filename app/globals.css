@@ -77,18 +77,35 @@
     transform: translateY(-50%);
   }
 }
-@keyframes subtleGlow {
-  from {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0.5;
-    transform: scale(1.05);
-  }
-}
+
 .spotlight {
-  animation: subtleGlow 3s infinite alternate ease-in-out;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 90%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: spotlight 1s ease-in-out 0.75s forwards;
+  filter: blur(10px);
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    filter: blur(25px);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateY(18px) scale(0.95);
+    filter: blur(23px);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(16px) scale(0.98);
+    filter: blur(21px);
+  }
 }
 
 .animate-scroll-vertical {
