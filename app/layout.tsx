@@ -1,10 +1,17 @@
+import dynamic from "next/dynamic";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 import { navItems } from "@/data";
-import { FloatingNav } from "@/components/ui/FloatingNavbar";
-
+const FloatingNav = dynamic(
+  async () => {
+    const mod = await import("@/components/ui/FloatingNavbar");
+    return mod.FloatingNav; // ✅ Ensure it gets the named export
+  },
+  { ssr: false }
+);
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

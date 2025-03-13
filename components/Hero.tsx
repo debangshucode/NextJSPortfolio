@@ -1,12 +1,13 @@
 "use client";
+import dynamic from "next/dynamic";
 
+const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
 import { useState, useEffect, useCallback } from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { motion } from "framer-motion";
-import CounterCard from "./ui/CounterCard";
 import { counterData } from "@/data";
 
 interface Wave {
@@ -18,17 +19,17 @@ interface Wave {
 }
 
 const Hero = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [waves, setWaves] = useState<Wave[]>([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoading(false); // Simulating when everything is loaded
-    }, 2000);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setIsLoading(false); // Simulating when everything is loaded
+  //   }, 4000);
 
-    return () => clearTimeout(timeout);
-  }, []);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,18 +55,18 @@ const Hero = () => {
     createWave(clientX, clientY);
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-screen w-full bg-black">
-        <motion.div
-          className="w-16 h-16 border-4 border-t-white border-gray-400 rounded-full animate-spin"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="flex items-center justify-center h-screen w-full bg-black">
+  //       <motion.div
+  //         className="w-16 h-16 border-4 border-t-white border-gray-400 rounded-full animate-spin"
+  //         initial={{ scale: 0 }}
+  //         animate={{ scale: 1 }}
+  //         transition={{ duration: 0.5 }}
+  //       />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="pb-10 pt-36 relative" onMouseMove={handleMouseMove}>
@@ -138,7 +139,7 @@ const Hero = () => {
             {counterData.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0.5, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
                 className={`relative ${
