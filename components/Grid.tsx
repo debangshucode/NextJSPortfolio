@@ -10,10 +10,11 @@ const Grid = () => {
             About <span className="text-red-700">Us</span>
           </h1>
           <p className="text-gray-400 text-lg text-center md:mt-10 my-5">
-            At System Root, we turn ideas into seamless digital
-            experiences.Specializing in UI/UX design,Web Development,and
-            Software Testing, We bring creativity and technical expertise
-            together to build intuitive, high performance applications.
+            We specialize in user-centered design, creating visually striking
+            interfaces that enhance both usability and accessibility. Our expert
+            developers transform your vision into reality with clean, efficient
+            code, delivering a smooth and consistent experience across all
+            devices.
           </p>
         </div>
       </div>
