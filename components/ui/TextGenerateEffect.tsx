@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useMemo } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { useEffect } from "react";
+import { motion, useAnimate, stagger } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -11,37 +11,39 @@ export const TextGenerateEffect = ({
   className?: string;
 }) => {
   const [scope, animate] = useAnimate();
-  const wordsArray = useMemo(() => words.split(" "), [words]); // Memoize words array
+  const wordsArray = words.split(" "); // Split words into an array
 
   useEffect(() => {
-    if (!scope.current) return; // Ensure scope exists before animating
+    if (!scope.current) return; // Ensure scope exists
 
-    animate("span", { opacity: 1 }, { duration: 2 });
-  }, [animate, wordsArray, scope.current]); // Include scope.current instead of scope
-
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => (
-          <motion.span
-            key={word + idx}
-            className={`${
-              idx > 3 ? "text-red-700" : "dark:text-white text-black"
-            } opacity-0`}
-          >
-            {word}{" "}
-          </motion.span>
-        ))}
-      </motion.div>
+    animate(
+      "span", // Select all spans inside scope
+      { opacity: 1, y: 0 }, // Animate to visible
+      { duration: 0.6, delay: stagger(0.1) } // Apply staggered effect
     );
-  };
+  }, [animate]); // Only run once when the component mounts
 
   return (
     <div className={cn("font-bold", className)}>
       <div className="my-4">
-        <div className="dark:text-white text-black leading-snug tracking-wide">
-          {renderWords()}
-        </div>
+        <motion.div
+          ref={scope}
+          className="dark:text-white text-black leading-snug tracking-wide"
+        >
+          {wordsArray.map((word, idx) => (
+            <motion.span
+              key={word + idx}
+              className={`inline-block ${
+                idx > 3 ? "text-red-700" : "dark:text-white text-black"
+              }`}
+              initial={{ opacity: 0, y: 10 }} // Start hidden and slightly down
+              animate={{ opacity: 1, y: 0 }} // Fade in and move up
+              transition={{ delay: idx * 0.1, duration: 0.5 }} // Staggered delay
+            >
+              {word}&nbsp;
+            </motion.span>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
