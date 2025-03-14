@@ -97,16 +97,12 @@ const config = {
         },
         spotlight: {
           "0%": {
-            opacity: "0.2",
-            transform: "translate(-70%, -55%) scale(0.9)",
-          },
-          "50%": {
-            opacity: "0.6",
-            transform: "translate(-60%, -45%) scale(0.95)",
+            opacity: "0",
+            transform: "translate(-72%, -62%) scale(0.5)",
           },
           "100%": {
-            opacity: "0.85",
-            transform: "translate(-50%, -40%) scale(1)",
+            opacity: "1",
+            transform: "translate(-50%,-40%) scale(1)",
           },
         },
         shimmer: {
