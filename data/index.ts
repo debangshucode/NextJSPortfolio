@@ -14,10 +14,10 @@ import logo13 from "@/public/logo13.png";
 
 export const navItems = [
   { name: "About", link: "#about" },
+  { name: "Services", link: "#services" },
   { name: "Projects", link: "/project" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
-  { name: "Services", link: "#services" },
 ];
 
 export const gridItems = [
