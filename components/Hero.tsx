@@ -1,86 +1,16 @@
 "use client";
 import dynamic from "next/dynamic";
-
-const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
-import { useState, useEffect, useCallback } from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import { motion } from "framer-motion";
 import { counterData } from "@/data";
-import Image from 'next/image';
 
-interface Wave {
-  id: number;
-  x: number;
-  y: number;
-  scale: number;
-  opacity: number;
-}
+const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
 
 const Hero = () => {
-  // const [isLoading, setIsLoading] = useState(true);
-  const [waves, setWaves] = useState<Wave[]>([]);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWaves((waves) => waves.filter((wave) => wave.opacity > 0));
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
-
-  const createWave = useCallback((x: number, y: number) => {
-    const newWave: Wave = {
-      id: Date.now(),
-      x,
-      y,
-      scale: 0,
-      opacity: 0.5,
-    };
-    setWaves((waves) => [...waves, newWave]);
-  }, []);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY } = e;
-    setMousePos({ x: clientX, y: clientY });
-    createWave(clientX, clientY);
-  };
-
   return (
-    <div className="pb-10 pt-36 relative" onMouseMove={handleMouseMove}>
-      {waves.map((wave) => (
-        <motion.div
-          key={wave.id}
-          className="fixed border-1.5 border-white/20 rounded-full pointer-events-none"
-          style={{
-            width: "100px",
-            height: "100px",
-            left: "0",
-            top: "0",
-            background:
-              "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)",
-          }}
-          initial={{
-            x: wave.x,
-            y: wave.y,
-            scale: 0,
-            opacity: 0.5,
-          }}
-          animate={{
-            scale: [0, 4],
-            opacity: [0.5, 0],
-            x: wave.x,
-            y: wave.y,
-          }}
-          transition={{
-            duration: 2,
-            ease: "easeOut",
-          }}
-        />
-      ))}
-
+    <div className="pb-10 pt-36 relative">
       {/* Main Content */}
       <div className="flex justify-center relative z-10">
         <div>
