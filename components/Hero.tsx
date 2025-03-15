@@ -9,6 +9,7 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { motion } from "framer-motion";
 import { counterData } from "@/data";
+import Image from 'next/image';
 
 interface Wave {
   id: number;
