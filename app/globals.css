@@ -86,7 +86,7 @@
   opacity: 0;
   pointer-events: none;
   will-change: transform, opacity;
-  animation: spotlight 1s ease-in-out 0.75s forwards;
+  animation: spotlight 1s ease-in-out forwards;
   filter: blur(10px);
 }
 
