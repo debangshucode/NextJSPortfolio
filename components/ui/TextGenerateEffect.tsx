@@ -14,7 +14,6 @@ export const TextGenerateEffect = ({
   const wordsArray = words.split(" ");
 
   useEffect(() => {
-    // Ensure animation starts quickly after background load
     const timer = setTimeout(() => {
       setStartAnimation(true);
     }, 100); // Reduced delay
@@ -23,16 +22,16 @@ export const TextGenerateEffect = ({
   }, []);
 
   return (
-    <div className={cn("font-bold", className)}>
-      {/* Prevents Layout Shifting */}
-      <div className="relative min-h-[3em]">
+    <div className={cn("font-bold leading-relaxed", className)}>
+      {/* Prevent shrinking effect */}
+      <div className="relative min-h-[4em] whitespace-pre-wrap">
         <motion.div
           className="dark:text-white text-black leading-snug tracking-wide"
           initial="hidden"
           animate={startAnimation ? "visible" : "hidden"}
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.05 } }, // Faster stagger
+            visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
           }}
         >
           {wordsArray.map((word, idx) => (
@@ -40,10 +39,14 @@ export const TextGenerateEffect = ({
               key={word + idx}
               className={`inline-block ${
                 idx > 3 ? "text-red-700" : "dark:text-white text-black"
-              }`}
+              } opacity-0`}
               variants={{
                 hidden: { opacity: 0, y: 5 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }, // Reduced duration
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.3 },
+                },
               }}
             >
               {word}&nbsp;
