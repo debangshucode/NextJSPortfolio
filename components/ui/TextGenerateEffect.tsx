@@ -14,6 +14,7 @@ export const TextGenerateEffect = ({
   const wordsArray = words.split(" ");
 
   useEffect(() => {
+    // Ensure animation starts quickly after background load
     const timer = setTimeout(() => {
       setStartAnimation(true);
     }, 100); // Reduced delay
@@ -22,20 +23,16 @@ export const TextGenerateEffect = ({
   }, []);
 
   return (
-    <div className={cn("font-bold leading-relaxed", className)}>
-      {/* Reserve space to prevent shrinking */}
-      <div className="relative min-h-[4em] whitespace-pre-wrap">
+    <div className={cn("font-bold", className)}>
+      {/* Prevents Layout Shifting */}
+      <div className="relative min-h-[3em]">
         <motion.div
           className="dark:text-white text-black leading-snug tracking-wide"
           initial="hidden"
           animate={startAnimation ? "visible" : "hidden"}
           variants={{
-            hidden: { opacity: 0, visibility: "hidden" }, // Prevent height collapse
-            visible: {
-              opacity: 1,
-              visibility: "visible",
-              transition: { staggerChildren: 0.05 },
-            },
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.05 } }, // Faster stagger
           }}
         >
           {wordsArray.map((word, idx) => (
@@ -45,19 +42,9 @@ export const TextGenerateEffect = ({
                 idx > 3 ? "text-red-700" : "dark:text-white text-black"
               }`}
               variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 5,
-                  position: "absolute", // Prevents layout shift
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  position: "relative", // Stabilizes final layout
-                  transition: { duration: 0.3 },
-                },
+                hidden: { opacity: 0, y: 5 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }, // Reduced duration
               }}
-              style={{ willChange: "opacity, transform" }} // GPU optimization
             >
               {word}&nbsp;
             </motion.span>
