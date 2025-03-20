@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 export const FloatingNav = ({
   navItems,
   className,
