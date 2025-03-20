@@ -90,7 +90,10 @@ export const FloatingNav = ({
           <button
             key={idx}
             onClick={() => handleNavigation(navItem.link)}
-            className="text-sm cursor-pointer dark:text-neutral-50 hover:text-neutral-500"
+            className="text-sm cursor-pointer dark:text-neutral-50 hover:text-neutral-500 transition-all duration-300 
+               bg-transparent rounded-md xl:px-4 px-0
+               hover:bg-red-500 hover:text-white 
+               hover:shadow-[0_0_15px_#ff0000]"
           >
             {navItem.name}
           </button>
