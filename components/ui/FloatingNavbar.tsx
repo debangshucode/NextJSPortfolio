@@ -72,7 +72,7 @@ export const FloatingNav = ({
             alt="Logo"
             width="136"
             height="136"
-            className="w-[14.5rem] h-[10.5rem] md:w-[12rem] md:h-[12rem] cursor-pointer"
+            className="w-[14.5rem] h-[12.5rem] md:w-[12rem] md:h-[12rem] cursor-pointer"
             loading="lazy" // Ensures efficient loading
           />
         </Link>
