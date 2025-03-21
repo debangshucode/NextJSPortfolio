@@ -221,7 +221,7 @@ function App() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-12 relative">
           <div className="flex items-center">
-            <h1 className="text-2xl md:text-4xl font-bold text-red-700 mb-2">
+            <h1 className="text-2xl md:text-4xl font-bold text-white mb-2">
               IN OUR
             </h1>
             <div className="h-[2px] bg-[#ff3333] flex-grow ml-4"></div>

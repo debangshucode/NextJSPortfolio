@@ -65,14 +65,14 @@ export const FloatingNav = ({
 
   return (
     <AnimatePresence mode="wait">
-      <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 md:left-4 md:transform-none lg:left-4 z-20">
+      <div className="absolute top-[-2.5rem] left-1/2 transform -translate-x-1/2 md:left-4 md:transform-none lg:left-4 z-20">
         <Link href="/">
           <img
             src="/SystemR_logo.png"
             alt="Logo"
             width="136"
             height="136"
-            className="w-[8.5rem] h-[8.5rem] md:w-[12rem] md:h-[12rem] cursor-pointer"
+            className="w-[14.5rem] h-[10.5rem] md:w-[12rem] md:h-[12rem] cursor-pointer"
             loading="lazy" // Ensures efficient loading
           />
         </Link>
