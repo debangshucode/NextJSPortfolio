@@ -221,24 +221,28 @@ function App() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-12 relative">
           <div className="flex items-center">
-            <h1 className="text-4xl font-bold text-red-700 mb-2">IN OUR</h1>
+            <h1 className="text-2xl md:text-4xl font-bold text-red-700 mb-2">
+              IN OUR
+            </h1>
             <div className="h-[2px] bg-[#ff3333] flex-grow ml-4"></div>
           </div>
           <div className="flex items-center">
-            <h2 className="text-6xl font-bold text-red-700">SERVICES</h2>
+            <h2 className="text-3xl md:text-6xl font-bold text-red-700">
+              SERVICES
+            </h2>
             <div className="h-[2px] bg-[#ff3333] flex-grow ml-4"></div>
           </div>
         </div>
 
-        <div className="grid grid-cols-5 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
           {services.map((service, index) => (
             <div
               key={index}
-              className="flex flex-col items-center cursor-pointer"
+              className="flex flex-col items-center cursor-pointer p-4 md:p-6"
               onClick={() => setSelectedService(service)}
             >
               <div
-                className={`bg-[#2a2a2a] p-4  rounded-lg mb-2 transition-colors ${
+                className={`bg-[#2a2a2a] p-4 rounded-lg mb-2 transition-colors ${
                   selectedService.category === service.category
                     ? "bg-[#ff3333] text-white"
                     : "hover:bg-[#333333] text-[#ff3333]"
@@ -256,11 +260,11 @@ function App() {
         <div className="mb-12 flex justify-end items-center">
           <div className="h-[2px] bg-[#ff3333] flex-grow mr-4"></div>
           <div>
-            <h2 className="text-4xl font-bold text-red-700 mb-2 text-right">
+            <h2 className="text-2xl md:text-4xl font-bold text-red-700 mb-2 text-right">
               IN
             </h2>
-            <h3 className="text-6xl font-bold text-red-700 text-right">
-              SEASON
+            <h3 className="text-3xl md:text-6xl font-bold text-red-700 text-right">
+              PORTFOLIO
             </h3>
           </div>
         </div>
