@@ -87,6 +87,10 @@
   pointer-events: none;
   will-change: transform, opacity;
   animation: spotlight 1s ease-in-out  forwards;
+
+  animation: spotlight 2s ease-in-out forwards;
+  animation-delay: 0s;
+
   filter: blur(10px);
 }
 

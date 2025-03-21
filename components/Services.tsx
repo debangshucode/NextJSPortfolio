@@ -1,234 +1,287 @@
 import React, { useState } from "react";
 import {
-  X,
-  ChevronRight,
-  Layout,
-  Server,
-  GitBranch,
-  Shield,
-  BarChart3,
+  Globe,
+  Smartphone,
+  Palette,
+  Search,
+  Paintbrush,
+  Wine,
+  Lightbulb,
 } from "lucide-react";
 
-interface Domain {
-  id: string;
-  title: string;
-  description: string[];
-  icon: React.ReactNode;
-}
+type PortfolioItem = {
+  name: string;
+  description: string;
+  image: string;
+};
 
-const domains: Domain[] = [
-  {
-    id: "frontend",
-    title: "Frontend Development",
-    description: [
-      "Vue/Vuex",
-      "React/Redux",
-      "HTML5",
-      "CSS3",
-      "Javascript",
-      "JQuery",
-      "Bootstrap",
-      "Grid",
-      "FlexBox",
-      "SASS/LESS",
-      "Webpack",
-      "GulpThree.js/Babylonjs",
-      "FabricJs",
-      "Material UI",
-      "Shopify/Wordpress/Craft",
-    ],
-    icon: <Layout className="w-8 h-8 text-red-500" />,
-  },
-  {
-    id: "backend",
-    title: "Backend Development",
-    description: [
-      "PHP",
-      "Javascript",
-      "Liquid",
-      "Python",
-      "Laravel",
-      "Node/Express",
-      "RoR",
-      "Django",
-      "RESTful API",
-      "GraphQL",
-      "MySql/Postgresql",
-      "MongoDB",
-      "CMS",
-    ],
-    icon: <Server className="w-8 h-8 text-red-500" />,
-  },
-  {
-    id: "version-control",
-    title: "Version Control",
-    description: ["Git", "GitHub", "Bitbucket", "Gitlab", "Jira", "Trello"],
-    icon: <GitBranch className="w-8 h-8 text-red-500" />,
-  },
-  {
-    id: "cybersecurity",
-    title: "Cybersecurity",
-    description: [
-      "Kali Linux",
-      "Burp Suite",
-      "Metasploit",
-      "Nmap",
-      "WireShark",
-      "Netsparker",
-      "Astra",
-      "John the Ripper",
-      "sqlmap",
-      "Nessus",
-      "w3af",
-      "Hydra",
-      "Retina",
-      "Aircrack-ng",
-    ],
-    icon: <Shield className="w-8 h-8 text-red-500" />,
-  },
-  {
-    id: "devops",
-    title: "DevOps",
-    description: [
-      "CI/CD",
-      "AWS services",
-      "CloudFlare",
-      "Apache",
-      "Nginx",
-      "Linux",
-      "Proxy",
-    ],
-    icon: <BarChart3 className="w-8 h-8 text-red-500" />,
-  },
-];
+type Service = {
+  icon: JSX.Element;
+  name: string;
+  category: string;
+  portfolioItems: PortfolioItem[];
+};
 
-function Services() {
-  const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
+const services: Service[] = [
+  {
+    icon: <Globe className="w-8 h-8" />,
+    name: "Web & Ecommerce Development",
+    category: "Web & Ecommerce Development",
+    portfolioItems: [
+      {
+        name: "E-commerce Platform",
+        description: "Full-featured online store",
+        image:
+          "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Company Website",
+        description: "Modern corporate presence",
+        image:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Portfolio Site",
+        description: "Showcase creative work",
+        image:
+          "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Landing Page",
+        description: "High conversion design",
+        image:
+          "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Web Application",
+        description: "Complex web solutions",
+        image:
+          "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    icon: <Smartphone className="w-8 h-8" />,
+    name: "App Development",
+    category: "App Development",
+    portfolioItems: [
+      {
+        name: "iOS App",
+        description: "Native iPhone application",
+        image:
+          "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Android App",
+        description: "Material design interface",
+        image:
+          "https://images.unsplash.com/photo-1551650992-ee4fd47df41f?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Cross-platform App",
+        description: "React Native solution",
+        image:
+          "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Mobile Game",
+        description: "Unity-based gaming app",
+        image:
+          "https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "PWA Development",
+        description: "Progressive web app",
+        image:
+          "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    icon: <Palette className="w-8 h-8" />,
+    name: "UI/UX Designing",
+    category: "UI/UX Designing",
+    portfolioItems: [
+      {
+        name: "User Interface Design",
+        description: "Modern UI systems",
+        image:
+          "https://images.unsplash.com/photo-1545235617-7a424c1a60cc?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "UX Research",
+        description: "User experience analysis",
+        image:
+          "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Mobile App Design",
+        description: "iOS and Android interfaces",
+        image:
+          "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Design System",
+        description: "Comprehensive UI kit",
+        image:
+          "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Wireframing",
+        description: "Low-fidelity prototypes",
+        image:
+          "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    icon: <Search className="w-8 h-8" />,
+    name: "SEO",
+    category: "SEO",
+    portfolioItems: [
+      {
+        name: "SEO Audit",
+        description: "Technical analysis",
+        image:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Keyword Research",
+        description: "Market analysis",
+        image:
+          "https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Content Strategy",
+        description: "SEO-driven content",
+        image:
+          "https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Link Building",
+        description: "Authority building",
+        image:
+          "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Local SEO",
+        description: "Geographic targeting",
+        image:
+          "https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    icon: <Paintbrush className="w-8 h-8" />,
+    name: "Logo Designing",
+    category: "Logo Designing",
+    portfolioItems: [
+      {
+        name: "Brand Identity",
+        description: "Complete brand package",
+        image:
+          "https://images.unsplash.com/photo-1636622433525-127afdf3662d?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Logo Design",
+        description: "Custom logo creation",
+        image:
+          "https://images.unsplash.com/photo-1560157368-946d9c8f7cb6?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Visual Identity",
+        description: "Brand style guide",
+        image:
+          "https://images.unsplash.com/photo-1524383902853-96c857a3c78b?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Logo Animation",
+        description: "Motion graphics",
+        image:
+          "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Brand Guidelines",
+        description: "Usage documentation",
+        image:
+          "https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+].map((service) => ({
+  ...service,
+  portfolioItems: service.portfolioItems || [],
+}));
 
-  const handleDomainClick = (domainId: string) => {
-    setSelectedDomain(selectedDomain === domainId ? null : domainId);
-  };
+function App() {
+  const [selectedService, setSelectedService] = useState<Service>(services[0]);
 
   return (
-    <div className="text-white p-4 md:p-8" id="services">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <div className="w-full">
-            <h1 className="heading">
-              Our <span className="text-red-700">Services</span>
-            </h1>
-            <p className="text-gray-400 text-lg text-center md:mt-10 my-5">
-              Our tech experts come from all backgrounds and specialize in
-              various domains of modern technology.
-            </p>
+    <div className="w-full py-10" id="services">
+      <div className="container mx-auto px-4 py-8">
+        <div className="mb-12 relative">
+          <div className="flex items-center">
+            <h1 className="text-4xl font-bold text-red-700 mb-2">IN OUR</h1>
+            <div className="h-[2px] bg-[#ff3333] flex-grow ml-4"></div>
+          </div>
+          <div className="flex items-center">
+            <h2 className="text-6xl font-bold text-red-700">SERVICES</h2>
+            <div className="h-[2px] bg-[#ff3333] flex-grow ml-4"></div>
           </div>
         </div>
 
-        <div className="relative flex flex-col md:flex-row gap-4">
-          {/* Main Grid */}
-          <div
-            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:w-full`}
-          >
-            {domains.map((domain) => (
-              <div key={domain.id} className="w-full">
-                <div
-                  onClick={() => handleDomainClick(domain.id)}
-                  className={`border border-red-600 rounded-xl p-6 cursor-pointer 
-                    transform transition-all duration-300 
-                    hover:bg-red-700 hover:-translate-y-1 hover:shadow-2xl hover:scale-105
-                    ${
-                      selectedDomain === domain.id ? "ring-2 ring-red-500" : ""
-                    }`}
-                >
-                  <div className="bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    {domain.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{domain.title}</h3>
-                  <div className="flex items-center text-gray-400 hover:bg-red-400">
-                    <span>Learn more</span>
-                    <ChevronRight className="w-4 h-4 ml-1" />
-                  </div>
-                </div>
-
-                {/* Mobile Detail Panel */}
-                {selectedDomain === domain.id && (
-                  <div className="mt-2 p-4 border border-red-600 rounded-lg bg-gray-800 md:hidden transition-all duration-300">
-                    <div className="flex justify-between items-center mb-4">
-                      <h2 className="text-2xl font-bold">{domain.title}</h2>
-                      <button
-                        onClick={() => setSelectedDomain(null)}
-                        className="text-gray-400 hover:text-white"
-                      >
-                        <X className="w-6 h-6" />
-                      </button>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {domain.description.map((item, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-
-                    <a
-                      href="#contact"
-                      className="block mt-4 bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg text-center transition-colors"
-                    >
-                      Contact Now
-                    </a>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop Side Panel */}
-          {selectedDomain && (
-            <div className="hidden md:block md:w-1/3 border border-red-600 rounded-xl p-6 h-fit sticky top-4 transition-all duration-300">
-              <div className="flex justify-between items-start mb-6">
-                <div className="bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center">
-                  {domains.find((d) => d.id === selectedDomain)?.icon}
-                </div>
-                <button
-                  onClick={() => setSelectedDomain(null)}
-                  className="text-gray-400 hover:text-white"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-
-              <h2 className="text-2xl font-bold mb-4">
-                {domains.find((d) => d.id === selectedDomain)?.title}
-              </h2>
-
-              <div className="flex flex-wrap gap-2 mt-2 mb-6">
-                {domains
-                  .find((d) => d.id === selectedDomain)
-                  ?.description.map((item, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-semibold text-red-300 bg-red-500/10 border border-red-400 rounded-full"
-                    >
-                      {item}
-                    </span>
-                  ))}
-              </div>
-              <a
-                href="#contact"
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg transition-colors text-center block"
+        <div className="grid grid-cols-5 gap-4 mb-16">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center cursor-pointer"
+              onClick={() => setSelectedService(service)}
+            >
+              <div
+                className={`bg-[#2a2a2a] p-4  rounded-lg mb-2 transition-colors ${
+                  selectedService.category === service.category
+                    ? "bg-[#ff3333] text-white"
+                    : "hover:bg-[#333333] text-[#ff3333]"
+                }`}
               >
-                Contact Now
-              </a>
+                {service.icon}
+              </div>
+              <span className="text-sm text-center text-white">
+                {service.category}
+              </span>
             </div>
-          )}
+          ))}
+        </div>
+
+        <div className="mb-12 flex justify-end items-center">
+          <div className="h-[2px] bg-[#ff3333] flex-grow mr-4"></div>
+          <div>
+            <h2 className="text-4xl font-bold text-red-700 mb-2 text-right">
+              IN
+            </h2>
+            <h3 className="text-6xl font-bold text-red-700 text-right">
+              SEASON
+            </h3>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {selectedService.portfolioItems.map((item, index) => (
+            <div
+              key={index}
+              className="group relative overflow-hidden rounded-lg bg-[#2a2a2a] p-6 shadow-md transition duration-300 hover:bg-[#333333] hover:shadow-xl"
+            >
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="text-center relative z-10">
+                <h4 className="font-semibold text-white">{item.name}</h4>
+                <p className="text-sm text-red-500">{item.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-export default Services;
+export default App;

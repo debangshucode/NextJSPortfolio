@@ -10,7 +10,7 @@ const Approach = () => {
         Our <span className="text-red-700">approach</span>
       </h1>
       {/* remove bg-white dark:bg-black */}
-      <div className="my-10 flex flex-wrap flex-col md:flex-row lg:flex-row items-center justify-center w-full max-w-screen-xl px-4 md:px-8 gap-10 md:gap-16 lg:gap-20">
+      <div className="my-10 flex flex-wrap flex-col md:flex-row lg:flex-row items-center justify-center w-full  px-4 md:px-8 gap-5 md:gap-16 ">
         {/* add des prop */}
         <StyledWrapper>
           <div className="container noselect">
@@ -151,6 +151,59 @@ const Approach = () => {
                   </div>
                   <div className="subtitle">
                     <span className="highlight">Scale</span>
+                  </div>
+                  <div className="card-particles">
+                    <span />
+                    <span />
+                    <span /> <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="corner-elements">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="scan-line" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </StyledWrapper>
+        <StyledWrapper>
+          <div className="container noselect">
+            <div className="canvas">
+              <div className="tracker tr-1" />
+              <div className="tracker tr-2" />
+              <div className="tracker tr-3" />
+              <div className="tracker tr-4" />
+              <div className="tracker tr-5" />
+              <div className="tracker tr-6" />
+              <div className="tracker tr-7" />
+              <div className="tracker tr-8" />
+              <div className="tracker tr-9" />
+              <div id="card">
+                <div className="card-content">
+                  <div className="card-glare" />
+                  <div className="cyber-lines">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <p id="prompt">
+                    We believe in building long-term relationships with our
+                    clients, which is why we offer exceptional customer service
+                  </p>
+                  <div className="title">Phase 4</div>
+                  <div className="glowing-elements">
+                    <div className="glow-1" />
+                    <div className="glow-2" />
+                    <div className="glow-3" />
+                  </div>
+                  <div className="subtitle">
+                    <span className="highlight">Customer Service</span>
                   </div>
                   <div className="card-particles">
                     <span />
