@@ -11,38 +11,38 @@ function Industries() {
   const industries = [
     {
       title: "Logistics Industry",
-      icon: <Globe2 className="w-12 h-12" />,
+      icon: "/cargo.png",
       description:
         "We helped simplify one of the most complex and challenging processes for a leading logistics company in India and the Middle East.",
-      bg: "logistic.jpg",
+      bg: "inds.png",
     },
     {
       title: "Fintech Industry",
-      icon: <CreditCard className="w-12 h-12" />,
+      icon: "/fintech.png",
       description:
         "We helped prominent banks and high-tech start-ups revolutionize the payment and banking sector in India, Middle-East, and Africa.",
-      bg: "fintech.jpg",
+      bg: "inds.png",
     },
     {
       title: "Liquor Industry",
-      icon: <Wine className="w-12 h-12" />,
+      icon: "/liquor.png",
       description:
         "We digitized the whole sales process and the MIS of leading liquor stores.",
-      bg: "/liqure.jpg",
+      bg: "inds.png",
     },
     {
       title: "Ed-tech Industry",
-      icon: <GraduationCap className="w-12 h-12" />,
+      icon: "/graduation-cap.png",
       description:
         "We made learning fun and intriguing by creating engaging learning formats for an Ed-tech app.",
-      bg: "ed-tech.jpg",
+      bg: "inds.png",
     },
     {
       title: "FMCG Industry",
-      icon: <ShoppingCart className="w-12 h-12" />,
+      icon: "/conveyor-belt.png",
       description:
         "We helped one of the largest retail supermarkets launch their social media presence and take their business to greater heights.",
-      bg: "fmcg.jpg",
+      bg: "inds.png",
     },
   ];
 
@@ -86,8 +86,12 @@ function Industries() {
               {/* Content */}
               <div className="relative z-10 p-8">
                 <div className="bg-black/50 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-500/50 animate-glow">
-                  <div className="text-red-500 drop-shadow-[0_0_10px_rgba(255,0,0,0.8)]">
-                    {industry.icon}
+                  <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/70 shadow-lg">
+                    <img
+                      src={industry.icon}
+                      alt={industry.title}
+                      className="w-12 h-12"
+                    />
                   </div>
                 </div>
 
