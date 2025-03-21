@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 import {
   Globe,
   Smartphone,
@@ -214,8 +216,21 @@ const services: Service[] = [
 }));
 
 function App() {
-  const [selectedService, setSelectedService] = useState<Service>(services[0]);
+  const [selectedService, setSelectedService] = useState(services[0]);
+  const [showPortfolio, setShowPortfolio] = useState(false);
+  const portfolioRef = useRef<HTMLDivElement | null>(null);
 
+  const handleServiceClick = (service: React.SetStateAction<Service>) => {
+    setSelectedService(service);
+    setShowPortfolio(true);
+
+    // Scroll to Portfolio Section on Mobile
+    setTimeout(() => {
+      if (window.innerWidth <= 768 && portfolioRef.current) {
+        portfolioRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300); // Ensure portfolio is rendered before scrolling
+  };
   return (
     <div className="w-full py-10" id="services">
       <div className="container mx-auto px-4 py-8">
@@ -225,14 +240,14 @@ function App() {
             <span className="text-red-700">?</span>
           </h1>
           <p className="text-gray-400 text-lg text-center md:mt-10 my-5">
-            {" "}
             From creating a visually stunning website that reflects your brand
-            identity, to optimizing it for search engines and maximizing online
+            identity to optimizing it for search engines and maximizing online
             visibility through social media, we work closely with you every step
             of the way to ensure your online presence is both effective and
-            engaging.{" "}
+            engaging.
           </p>
         </div>
+        {/* Services Section */}
         <div className="mb-12 relative">
           <div className="flex items-center">
             <h1 className="text-2xl md:text-4xl font-bold text-white mb-2">
@@ -248,12 +263,13 @@ function App() {
           </div>
         </div>
 
+        {/* Service Selection */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
           {services.map((service, index) => (
             <div
               key={index}
               className="flex flex-col items-center cursor-pointer p-4 md:p-6"
-              onClick={() => setSelectedService(service)}
+              onClick={() => handleServiceClick(service)}
             >
               <div
                 className={`bg-[#2a2a2a] p-4 rounded-lg mb-2 transition-colors ${
@@ -271,31 +287,54 @@ function App() {
           ))}
         </div>
 
-        <div className="mb-12 flex justify-end items-center">
-          <div className="h-[2px] bg-[#ff3333] flex-grow mr-4"></div>
-          <div>
-            <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 text-right">
-              IN
-            </h2>
-            <h3 className="text-3xl md:text-6xl font-bold text-red-700 text-right">
-              PORTFOLIO
-            </h3>
-          </div>
-        </div>
+        {/* Portfolio Section */}
+        <div ref={portfolioRef}>
+          <AnimatePresence mode="wait">
+            {showPortfolio && (
+              <motion.div
+                key={selectedService.category} // Ensures re-render animation on service change
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 50 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="mb-12 flex justify-end items-center">
+                  <div className="h-[2px] bg-[#ff3333] flex-grow mr-4"></div>
+                  <div>
+                    <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 text-right">
+                      IN
+                    </h2>
+                    <h3 className="text-3xl md:text-6xl font-bold text-red-700 text-right">
+                      PORTFOLIO
+                    </h3>
+                  </div>
+                </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {selectedService.portfolioItems.map((item, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-lg bg-[#2a2a2a] p-6 shadow-md transition duration-300 hover:bg-[#333333] hover:shadow-xl"
-            >
-              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-              <div className="text-center relative z-10">
-                <h4 className="font-semibold text-white">{item.name}</h4>
-                <p className="text-sm text-red-500">{item.description}</p>
-              </div>
-            </div>
-          ))}
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                  {selectedService?.portfolioItems.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      className="group relative overflow-hidden rounded-lg bg-[#2a2a2a] p-6 shadow-md transition duration-300 hover:bg-[#333333] hover:shadow-xl"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                    >
+                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                      <div className="text-center relative z-10">
+                        <h4 className="font-semibold text-white">
+                          {item.name}
+                        </h4>
+                        <p className="text-sm text-red-500">
+                          {item.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
