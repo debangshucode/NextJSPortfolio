@@ -219,6 +219,20 @@ function App() {
   return (
     <div className="w-full py-10" id="services">
       <div className="container mx-auto px-4 py-8">
+        <div className="text-center mb-8">
+          <h1 className="heading">
+            What <span className="text-red-700">we can</span> do for you{" "}
+            <span className="text-red-700">?</span>
+          </h1>
+          <p className="text-gray-400 text-lg text-center md:mt-10 my-5">
+            {" "}
+            From creating a visually stunning website that reflects your brand
+            identity, to optimizing it for search engines and maximizing online
+            visibility through social media, we work closely with you every step
+            of the way to ensure your online presence is both effective and
+            engaging.{" "}
+          </p>
+        </div>
         <div className="mb-12 relative">
           <div className="flex items-center">
             <h1 className="text-2xl md:text-4xl font-bold text-white mb-2">
@@ -260,7 +274,7 @@ function App() {
         <div className="mb-12 flex justify-end items-center">
           <div className="h-[2px] bg-[#ff3333] flex-grow mr-4"></div>
           <div>
-            <h2 className="text-2xl md:text-4xl font-bold text-red-700 mb-2 text-right">
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 text-right">
               IN
             </h2>
             <h3 className="text-3xl md:text-6xl font-bold text-red-700 text-right">
