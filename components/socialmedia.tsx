@@ -52,6 +52,7 @@ const StyledWrapper = styled.div`
     display: flex;
     height: 70px;
     width: 270px;
+    justify-content: space-between;
   }
 
   .card svg {
