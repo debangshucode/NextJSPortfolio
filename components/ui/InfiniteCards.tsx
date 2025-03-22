@@ -83,42 +83,29 @@ export const InfiniteMovingCards = ({
         {items.map((item, idx) => (
           <li
             key={idx}
-            className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-10 md:w-[60vw] bg-gradient-to-r from-[#1D0404] to-[#230C0D]"
+            className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-10 md:w-[60vw] bg-gradient-to-r from-[#1D0404] to-[#230C0D] flex flex-col items-center"
           >
-            {/* Image Wrapper for Proper Containment */}
-            <div className="relative w-full h-[200px] md:h-[300px] overflow-hidden rounded-lg">
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {/* Quote (Testimonial Text) */}
+            <blockquote className="text-white-200 text-lg md:text-xl italic text-center leading-[1.6]">
+              "{item.des}"
+            </blockquote>
 
-            {/* Content */}
-            <blockquote className="mt-4">
-              <h3 className="text-2xl tracking-wider font-bold text-red-700">
+            {/* Profile Section */}
+            <div className="flex items-center mt-6 gap-4">
+              {/* Round Profile Picture */}
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-red-500 shadow-lg">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Client Name */}
+              <h3 className="text-xl md:text-2xl tracking-wide font-semibold text-red-700">
                 {item.title}
               </h3>
-              <p className="text-white-200 text-sm md:text-lg leading-[1.6]">
-                {item.des}
-              </p>
-
-              {/* Icon List */}
-              <div className="flex justify-center items-center flex-wrap gap-3 mt-4">
-                {item.iconLists.map((icon, index) => (
-                  <img
-                    key={index}
-                    src={icon}
-                    alt="tech icon"
-                    className="w-12 h-12 md:w-14 md:h-14 border-2 border-red-500 p-2 
-                 rounded-full bg-black 
-                 filter drop-shadow-[0_0_15px_rgba(255,0,0,0.8)] 
-                 hover:drop-shadow-[0_0_25px_rgba(255,0,0,1)] 
-                 transition-all duration-300"
-                  />
-                ))}
-              </div>
-            </blockquote>
+            </div>
           </li>
         ))}
       </ul>
