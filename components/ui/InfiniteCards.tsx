@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+
 export const InfiniteMovingCards = ({
   items,
   direction = "left",
@@ -59,7 +60,7 @@ export const InfiniteMovingCards = ({
   const getSpeed = () => {
     if (containerRef.current) {
       const duration =
-        speed === "fast" ? "40s" : speed === "normal" ? "60s" : "100s"; // Slowed down
+        speed === "fast" ? "40s" : speed === "normal" ? "60s" : "100s";
       containerRef.current.style.setProperty("--animation-duration", duration);
     }
   };
@@ -83,29 +84,28 @@ export const InfiniteMovingCards = ({
         {items.map((item, idx) => (
           <li
             key={idx}
-            className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-10 md:w-[60vw] bg-gradient-to-r from-[#1D0404] to-[#230C0D] flex flex-col items-center"
+            className="w-[70vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-4 md:p-6 md:w-[40vw] bg-gradient-to-r from-[#1D0404] to-[#230C0D] flex flex-col items-center text-center"
           >
+            {/* Profile Image at the Top Center */}
+            <div className="w-10 h-10 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-red-500 shadow-lg mb-4">
+              <Image
+                src={item.img}
+                alt={item.title}
+                className="w-full h-full object-cover"
+                width={80}
+                height={80}
+              />
+            </div>
+
+            {/* Client Name */}
+            <h3 className="text-lg md:text-xl tracking-wide font-semibold text-red-700 mb-2">
+              {item.title}
+            </h3>
+
             {/* Quote (Testimonial Text) */}
-            <blockquote className="text-white-200 text-lg md:text-xl italic text-center leading-[1.6]">
+            <blockquote className="text-white-200 text-base md:text-lg italic leading-[1.6]">
               &ldquo;{item.des}&rdquo;
             </blockquote>
-
-            {/* Profile Section */}
-            <div className="flex items-center mt-6 gap-4">
-              {/* Round Profile Picture */}
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-red-500 shadow-lg">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Client Name */}
-              <h3 className="text-xl md:text-2xl tracking-wide font-semibold text-red-700">
-                {item.title}
-              </h3>
-            </div>
           </li>
         ))}
       </ul>

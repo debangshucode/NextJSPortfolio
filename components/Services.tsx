@@ -216,21 +216,32 @@ const services: Service[] = [
 }));
 
 function App() {
-  const [selectedService, setSelectedService] = useState(services[0]);
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [showPortfolio, setShowPortfolio] = useState(false);
   const portfolioRef = useRef<HTMLDivElement | null>(null);
 
-  const handleServiceClick = (service: React.SetStateAction<Service>) => {
-    setSelectedService(service);
-    setShowPortfolio(true);
-
-    // Scroll to Portfolio Section on Mobile
-    setTimeout(() => {
-      if (window.innerWidth <= 768 && portfolioRef.current) {
-        portfolioRef.current.scrollIntoView({ behavior: "smooth" });
+  const handleServiceClick = (service: Service) => {
+    // If the same service is clicked, toggle visibility
+    if (selectedService?.category === service.category) {
+      setShowPortfolio(!showPortfolio);
+      if (!showPortfolio) {
+        setTimeout(() => {
+          if (window.innerWidth <= 768 && portfolioRef.current) {
+            portfolioRef.current.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300);
       }
-    }, 300); // Ensure portfolio is rendered before scrolling
+    } else {
+      setSelectedService(service);
+      setShowPortfolio(true);
+      setTimeout(() => {
+        if (window.innerWidth <= 768 && portfolioRef.current) {
+          portfolioRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
+    }
   };
+
   return (
     <div className="w-full py-10" id="services">
       <div className="container mx-auto px-4 py-8">
@@ -247,6 +258,7 @@ function App() {
             engaging.
           </p>
         </div>
+
         {/* Services Section */}
         <div className="mb-12 relative">
           <div className="flex items-center">
@@ -273,7 +285,8 @@ function App() {
             >
               <div
                 className={`bg-[#2a2a2a] p-4 rounded-lg mb-2 transition-colors ${
-                  selectedService.category === service.category
+                  selectedService?.category === service.category &&
+                  showPortfolio
                     ? "bg-[#ff3333] text-white"
                     : "hover:bg-[#333333] text-[#ff3333]"
                 }`}
@@ -290,9 +303,9 @@ function App() {
         {/* Portfolio Section */}
         <div ref={portfolioRef}>
           <AnimatePresence mode="wait">
-            {showPortfolio && (
+            {showPortfolio && selectedService && (
               <motion.div
-                key={selectedService.category} // Ensures re-render animation on service change
+                key={selectedService.category}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
@@ -310,11 +323,11 @@ function App() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                  {selectedService?.portfolioItems.map((item, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                  {selectedService.portfolioItems.map((item, index) => (
                     <motion.div
                       key={index}
-                      className="group relative overflow-hidden rounded-lg bg-[#2a2a2a] p-6 shadow-md transition duration-300 hover:bg-[#333333] hover:shadow-xl"
+                      className="group relative overflow-hidden rounded-lg bg-[#2a2a2a] p-4 shadow-md transition duration-300 hover:bg-[#333333] hover:shadow-xl"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       whileInView={{ opacity: 1, scale: 1 }}
