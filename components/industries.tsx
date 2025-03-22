@@ -66,41 +66,47 @@ function Industries() {
             <div
               key={index}
               className={`relative group overflow-hidden rounded-2xl border border-neutral-800 transition-all duration-300 
-                          hover:border-neutral-700 ${
+                          hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)]   ${
                             index === 1 || index === 2 ? "md:col-span-2" : ""
                           } ${
                 index === industries.length - 1 ? "lg:col-span-3" : ""
               }`}
             >
-              {/* Background Image with Hover Zoom Effect */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{
-                  backgroundImage: `url(${industry.bg})`,
-                }}
-              />
+              {/* Outer gradient container */}
+              <div className="h-full rounded-2xl p-[1px] bg-transparent transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-red-500 group-hover:to-purple group-hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)]">
+                {/* Inner content container */}
+                <div className="relative h-full rounded-2xl bg-neutral-900 transition-all duration-300 group-hover:scale-[0.98] group-hover:rounded-2xl overflow-hidden">
+                  {/* Background Image with Hover Zoom Effect */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    style={{
+                      backgroundImage: `url(${industry.bg})`,
+                    }}
+                  />
 
-              {/* Dark Overlay with Hover Brightness Effect */}
-              <div className="absolute inset-0 bg-black/70 group-hover:bg-black/40 transition-all duration-500" />
+                  {/* Dark Overlay with Hover Effect */}
+                  <div className="absolute inset-0 bg-black/70 transition-all duration-500" />
 
-              {/* Content */}
-              <div className="relative z-10 p-8">
-                <div className="bg-black/50 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-500/50 animate-glow">
-                  <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/70 shadow-lg">
-                    <img
-                      src={industry.icon}
-                      alt={industry.title}
-                      className="w-12 h-12"
-                    />
+                  {/* Content */}
+                  <div className="relative z-10 p-8">
+                    <div className="bg-black/50 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-500/50 animate-glow">
+                      <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/70 shadow-lg">
+                        <img
+                          src={industry.icon}
+                          alt={industry.title}
+                          className="w-12 h-12"
+                        />
+                      </div>
+                    </div>
+
+                    <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors duration-300">
+                      {industry.title}
+                    </h3>
+                    <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
+                      {industry.description}
+                    </p>
                   </div>
                 </div>
-
-                <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors duration-300">
-                  {industry.title}
-                </h3>
-                <p className="text-white  font-bold text-lg leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-stroke">
-                  {industry.description}
-                </p>
               </div>
             </div>
           ))}

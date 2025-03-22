@@ -304,14 +304,8 @@ function App() {
         <div ref={portfolioRef}>
           <AnimatePresence mode="wait">
             {showPortfolio && selectedService && (
-              <motion.div
-                key={selectedService.category}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="mb-12 flex justify-end items-center">
+              <div>
+                <div className="mb-12 flex justify-end items-center opacity-0 translate-y-10 animate-fadeInUp">
                   <div className="h-[2px] bg-[#ff3333] flex-grow mr-4"></div>
                   <div>
                     <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 text-right">
@@ -325,13 +319,10 @@ function App() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
                   {selectedService.portfolioItems.map((item, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="group relative overflow-hidden rounded-lg bg-[#2a2a2a] p-4 shadow-md transition duration-300 hover:bg-[#333333] hover:shadow-xl"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="group relative overflow-hidden rounded-lg bg-[#2a2a2a] p-4 shadow-md transition duration-500 ease-out transform scale-90 opacity-0 animate-fadeInDelay"
+                      style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                       <div className="text-center relative z-10">
@@ -342,10 +333,10 @@ function App() {
                           {item.description}
                         </p>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             )}
           </AnimatePresence>
         </div>

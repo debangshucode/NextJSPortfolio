@@ -271,7 +271,6 @@ const StyledWrapper = styled.div`
   .form-inp input:focus,
   .form-inp textarea:focus {
     outline: none;
-    border-bottom: 2px solid rgb(234, 224, 227);
   }
 
   #submit-button-cvr {
