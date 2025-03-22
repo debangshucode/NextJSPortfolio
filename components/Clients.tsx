@@ -2,6 +2,7 @@
 
 import React from "react";
 import { companies, testimonials } from "@/data";
+import { InfiniteMovingCards } from "./ui/InfiniteCards";
 import Image from "next/image";
 
 const Clients = () => {
@@ -12,37 +13,26 @@ const Clients = () => {
         <span className="text-red-700"> satisfied clients</span>
       </h1>
 
-      {/* Testimonials Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
-        {testimonials.map((testimonial, index) => (
-          <div
-            key={index}
-            className="p-6 rounded-lg border border-red-700 dark:border-gray-600  
-          shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] 
-                       hover:drop-shadow-[0_0_25px_rgba(255,0,0,1)] 
-                       transition-all duration-300"
-          >
-            <div className="flex items-center mt-4 mb-3">
-              <Image
-                src={testimonial.image}
-                alt={testimonial.name}
-                width={40}
-                height={40}
-                className="rounded-full border border-gray-300 dark:border-gray-600 
-                           filter drop-shadow-[0_0_10px_rgba(255,0,0,0.6)] 
-                           hover:drop-shadow-[0_0_20px_rgba(255,0,0,1)] 
-                           transition-all duration-300"
-              />
-              <h3 className="ml-3 font-semibold text-lg text-red-700">
-                {testimonial.name}
-              </h3>
-            </div>
-            <p className="text-gray-200">{testimonial.quote}</p>
-
-            {/* Image & Name Container */}
-          </div>
-        ))}
-      </div>
+      {/* Testimonials Infinite Moving Cards */}
+      <InfiniteMovingCards
+        items={
+          testimonials.map((testimonial) => ({
+            title: testimonial.name,
+            des: testimonial.quote,
+            img: testimonial.image.src, // Ensure it's a string
+            iconLists: [], // Explicitly define as string[]
+          })) as {
+            title: string;
+            des: string;
+            img: string;
+            iconLists: string[];
+          }[]
+        }
+        direction="left"
+        speed="normal"
+        pauseOnHover={true}
+        className="mt-10"
+      />
 
       {/* Company Logos */}
       <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 mt-10">
@@ -54,8 +44,8 @@ const Clients = () => {
                        transition-all duration-300"
             key={company.id}
           >
-            <img src={company.img} alt={company.name} className="md:w-10 w-5" />
-            <img
+            <Image src={company.img} alt={company.name} className="md:w-10 w-5" />
+            <Image
               src={company.nameImg}
               alt={company.name}
               width={company.id === 4 || company.id === 5 ? 100 : 150}

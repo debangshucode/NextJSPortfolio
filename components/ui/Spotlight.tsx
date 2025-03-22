@@ -1,14 +1,20 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import React from "react";
 
 type SpotlightProps = {
   className?: string;
   fill?: string;
+  animationStarted: boolean;
 };
 
-export const Spotlight = ({ className, fill }: SpotlightProps) => {
+export const Spotlight = ({
+  className,
+  fill,
+  animationStarted,
+}: SpotlightProps) => {
   return (
-    <svg
+    <motion.svg
       className={cn(
         "spotlight pointer-events-none absolute z-[1] h-[100%] w-[90%] lg:w-[84%] opacity-0",
         className
@@ -17,6 +23,9 @@ export const Spotlight = ({ className, fill }: SpotlightProps) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3787 2842"
       fill="none"
+      initial={{ opacity: 0, scale: 0.85 }}
+      animate={animationStarted ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
     >
       <g>
         <ellipse
@@ -29,6 +38,6 @@ export const Spotlight = ({ className, fill }: SpotlightProps) => {
           fillOpacity="0.21"
         ></ellipse>
       </g>
-    </svg>
+    </motion.svg>
   );
 };

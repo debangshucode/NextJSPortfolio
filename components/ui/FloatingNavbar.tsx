@@ -65,14 +65,14 @@ export const FloatingNav = ({
 
   return (
     <AnimatePresence mode="wait">
-      <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 md:left-4 md:transform-none lg:left-4 z-20">
+      <div className="absolute top-[-4.5rem] md:top-[-4.5rem] lg:top-[-1.5rem] left-1/2 transform -translate-x-1/2 md:left-4 md:transform-none lg:left-4 z-20">
         <Link href="/">
           <img
             src="/SystemR_logo.png"
             alt="Logo"
             width="136"
             height="136"
-            className="w-[8.5rem] h-[8.5rem] md:w-[12rem] md:h-[12rem] cursor-pointer"
+            className="w-[14.5rem] h-[12.5rem] md:w-[12rem] md:h-[12rem] cursor-pointer md:mb-2"
             loading="lazy" // Ensures efficient loading
           />
         </Link>
@@ -92,7 +92,7 @@ export const FloatingNav = ({
             onClick={() => handleNavigation(navItem.link)}
             className="text-sm cursor-pointer dark:text-neutral-50 hover:text-neutral-500 transition-all duration-300 
                bg-transparent rounded-md xl:px-4 px-0
-               hover:bg-red-500 hover:text-white 
+               hover:bg-red-500 text-white 
                hover:shadow-[0_0_15px_#ff0000]"
           >
             {navItem.name}
