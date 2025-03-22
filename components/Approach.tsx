@@ -239,11 +239,6 @@ const StyledWrapper = styled.div`
     transition: 200ms;
   }
 
-  .container:active {
-    width: 180px;
-    height: 245px;
-  }
-
   #card {
     position: absolute;
     inset: 0;
