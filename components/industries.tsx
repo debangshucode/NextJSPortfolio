@@ -61,16 +61,22 @@ function Industries() {
         </div>
 
         {/* Staggered Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {industries.map((industry, index) => (
             <div
               key={index}
               className={`relative group overflow-hidden rounded-2xl border border-neutral-800 transition-all duration-300 
-                          hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)]   ${
-                            index === 1 || index === 2 ? "md:col-span-2" : ""
-                          } ${
-                index === industries.length - 1 ? "lg:col-span-3" : ""
-              }`}
+              hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)] w-full h-[285px] mx-auto
+              ${
+                index === 0 ? "md:col-span-1 lg:col-span-1" : ""
+              } /* First element small */
+              ${
+                index === 1 ? "md:col-span-1 lg:col-span-2" : ""
+              } /* Second element large (only on lg) */
+              ${
+                index > 1 ? "md:col-span-1 lg:col-span-1" : ""
+              } /* Second row (even on md) */
+              `}
             >
               {/* Outer gradient container */}
               <div className="h-full rounded-2xl p-[1px] bg-transparent transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-red-500 group-hover:to-purple group-hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)]">
@@ -99,7 +105,7 @@ function Industries() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors duration-300">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors duration-300">
                       {industry.title}
                     </h3>
                     <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
