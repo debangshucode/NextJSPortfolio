@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
-
+import Image from "next/image";
 export const InfiniteMovingCards = ({
   items,
   direction = "left",
@@ -87,14 +87,14 @@ export const InfiniteMovingCards = ({
           >
             {/* Quote (Testimonial Text) */}
             <blockquote className="text-white-200 text-lg md:text-xl italic text-center leading-[1.6]">
-              "{item.des}"
+              &ldquo;{item.des}&rdquo;
             </blockquote>
 
             {/* Profile Section */}
             <div className="flex items-center mt-6 gap-4">
               {/* Round Profile Picture */}
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-red-500 shadow-lg">
-                <img
+                <Image
                   src={item.img}
                   alt={item.title}
                   className="w-full h-full object-cover"
