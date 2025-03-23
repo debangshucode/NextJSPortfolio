@@ -8,7 +8,7 @@ const Socialmedia = () => {
       <div className="card">
         <a
           className="social-link1"
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/sy_stem.r/"
           target="_blank"
         >
           <svg
@@ -21,7 +21,11 @@ const Socialmedia = () => {
           </svg>
         </a>
 
-        <a className="social-link2">
+        <a
+          className="social-link2"
+          href="https://www.linkedin.com/company/systemr"
+          target="_blank"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -32,7 +36,11 @@ const Socialmedia = () => {
           </svg>{" "}
         </a>
 
-        <a className="social-link4">
+        <a
+          className="social-link4"
+          href="https://www.facebook.com/share/1F9UYfvGGb/"
+          target="_blank"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
