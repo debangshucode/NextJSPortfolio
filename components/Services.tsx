@@ -220,26 +220,29 @@ function App() {
   const [showPortfolio, setShowPortfolio] = useState(false);
   const portfolioRef = useRef<HTMLDivElement | null>(null);
 
+  const [animationKey, setAnimationKey] = useState(0); // 🔥 New state to trigger animation reset
+
   const handleServiceClick = (service: Service) => {
-    // If the same service is clicked, toggle visibility
     if (selectedService?.category === service.category) {
       setShowPortfolio(!showPortfolio);
-      if (!showPortfolio) {
-        setTimeout(() => {
-          if (window.innerWidth <= 768 && portfolioRef.current) {
-            portfolioRef.current.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 300);
-      }
     } else {
-      setSelectedService(service);
-      setShowPortfolio(true);
+      // 🔥 Reset selection first to force re-animation
+      setSelectedService(null);
+      setShowPortfolio(false);
+
       setTimeout(() => {
-        if (window.innerWidth <= 768 && portfolioRef.current) {
-          portfolioRef.current.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 300);
+        setSelectedService(service);
+        setShowPortfolio(true);
+        setAnimationKey((prev) => prev + 1); // 🔥 Change animation key to re-trigger animation
+      }, 100); // Short delay to ensure the component resets before re-rendering
     }
+
+    // 🔽 Scroll into view after portfolio shows
+    setTimeout(() => {
+      if (window.innerWidth <= 768 && portfolioRef.current) {
+        portfolioRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 400);
   };
 
   return (
@@ -260,7 +263,7 @@ function App() {
         </div>
 
         {/* Services Section */}
-        <div className="mb-12 relative">
+        <div className="mb-10 relative">
           <div className="flex items-center">
             <h1 className="text-2xl md:text-4xl font-bold text-white mb-2">
               IN OUR
@@ -276,7 +279,7 @@ function App() {
         </div>
 
         {/* Service Selection */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-5">
           {services.map((service, index) => (
             <div
               key={index}

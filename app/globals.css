@@ -93,6 +93,22 @@
 
   filter: blur(10px);
 }
+.industry-border {
+  border: 0px;
+  border-image: linear-gradient(45deg, #ff6b6b, #6e0398);
+  border-image-slice: 1;
+  overflow: hidden;
+  border-radius: 16px;
+  transition: border 0.3s ease;
+}
+
+/* Hover Effect */
+.group:hover .industry-border {
+  border: 4px solid;
+  border-image: linear-gradient(45deg, #6e0398, #ff6b6b);
+  border-image-slice: 1;
+  border-radius: 16px;
+}
 
 @keyframes fadeInUp {
   from {

@@ -61,12 +61,12 @@ function Industries() {
         </div>
 
         {/* Staggered Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 gap-4">
           {industries.map((industry, index) => (
             <div
               key={index}
-              className={`relative group overflow-hidden rounded-2xl border border-neutral-800 transition-all duration-300 
-              hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)] w-full h-[285px] mx-auto
+              className={`relative group overflow-hidden rounded-2xl border boder-natural-700 transition-all   duration-300  
+              hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)] w-full h-[285px] mx-auto 
               ${
                 index === 0 ? "md:col-span-1 lg:col-span-1" : ""
               } /* First element small */
@@ -79,39 +79,39 @@ function Industries() {
               `}
             >
               {/* Outer gradient container */}
-              <div className="h-full rounded-2xl p-[1px] bg-transparent transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-red-500 group-hover:to-purple group-hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)]">
-                {/* Inner content container */}
-                <div className="relative h-full rounded-2xl bg-neutral-900 transition-all duration-300 group-hover:scale-[0.98] group-hover:rounded-2xl overflow-hidden">
-                  {/* Background Image with Hover Zoom Effect */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    style={{
-                      backgroundImage: `url(${industry.bg})`,
-                    }}
-                  />
 
-                  {/* Dark Overlay with Hover Effect */}
-                  <div className="absolute inset-0 bg-black/70 transition-all duration-500" />
+              {/* Inner content container */}
+              <div className="industry-border relative h-full rounded-2xl transition-all duration-300 overflow-hidden">
+                {/* Background Image with Hover Zoom Effect */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center rounded-2xl transition-transform duration-500"
+                  style={{
+                    backgroundImage: `url(${industry.bg})`,
+                    borderRadius: "16px",
+                  }}
+                />
 
-                  {/* Content */}
-                  <div className="relative z-10 p-8">
-                    <div className="bg-black/50 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-500/50 animate-glow">
-                      <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/70 shadow-lg">
-                        <img
-                          src={industry.icon}
-                          alt={industry.title}
-                          className="w-12 h-12"
-                        />
-                      </div>
+                {/* Dark Overlay with Hover Effect */}
+                <div className="absolute inset-0 bg-black/70 transition-all duration-500 rounded-2xl" />
+
+                {/* Content */}
+                <div className="rounded-2xl relative  z-10 p-8">
+                  <div className="bg-black/50 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-500/50 animate-glow">
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/70 shadow-lg">
+                      <img
+                        src={industry.icon}
+                        alt={industry.title}
+                        className="w-12 h-12"
+                      />
                     </div>
-
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors duration-300">
-                      {industry.title}
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
-                      {industry.description}
-                    </p>
                   </div>
+
+                  <h3 className="text-xl rounded-2xl font-bold mb-2 group-hover:text-white transition-colors duration-300">
+                    {industry.title}
+                  </h3>
+                  <p className="text-gray-300 rounded-2xl leading-relaxed group-hover:text-white transition-colors duration-300">
+                    {industry.description}
+                  </p>
                 </div>
               </div>
             </div>
