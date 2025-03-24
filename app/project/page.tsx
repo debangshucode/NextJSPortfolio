@@ -31,7 +31,7 @@ function Project() {
   const industries: Industry[] = [
     {
       id: "fintech",
-      title: "Fintech Industry",
+      title: "Web & Ecommerce Development",
       icon: <CreditCard className="w-12 h-12" />,
       description: "Revolutionary solutions for the financial sector",
       projects: [
@@ -52,7 +52,7 @@ function Project() {
     },
     {
       id: "food",
-      title: "Food Industry",
+      title: "App Development",
       icon: <ChefHat className="w-12 h-12" />,
       description: "Digital solutions for restaurants and food services",
       projects: [
@@ -66,7 +66,7 @@ function Project() {
     },
     {
       id: "edtech",
-      title: "Ed-tech Industry",
+      title: "UI/UX Designing",
       icon: <GraduationCap className="w-12 h-12" />,
       description: "Innovative educational technology solutions",
       projects: [
@@ -75,20 +75,6 @@ function Project() {
           description: "Comprehensive platform for online education",
           imageUrl:
             "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=800",
-        },
-      ],
-    },
-    {
-      id: "realestate",
-      title: "Real Estate Industry",
-      icon: <Building2 className="w-12 h-12" />,
-      description: "Digital solutions for property management",
-      projects: [
-        {
-          title: "Property Management Platform",
-          description: "All-in-one solution for real estate operations",
-          imageUrl:
-            "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
         },
       ],
     },

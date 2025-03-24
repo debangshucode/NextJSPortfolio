@@ -142,45 +142,31 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Working with SystemR was a game-changer for our business. Their expertise in web development helped us create a seamless digital experience. Highly recommended!",
-    name: "Sarah Thompson",
+      "Systemr transformed our vision into reality with a seamless and efficient web platform. Their attention to detail and commitment to quality are outstanding!",
+    name: "Sarah M.",
     image: logo1,
-    title: "CEO of InnovateTech",
+    title: "⭐⭐⭐⭐⭐ 1. Exceptional Performance!",
   },
   {
     quote:
-      "The team at SystemR exceeded our expectations. Their dedication, technical prowess, and attention to detail made our project a success. Looking forward to future collaborations!",
-    name: "James Carter",
+      "Working with Systemr was a game-changer for our business. The team is highly skilled, responsive, and delivers on time. Highly recommend!",
+    name: "James L.",
     image: logo2,
-    title: "Founder of Carter Solutions",
+    title: "⭐⭐⭐⭐⭐ 2. Reliable & Professional",
   },
   {
     quote:
-      "SystemR delivered a high-quality software solution on time and within budget. Their communication and problem-solving skills truly set them apart in the industry.",
-    name: "Emma Roberts",
+      "Systemr helped us build a scalable and high-performing app. Their expertise in modern tech stacks is truly impressive!",
+    name: "Priya S.",
     image: logo3,
-    title: "Product Manager at Nexa Corp",
+    title: "⭐⭐⭐⭐⭐ 3. Cutting-Edge Solutions",
   },
   {
     quote:
-      "SystemR’s innovative approach and technical expertise helped us scale our platform effortlessly. Their team is professional, responsive, and results-driven.",
-    name: "David Wilson",
+      "From start to finish, Systemr provided top-notch service and ongoing support. Their dedication to client satisfaction is unmatched!",
+    name: "David R.",
     image: logo1,
-    title: "CTO of BrightWave Technologies",
-  },
-  {
-    quote:
-      "From concept to execution, SystemR provided outstanding service. Their commitment to quality and efficiency made our collaboration seamless and successful.",
-    name: "Laura Mitchell",
-    image: logo1,
-    title: "Operations Head at TechVista",
-  },
-  {
-    quote:
-      "From concept to execution, SystemR provided outstanding service. Their commitment to quality and efficiency made our collaboration seamless and successful.",
-    name: "Laura Mitchell",
-    image: logo1,
-    title: "Operations Head at TechVista",
+    title: "⭐⭐⭐⭐⭐ 4. Great Support & Service",
   },
 ];
 

@@ -61,30 +61,24 @@ function Industries() {
         </div>
 
         {/* Staggered Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {industries.map((industry, index) => (
             <div
               key={index}
-              className={`relative group overflow-hidden rounded-2xl border boder-natural-700 transition-all   duration-300  
-              hover:shadow-[0_0_30px_1px_rgba(220,38,38,0.5)] w-full h-[285px] mx-auto 
-              ${
-                index === 0 ? "md:col-span-1 lg:col-span-1" : ""
-              } /* First element small */
-              ${
-                index === 1 ? "md:col-span-1 lg:col-span-2" : ""
-              } /* Second element large (only on lg) */
-              ${
-                index > 1 ? "md:col-span-1 lg:col-span-1" : ""
-              } /* Second row (even on md) */
-              `}
+              className={`relative group overflow-hidden rounded-2xl border border-neutral-700 transition-all duration-300 w-full h-[285px] mx-auto 
+              bg-gradient-to-r from-transparent via-transparent to-transparent
+              hover:bg-gradient-to-r hover:from-red-600 hover:via-violet-600 hover:to-red-600
+              hover:shadow-[0_0_30px_rgba(220,38,38,0.3),0_0_30px_rgba(139,92,246,0.3)]
+              p-[2px]
+              ${index === 0 ? "md:col-span-1 lg:col-span-1" : ""} 
+              ${index === 1 ? "md:col-span-1 lg:col-span-2" : ""} 
+              ${index > 1 ? "md:col-span-1 lg:col-span-1" : ""}`}
             >
-              {/* Outer gradient container */}
-
               {/* Inner content container */}
-              <div className="industry-border relative h-full rounded-2xl transition-all duration-300 overflow-hidden">
+              <div className="relative h-full w-full rounded-2xl transition-all duration-300 overflow-hidden bg-black">
                 {/* Background Image with Hover Zoom Effect */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center rounded-2xl transition-transform duration-500"
+                  className="absolute inset-0 bg-cover bg-center rounded-2xl transition-transform duration-500 group-hover:scale-110"
                   style={{
                     backgroundImage: `url(${industry.bg})`,
                     borderRadius: "16px",
@@ -92,11 +86,11 @@ function Industries() {
                 />
 
                 {/* Dark Overlay with Hover Effect */}
-                <div className="absolute inset-0 bg-black/70 transition-all duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-black/70 transition-opacity duration-500 rounded-2xl group-hover:bg-black/60" />
 
                 {/* Content */}
-                <div className="rounded-2xl relative  z-10 p-8">
-                  <div className="bg-black/50 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-500/50 animate-glow">
+                <div className="rounded-2xl relative z-10 p-8">
+                  <div className="bg-black/50 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-500/50 group-hover:shadow-violet-500/50 transition-all duration-300">
                     <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/70 shadow-lg">
                       <img
                         src={industry.icon}
@@ -106,10 +100,10 @@ function Industries() {
                     </div>
                   </div>
 
-                  <h3 className="text-xl rounded-2xl font-bold mb-2 group-hover:text-white transition-colors duration-300">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors duration-300">
                     {industry.title}
                   </h3>
-                  <p className="text-gray-300 rounded-2xl leading-relaxed group-hover:text-white transition-colors duration-300">
+                  <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
                     {industry.description}
                   </p>
                 </div>

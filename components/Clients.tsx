@@ -18,6 +18,7 @@ const Clients = () => {
         items={
           testimonials.map((testimonial) => ({
             title: testimonial.name,
+            star: testimonial.title,
             des: testimonial.quote,
             img: testimonial.image.src, // Ensure it's a string
             iconLists: [], // Explicitly define as string[]
@@ -25,6 +26,7 @@ const Clients = () => {
             title: string;
             des: string;
             img: string;
+            star: string;
             iconLists: string[];
           }[]
         }
