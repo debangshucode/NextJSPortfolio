@@ -23,9 +23,9 @@ export const Spotlight = ({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3787 2842"
       fill="none"
-      initial={{ opacity: 0, scale: 0.85 }}
-      animate={animationStarted ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={animationStarted ? { opacity: 1, scale: 1.05 } : {}}
+      transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
     >
       <g>
         <ellipse
