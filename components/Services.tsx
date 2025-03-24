@@ -7,8 +7,9 @@ import {
   Palette,
   Search,
   Paintbrush,
-  Wine,
-  Lightbulb,
+  BarChart,
+  CheckCircle,
+  Shield,
 } from "lucide-react";
 
 type PortfolioItem = {
@@ -207,6 +208,171 @@ const services: Service[] = [
         description: "Usage documentation",
         image:
           "https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    icon: <BarChart className="w-8 h-8" />,
+    name: "Power BI",
+    category: "Power BI",
+    portfolioItems: [
+      {
+        name: "Sales Analysis",
+        description: "Track and visualize sales trends",
+        image:
+          "https://images.unsplash.com/photo-1581091226825-1f407c022245?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Energy Consumption Analysis",
+        description: "Monitor energy usage patterns",
+        image:
+          "https://images.unsplash.com/photo-1556741533-6e7f7e4a1cb9?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Customer Churn Analysis",
+        description: "Identify at-risk customers",
+        image:
+          "https://images.unsplash.com/photo-1568149879488-9562c6f6ca57?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Financial Performance Analysis",
+        description: "Assess business profitability",
+        image:
+          "https://images.unsplash.com/photo-1618220179428-b4bce1f5efb3?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Marketing Campaign Insights",
+        description: "Measure campaign success",
+        image:
+          "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Anomaly Detection in Credit Card Transactions",
+        description: "Detect fraudulent activities",
+        image:
+          "https://images.unsplash.com/photo-1511203466129-b4111293a0ec?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Healthcare Sales Analysis",
+        description: "Track healthcare product sales",
+        image:
+          "https://images.unsplash.com/photo-1530026405186-ed1f139313a1?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Inventory Management Dashboard",
+        description: "Optimize stock levels",
+        image:
+          "https://images.unsplash.com/photo-1580934150686-c9665d92b23f?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Life Expectancy Data Analysis",
+        description: "Analyze global health trends",
+        image:
+          "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    icon: <CheckCircle className="w-8 h-8" />,
+    name: "Quality Assurance (QA)",
+    category: "QA",
+    portfolioItems: [
+      {
+        name: "Functional Testing",
+        description: "Ensure software functionality",
+        image:
+          "https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Compatibility Testing",
+        description: "Cross-device compatibility",
+        image:
+          "https://images.unsplash.com/photo-1516632664305-eda5a0172445?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Localization Testing",
+        description: "Adapt products for global users",
+        image:
+          "https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Performance Testing",
+        description: "Measure system responsiveness",
+        image:
+          "https://images.unsplash.com/photo-1576104599384-33e04e90d9d7?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Usability Testing",
+        description: "Enhance user experience",
+        image:
+          "https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Accessibility Testing",
+        description: "Make products inclusive",
+        image:
+          "https://images.unsplash.com/photo-1560816119-78b592318fa5?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Security Testing",
+        description: "Identify vulnerabilities",
+        image:
+          "https://images.unsplash.com/photo-1556767576-6e5b54c361d9?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    icon: <Shield className="w-8 h-8" />,
+    name: "Cyber Security",
+    category: "Cyber Security",
+    portfolioItems: [
+      {
+        name: "Network Security",
+        description: "Protect network infrastructure",
+        image:
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Cloud Security",
+        description: "Secure cloud environments",
+        image:
+          "https://images.unsplash.com/photo-1524749292158-7540c2494485?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Mobile Security",
+        description: "Protect mobile devices",
+        image:
+          "https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "IoT Security",
+        description: "Safeguard smart devices",
+        image:
+          "https://images.unsplash.com/photo-1612036789756-5e8a35d8b80f?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Application Security",
+        description: "Secure web and mobile apps",
+        image:
+          "https://images.unsplash.com/photo-1601233740525-8d290d2a4ab4?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Zero Trust",
+        description: "Implement Zero Trust models",
+        image:
+          "https://images.unsplash.com/photo-1591291491442-4963b30b14ed?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Penetration Testing",
+        description: "Identify system weaknesses",
+        image:
+          "https://images.unsplash.com/photo-1536323760109-ca8c07450053?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        name: "Managed Security Services",
+        description: "24/7 security monitoring",
+        image:
+          "https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&q=80&w=800",
       },
     ],
   },
