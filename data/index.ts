@@ -15,7 +15,7 @@ import logo13 from "@/public/logo13.png";
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Services", link: "#services" },
-  { name: "Projects", link: "/project" },
+  { name: "Portfolio", link: "/project" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ];
@@ -77,7 +77,7 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to start a project together?",
+    title: "Scalable & Secure Development ",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",

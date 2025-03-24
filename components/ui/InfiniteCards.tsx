@@ -106,7 +106,7 @@ export const InfiniteMovingCards = ({
               {item.star}
             </h2>
             {/* Quote (Testimonial Text) */}
-            <blockquote className="text-white-200 text-base md:text-lg italic leading-[1.6]">
+            <blockquote className="text-white-200 text-base md:text-lg  leading-[1.6]">
               &ldquo;{item.des}&rdquo;
             </blockquote>
           </li>

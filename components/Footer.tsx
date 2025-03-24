@@ -34,11 +34,11 @@ const Footer = () => {
       </div>
 
       {/* Contact Form Section */}
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-5">
         <ContactUS />
       </div>
 
-      <div className="flex mt-16 md:flex-row flex-col gap-4 justify-between items-center">
+      <div className="flex mt-5 md:flex-row flex-col gap-4 justify-between items-center">
         <div className="flex items-center md:gap-3 gap-6">
           <Socialmedia />
         </div>

@@ -405,7 +405,7 @@ function App() {
 
     // 🔽 Scroll into view after portfolio shows
     setTimeout(() => {
-      if (window.innerWidth <= 768 && portfolioRef.current) {
+      if (portfolioRef.current) {
         portfolioRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }, 400);

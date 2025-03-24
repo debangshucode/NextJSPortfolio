@@ -306,7 +306,7 @@ const StyledWrapper = styled.div`
 
     .contact-container {
       padding: 1rem;
-      gap: 3rem;
+      gap: 0;
     }
 
     #form {
