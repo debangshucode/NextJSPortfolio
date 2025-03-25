@@ -4,7 +4,7 @@ import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
-import GridGlobe from "./GridGlobe";
+import { TerminalDemo } from "./terminalDemo";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 
@@ -71,7 +71,7 @@ export const BentoGridItem = ({
       )}
       style={{
         background:
-          "linear-gradient(90deg, rgba(29, 4, 4, 0.8), rgba(35, 12, 12, 0.8))",
+          "linear-gradient(90deg,rgba(203, 45, 45, 0.53), rgba(35, 12, 12, 0.8))",
 
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -112,6 +112,7 @@ export const BentoGridItem = ({
           </BackgroundGradientAnimation>
         )}
         {/* GitHub Globe */}
+        {id === 1 && <TerminalDemo />}
 
         {/* Tech Stack List */}
         {id === 3 && (
