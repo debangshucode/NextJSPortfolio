@@ -2,41 +2,25 @@
 
 import React from "react";
 import { companies, testimonials } from "@/data";
-import { InfiniteMovingCards } from "./ui/InfiniteCards";
 import Image from "next/image";
+import TestimonialCard from "./ui/TestimonialCard";
 
 const Clients = () => {
   return (
     <section id="testimonials" className="py-10 px-4">
-      <h1 className="heading">
+      <h1 className="heading text-center">
         Kind words from
         <span className="text-red-700"> satisfied clients</span>
       </h1>
 
-      {/* Testimonials Infinite Moving Cards */}
-      <InfiniteMovingCards
-        items={
-          testimonials.map((testimonial) => ({
-            title: testimonial.name,
-            star: testimonial.star,
-            sdesc : testimonial.title,
-            des: testimonial.quote,
-            img: testimonial.image.src, // Ensure it's a string
-            iconLists: [], // Explicitly define as string[]
-          })) as {
-            title: string;
-            des: string;
-            img: string;
-            star: string;
-            sdesc: string;
-            iconLists: string[];
-          }[]
-        }
-        direction="left"
-        speed="normal"
-        pauseOnHover={true}
-        className="mt-10"
-      />
+      {/* Testimonials Grid */}
+      <div className="flex justify-center w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8  mx-auto justify-items-center">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} />
+          ))}
+        </div>
+      </div>
 
       {/* Company Logos */}
       <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 mt-10">

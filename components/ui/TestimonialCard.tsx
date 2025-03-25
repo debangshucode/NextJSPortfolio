@@ -1,0 +1,39 @@
+import Image, { StaticImageData } from "next/image";
+
+interface TestimonialCardProps {
+  quote: string;
+  name: string;
+  image: StaticImageData;
+  star: string;
+  title: string;
+}
+
+const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  quote,
+  name,
+  image,
+  star,
+  title,
+}) => {
+  return (
+    <div className="bg-[#0d0d0d] text-white p-6 rounded-2xl border border-gray-700 shadow-lg w-[300px]">
+      <div className="flex items-center gap-4 mb-4">
+        <Image
+          src={image}
+          alt={name}
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+        <div>
+          <h3 className="text-lg font-semibold">{name}</h3>
+          <p className="text-yellow-400 text-sm">{star}</p>
+        </div>
+      </div>
+      <h4 className="text-md font-bold text-red-500 mb-2">{title}</h4>
+      <p className="text-gray-300 text-sm">{quote}</p>
+    </div>
+  );
+};
+
+export default TestimonialCard;
