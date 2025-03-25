@@ -24,7 +24,7 @@ const Hero = () => {
   return (
     <div className="pb-10 pt-36 relative">
       {/* Spotlight Effects */}
-      <Meteors number={60} className="absolute inset-0" />
+      <Meteors number={30} className="absolute inset-0" />
 
       {/* Main Content */}
       <div className="flex justify-center relative z-10">
