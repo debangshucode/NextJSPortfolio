@@ -16,7 +16,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   title,
 }) => {
   return (
-    <div className="bg-[#0d0d0d] text-white p-6 rounded-2xl border border-gray-700 shadow-lg w-[300px]">
+    <div
+      className="bg-[#0d0d0d] text-white p-6 rounded-2xl border border-gray-700 shadow-lg w-[300px]  hover:shadow-[0_4px_20px_rgba(203,45,45,0.7)] transition-all duration-300"
+      style={{
+        background:
+          "radial-gradient(circle, rgba(203, 45, 45, 0.2) 10%, rgba(0, 0, 0, 0.8) 90%)",
+      }}
+    >
       <div className="flex items-center gap-4 mb-4">
         <Image
           src={image}

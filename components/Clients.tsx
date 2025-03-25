@@ -15,7 +15,7 @@ const Clients = () => {
 
       {/* Testimonials Grid */}
       <div className="flex justify-center w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8  mx-auto justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 p-4  mx-auto justify-items-center">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} />
           ))}

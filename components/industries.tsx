@@ -47,7 +47,7 @@ function Industries() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white py-5 px-4" id="industries">
+    <div className=" bg-black text-white py-5 px-4" id="industries">
       <div className="max-w-7xl mx-auto">
         {/* Heading Section */}
         <div className="text-center mb-16">
