@@ -7,6 +7,7 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { counterData } from "@/data";
 
+import { Meteors } from "./ui/meteors";
 const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
 
 const Hero = () => {
@@ -23,21 +24,7 @@ const Hero = () => {
   return (
     <div className="pb-10 pt-36 relative">
       {/* Spotlight Effects */}
-      <Spotlight
-        className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-        fill="white"
-        animationStarted={animationStarted}
-      />
-      <Spotlight
-        className="h-[80vh] w-[50vw] top-10 left-full"
-        fill="purple"
-        animationStarted={animationStarted}
-      />
-      <Spotlight
-        className="left-80 top-28 h-[80vh] w-[50vw]"
-        fill="red"
-        animationStarted={animationStarted}
-      />
+      <Meteors number={60} className="absolute inset-0" />
 
       {/* Main Content */}
       <div className="flex justify-center relative z-10">
