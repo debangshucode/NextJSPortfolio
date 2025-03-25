@@ -490,10 +490,14 @@ function App() {
                   {selectedService.portfolioItems.map((item, index) => (
                     <div
                       key={index}
-                      className="group relative overflow-hidden rounded-lg bg-[#2a2a2a] p-4 shadow-md transition duration-500 ease-out transform scale-90 opacity-0 animate-fadeInDelay"
-                      style={{ animationDelay: `${index * 0.1}s` }}
+                      className="group relative overflow-hidden rounded-lg border border-white/[0.1] p-4 shadow-md transition duration-500 ease-out transform scale-90 opacity-0 animate-fadeInDelay hover:shadow-[0_4px_20px_rgba(203,45,45,0.7)] "
+                      style={{
+                        background:
+                          "radial-gradient(circle, rgba(203, 45, 45, 0.2) 10%, rgba(0, 0, 0, 0.8) 90%)",
+                        animationDelay: `${index * 0.1}s`,
+                      }}
                     >
-                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-white opacity-0  transition-opacity duration-300"></div>
                       <div className="text-center relative z-10">
                         <h4 className="font-semibold text-white">
                           {item.name}

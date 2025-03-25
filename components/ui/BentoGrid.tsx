@@ -71,7 +71,7 @@ export const BentoGridItem = ({
       )}
       style={{
         background:
-          "linear-gradient(90deg,rgba(203, 45, 45, 0.53), rgba(35, 12, 12, 0.8))",
+          "radial-gradient(circle, rgba(203, 45, 45, 0.2) 10%, rgba(0, 0, 0, 0.8) 90%)",
 
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -82,7 +82,7 @@ export const BentoGridItem = ({
       <div
         className={cn(
           titleClassName,
-          "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
+          "group-hover/bento:scale-105 transition transform duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
         )}
       >
         {img && (
