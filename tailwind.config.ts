@@ -98,7 +98,11 @@ const config = {
         },
         meteor: {
           "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
-          "70%": { opacity: "1" },
+          "50%": {
+            opacity: "1",
+            transform: "rotate(215deg) translateX(-500px)",
+          },
+          "80%": { opacity: "0.5" },
           "100%": {
             transform: "rotate(215deg) translateX(-1000px)",
             opacity: "0",
