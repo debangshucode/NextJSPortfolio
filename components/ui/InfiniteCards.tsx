@@ -13,6 +13,7 @@ export const InfiniteMovingCards = ({
 }: {
   items: {
     star: string;
+    sdesc: string;
     title: string;
     des: string;
     img: string;
@@ -102,13 +103,16 @@ export const InfiniteMovingCards = ({
             <h3 className="text-lg md:text-xl tracking-wide font-semibold text-red-700 mb-2">
               {item.title}
             </h3>
-            <h2 className="text-lg md:text-xl tracking-wide font-semibold text-red-700 mb-2">
-              {item.star}
-            </h2>
+            <h4 className="text-lg md:text-xl tracking-wide font-semibold text-red-700 mb-2">
+              {item.sdesc}
+            </h4>
             {/* Quote (Testimonial Text) */}
             <blockquote className="text-white-200 text-base md:text-lg  leading-[1.6]">
               &ldquo;{item.des}&rdquo;
             </blockquote>
+            <h4 className="text-lg md:text-xl tracking-wide font-semibold text-red-700 mb-2">
+              {item.star}
+            </h4>
           </li>
         ))}
       </ul>
