@@ -112,7 +112,6 @@ export const BentoGridItem = ({
           </BackgroundGradientAnimation>
         )}
         {/* GitHub Globe */}
-        {id === 1 && <GridGlobe />}
 
         {/* Tech Stack List */}
         {id === 3 && (
