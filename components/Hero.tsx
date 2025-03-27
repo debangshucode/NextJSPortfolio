@@ -34,11 +34,10 @@ const Hero = () => {
           </p>
 
           {/* Text Animation */}
-          <TextGenerateEffect
-            words="Transforming Ideas Into Seamless Digital Experiences"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            animationStarted={animationStarted}
-          />
+          <h1 className="text-center mb-5 text-[40px] md:text-5xl lg:text-6xl font-bold">
+            Transforming Ideas Into{" "}
+            <span className="text-red-700">Digital Experiences</span>
+          </h1>
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             System<span className="text-red-500">R</span> – Delivering

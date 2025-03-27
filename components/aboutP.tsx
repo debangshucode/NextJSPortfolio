@@ -21,9 +21,9 @@ function AboutP() {
               <BoxReveal>
                 <p className="text-xl">
                   <span className="text-2xl font-semibold">H</span>ello there!
-                  We're a team of passionate full-stack developers specializing
-                  in creating engaging and responsive websites tailored for
-                  businesses and individuals.
+                  We&aposre a team of passionate full-stack developers
+                  specializing in creating engaging and responsive websites
+                  tailored for businesses and individuals.
                 </p>
               </BoxReveal>
 
@@ -56,7 +56,7 @@ function AboutP() {
               <BoxReveal>
                 <p className="text-gray-300">
                   Beyond coding, we focus on adaptability, communication, and
-                  organization to provide top-notch services. Whether it's
+                  organization to provide top-notch services. Whether it&aposs
                   development, **SEO**, or performance optimization, we ensure
                   your project stands out.
                 </p>
@@ -64,9 +64,9 @@ function AboutP() {
 
               <BoxReveal>
                 <p className="text-gray-300">
-                  Let's collaborate to bring your vision to life with **clean,
-                  efficient code**, ensuring a smooth and consistent experience
-                  across all devices. Get in touch today!
+                  Let&aposs collaborate to bring your vision to life with
+                  **clean, efficient code**, ensuring a smooth and consistent
+                  experience across all devices. Get in touch today!
                 </p>
               </BoxReveal>
             </div>
