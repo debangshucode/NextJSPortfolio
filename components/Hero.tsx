@@ -6,7 +6,7 @@ import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { counterData } from "@/data";
-
+import { motion } from "framer-motion";
 import { Meteors } from "./ui/meteors";
 const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
 
@@ -37,8 +37,16 @@ const Hero = () => {
           <TextGenerateEffect
             words="Transforming Ideas Into Seamless Digital Experiences"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            animationStarted={animationStarted}
+            // animationStarted={animationStarted}
           />
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+          >
+            Transforming Ideas Into Seamless Digital Experiences
+          </motion.div> */}
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             System<span className="text-red-500">R</span> – Delivering

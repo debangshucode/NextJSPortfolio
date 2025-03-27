@@ -4,4 +4,4 @@ const nextConfig = {
   trailingSlash: true, // Ensures proper routing for static files
 };
 
-export default nextConfig; // ✅ Use "export default" instead of "module.exports"
+export default nextConfig; // Use "export default" instead of "module.exports"
