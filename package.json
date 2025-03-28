@@ -33,6 +33,7 @@
     "react-icons": "^5.0.1",
     "react-intersection-observer": "^9.15.1",
     "react-lottie": "^1.2.4",
+    "react-phone-input-2": "^2.15.1",
     "sharp": "^0.33.5",
     "styled-components": "^6.1.15",
     "tailwind-merge": "^2.2.2",

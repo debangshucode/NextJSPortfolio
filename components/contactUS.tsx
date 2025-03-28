@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const ContactUS = () => {
   const [formData, setFormData] = useState({
@@ -12,10 +14,27 @@ const ContactUS = () => {
 
   const [isSent, setIsSent] = useState(false);
 
+  const [charCount, setCharCount] = useState(0);
+  const maxChars = 300;
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "message") {
+      if (value.length > maxChars) return; // Prevent typing beyond 300 characters
+      setCharCount(value.length);
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handlePhoneChange = (value: any) => {
+    setFormData({ ...formData, phone: value });
   };
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
@@ -78,7 +97,7 @@ const ContactUS = () => {
                     required
                   />
                 </div>
-                <div className="form-inp">
+                {/* <div className="form-inp">
                   <input
                     name="phone"
                     placeholder="Phone Number"
@@ -86,6 +105,38 @@ const ContactUS = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
+                  />
+                </div> */}
+                <div className="form-inp phone-input">
+                  <PhoneInput
+                    country="in"
+                    value={formData.phone}
+                    onChange={handlePhoneChange}
+                    inputStyle={{
+                      width: "100%",
+                      background: "transparent",
+                      color: "white",
+                      border: "none",
+                      fontSize: "2.2vw",
+                      paddingLeft: "4rem",
+                    }}
+                    buttonStyle={{
+                      border: "2px solid #FFD700",
+                      background: "transparent",
+                      borderRadius: "5px",
+                      padding: "0.4rem",
+                      marginRight: "0.8rem",
+                      maxWidth: "50px",
+                    }}
+                    containerStyle={{
+                      display: "flex",
+                      alignItems: "center",
+                      width: "100%",
+                    }}
+                    dropdownStyle={{
+                      border: "none",
+                      background: "#333",
+                    }}
                   />
                 </div>
                 <div className="form-inp">
@@ -107,6 +158,9 @@ const ContactUS = () => {
                     onChange={handleChange}
                     required
                   ></textarea>
+                  <p style={{ color: charCount === maxChars ? "red" : "gray" }}>
+                    {charCount}/{maxChars} characters
+                  </p>
                 </div>
               </div>
               <div id="submit-button-cvr">
@@ -133,6 +187,26 @@ const StyledWrapper = styled.div`
   justify-content: center;
   background-color: #000;
   padding: 2rem 0;
+
+  .phone-input {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .phone-input .react-tel-input {
+    width: 100%;
+  }
+
+  .phone-input .react-tel-input .flag-dropdown {
+    background: transparent;
+    border: none;
+  }
+
+  .phone-input .react-tel-input .selected-flag {
+    padding: 5px;
+  }
 
   .contact-container {
     display: grid;
