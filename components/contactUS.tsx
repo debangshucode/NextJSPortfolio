@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
 import PhoneInput from "react-phone-input-2";
@@ -12,19 +12,37 @@ const ContactUS = () => {
     message: "",
   });
 
-  const [isSent, setIsSent] = useState(false);
+  const [errors, setErrors] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
 
+  const [isSent, setIsSent] = useState(false);
   const [charCount, setCharCount] = useState(0);
   const maxChars = 300;
+  const [phone, setPhone] = useState("+91"); // Default country code (India)
+  const validateName = (name: string): boolean => /^[A-Za-z\s]+$/.test(name);
+  const validateEmail = (email: string): boolean =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validatePhone = (phone: string): boolean => /^\d{10,15}$/.test(phone); // Adjust length as needed
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
 
     if (name === "message") {
       if (value.length > maxChars) return; // Prevent typing beyond 300 characters
       setCharCount(value.length);
+    }
+
+    // Capitalize first letter of each word in "name" field
+    if (name === "name") {
+      value = value
+        .toLowerCase()
+        .replace(/\b\w/g, (char) => char.toUpperCase());
     }
 
     setFormData((prev) => ({
@@ -33,30 +51,61 @@ const ContactUS = () => {
     }));
   };
 
-  const handlePhoneChange = (value: any) => {
-    setFormData({ ...formData, phone: value });
+  const handlePhoneChange = (value: string, country: any) => {
+    const countryCode = `+${country.dialCode}`;
+
+    // Prevent the user from deleting the country code
+    if (!value.startsWith(countryCode)) {
+      value = countryCode; // Reset to the correct country code
+    }
+
+    setPhone(value);
+    setFormData((prev) => ({ ...prev, phone: value }));
   };
+
+  // 🔥 Prevent Backspace/Delete on Country Code
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const input = e.currentTarget;
+    const cursorPosition = input.selectionStart || 0; // Cursor position
+
+    // Disable Backspace/Delete when inside the country code
+    if (
+      (e.key === "Backspace" || e.key === "Delete") &&
+      cursorPosition <= phone.length
+    ) {
+      e.preventDefault();
+    }
+  };
+
+  const isFormValid =
+    formData.name &&
+    formData.email &&
+    formData.phone &&
+    formData.message.length >= 10 &&
+    !Object.values(errors).some((error) => error);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isFormValid) return;
 
     emailjs
       .send(
-        "service_lnzeqr8", // Replace with your EmailJS Service ID
-        "template_v074snk", // Replace with your EmailJS Template ID
+        "service_lnzeqr8",
+        "template_v074snk",
         {
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
           message: formData.message,
         },
-        "-FmMuHY6GM5lEStfv" // Replace with your EmailJS Public Key
+        "-FmMuHY6GM5lEStfv"
       )
       .then(
         (response) => {
           console.log("Email sent successfully!", response);
           setIsSent(true);
           setFormData({ name: "", phone: "", email: "", message: "" });
+          setCharCount(0);
         },
         (error) => {
           console.log("Email sending failed:", error);
@@ -67,18 +116,15 @@ const ContactUS = () => {
   return (
     <StyledWrapper>
       <div className="contact-container">
-        {/* Left Side Content */}
         <div className="content-section">
           <h1>Get in Touch</h1>
-          <h2>Let&apos;s Start a Conversation</h2>
+          <h2>Let's Start a Conversation</h2>
           <p>
             Whether you have a question about our services, need a custom
-            solution, or just want to say hello, we&apos;re here to help. Our
-            team is ready to assist you and provide the support you need.
+            solution, or just want to say hello, we&apos;re here to help.
           </p>
         </div>
 
-        {/* Right Side Form */}
         <div id="form-ui">
           <form id="form" onSubmit={sendEmail}>
             <div id="form-body">
@@ -86,6 +132,7 @@ const ContactUS = () => {
                 <div id="welcome-line-1">Contact Us</div>
                 <div id="welcome-line-2">We&apos;d love to hear from you!</div>
               </div>
+
               <div id="input-area">
                 <div className="form-inp">
                   <input
@@ -96,22 +143,19 @@ const ContactUS = () => {
                     onChange={handleChange}
                     required
                   />
+                  {errors.name && <p className="error">{errors.name}</p>}
                 </div>
-                {/* <div className="form-inp">
-                  <input
-                    name="phone"
-                    placeholder="Phone Number"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                  />
-                </div> */}
+
                 <div className="form-inp phone-input">
                   <PhoneInput
                     country="in"
-                    value={formData.phone}
+                    value={phone}
                     onChange={handlePhoneChange}
+                    inputProps={{
+                      required: true,
+                      autoComplete: "off",
+                      onKeyDown: handleKeyDown, // Attach keydown event
+                    }}
                     inputStyle={{
                       width: "100%",
                       background: "transparent",
@@ -138,7 +182,9 @@ const ContactUS = () => {
                       background: "#333",
                     }}
                   />
+                  {errors.phone && <p className="error">{errors.phone}</p>}
                 </div>
+
                 <div className="form-inp">
                   <input
                     name="email"
@@ -148,7 +194,9 @@ const ContactUS = () => {
                     onChange={handleChange}
                     required
                   />
+                  {errors.email && <p className="error">{errors.email}</p>}
                 </div>
+
                 <div className="form-inp">
                   <textarea
                     name="message"
@@ -161,13 +209,20 @@ const ContactUS = () => {
                   <p style={{ color: charCount === maxChars ? "red" : "gray" }}>
                     {charCount}/{maxChars} characters
                   </p>
+                  {errors.message && <p className="error">{errors.message}</p>}
                 </div>
               </div>
+
               <div id="submit-button-cvr">
-                <button id="submit-button" type="submit">
+                <button
+                  id="submit-button"
+                  type="submit"
+                  disabled={!isFormValid}
+                >
                   Send Message
                 </button>
               </div>
+
               {isSent && (
                 <p style={{ color: "white", marginTop: "10px" }}>
                   Message Sent Successfully!
@@ -199,13 +254,46 @@ const StyledWrapper = styled.div`
     width: 100%;
   }
 
-  .phone-input .react-tel-input .flag-dropdown {
-    background: transparent;
-    border: none;
+  .phone-input .react-tel-input .flag-dropdown.open {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .phone-input .react-tel-input .selected-flag {
     padding: 5px;
+    background: transparent !important;
+  }
+
+  .phone-input .react-tel-input .country-list {
+    background: #222 !important; /* Dark background */
+    border-radius: 8px !important;
+    border: 1px solid #ffd700 !important; /* Golden border */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .phone-input .react-tel-input .country-list .country {
+    color: white !important;
+    padding: 10px !important;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .phone-input .react-tel-input .country-list .country:hover {
+    background: #444 !important;
+  }
+
+  .phone-input .react-tel-input .selected-flag:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .phone-input .react-tel-input .country-list {
+    overflow-y: auto !important;
+    scrollbar-width: none !important; /* For Firefox */
+    -ms-overflow-style: none !important; /* For Internet Explorer & Edge */
+  }
+
+  .phone-input .react-tel-input .country-list::-webkit-scrollbar {
+    display: none !important;
   }
 
   .contact-container {

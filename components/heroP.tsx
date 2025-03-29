@@ -1,47 +1,14 @@
 import React from "react";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { BoxReveal } from "./ui/BoxReveal";
-import AboutP from "@/components/aboutP";
 
 function HeroP() {
   return (
-    <div className=" flex flex-row bg-black text-white p-8">
+    <div className=" bg-black text-white p-8">
       {/* Navigation */}
-      <nav className="flex justify-between items-center mb-32">
-        {/* <div className="flex gap-6">
-          <a
-            href="https://linkedin.com"
-            className="hover:text-red-500 transition-colors"
-          >
-            <Linkedin size={24} />
-          </a>
-          <a
-            href="https://github.com"
-            className="hover:text-red-500 transition-colors"
-          >
-            <Github size={24} />
-          </a>
-          <a
-            href="https://wa.me"
-            className="hover:text-red-500 transition-colors"
-          >
-            <Mail size={24} />
-          </a>
-          <a
-            href="#"
-            className="text-white hover:text-red-500 transition-colors"
-          >
-            EN
-          </a>
-        </div> */}
-        {/* <button className="flex items-center gap-2 bg-transparent hover:bg-red-500 text-white px-4 py-2 rounded-lg border border-red-500 transition-all">
-          <span>CV</span>
-          <Download size={16} />
-        </button> */}
-      </nav>
 
       {/* Main Content */}
-      <div className="max-w-3xl">
+      <div className="max-w-3xl mt-32">
         <BoxReveal boxColor="#ef4444" duration={0.5}>
           <h1 className="text-7xl font-bold mb-8">
             SystemR<span className="text-red-500">.</span>
@@ -79,9 +46,6 @@ function HeroP() {
             Contact
           </button>
         </BoxReveal>
-      </div>
-      <div>
-        <AboutP />
       </div>
 
       {/* Background Pattern */}

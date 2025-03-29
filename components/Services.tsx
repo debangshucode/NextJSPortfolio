@@ -11,7 +11,6 @@ import {
   CheckCircle,
   Shield,
 } from "lucide-react";
-import FeatureGrids from "./FeatureGrids";
 
 type PortfolioItem = {
   name: string;
@@ -515,7 +514,6 @@ function App() {
           </AnimatePresence>
         </div>
       </div>
-      <FeatureGrids />
     </div>
   );
 }

@@ -54,11 +54,12 @@ const Hero = () => {
             technologies.
           </p>
 
-          <div className="flex items-center justify-between w-full px-8">
-            <div className="absolute left-0 top-[16.5rem]">
+          <div className="flex xl:flex-col flex-row items-center justify-center  w-full px-8">
+            <div className="relative md:static my-2 xl:mt-0 xl:absolute left-0 top-[16.5rem]">
               <PerformanceCard />
             </div>
           </div>
+
           <a href="#contact">
             <MagicButton
               title="Get in Touch"

@@ -4,14 +4,14 @@ import { BoxReveal } from "./ui/BoxReveal";
 
 function AboutP() {
   return (
-    <div className="bg-black text-white p-8">
-      <div className="max-w-5xl mx-auto ">
+    <div className="bg-black text-white p-8 mt-32">
+      <div className=" mx-auto ">
         <BoxReveal>
           <div className="mb-10 flex items-center gap-4">
             <h1 className="text-6xl font-bold">
               About<span className="text-red-500">.</span>
             </h1>
-            <div className="w-[40rem] h-1 bg-gray-500"></div>
+            <div className="w-[30rem] h-1 bg-gray-500"></div>
           </div>
         </BoxReveal>
 
@@ -27,7 +27,7 @@ function AboutP() {
                 </p>
               </BoxReveal>
 
-              <BoxReveal>
+              {/* <BoxReveal>
                 <p className="text-gray-300">
                   We specialize in **user-centered design**, crafting visually
                   striking interfaces that enhance both usability and
@@ -51,7 +51,7 @@ function AboutP() {
                   Copilot, and Midjourney**, ensuring efficient development and
                   innovative solutions tailored to your needs.
                 </p>
-              </BoxReveal>
+              </BoxReveal> */}
 
               <BoxReveal>
                 <p className="text-gray-300">
@@ -71,14 +71,14 @@ function AboutP() {
               </BoxReveal>
             </div>
 
-            <div className="w-[75rem] space-y-8">
+            <div className="w-[50rem] space-y-8">
               <BoxReveal>
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <Plus className="text-red-500" />
                     <h2 className="text-xl font-semibold">Stack</h2>
                   </div>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-2 gap-2">
                     {[
                       "React",
                       "Next.js",
@@ -86,15 +86,8 @@ function AboutP() {
                       "TypeScript",
                       "Redux",
                       "Tailwind",
-                      "shadcn/ui",
                       "Bootstrap",
                       "Node.js",
-                      "Express",
-                      "MongoDB",
-                      "PostgreSQL",
-                      "Firebase",
-                      "GraphQL",
-                      "Vercel",
                     ].map((tech) => (
                       <span
                         key={tech}
@@ -121,14 +114,8 @@ function AboutP() {
                       "SEO",
                       "Figma",
                       "Photoshop",
-                      "ChatGPT",
-                      "Dall-E",
-                      "Midjourney",
                       "Git Copilot",
                       "React Native",
-                      "Expo",
-                      "Cloudflare",
-                      "Astro",
                     ].map((tool) => (
                       <span
                         key={tool}
