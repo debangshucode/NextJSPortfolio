@@ -63,7 +63,7 @@ export default function ProjectP() {
       {/* Title */}
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-5xl font-extrabold relative inline-block">
-          Projects<span className="text-purple-500">.</span>
+          Projects<span className="text-purple-500"></span>
         </h2>
         <div className="w-full h-px bg-gray-600 mt-3"></div>
       </div>

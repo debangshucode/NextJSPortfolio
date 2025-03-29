@@ -1,10 +1,11 @@
 import React from "react";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { BoxReveal } from "./ui/BoxReveal";
+import AboutP from "@/components/aboutP";
 
 function HeroP() {
   return (
-    <div className=" bg-black text-white p-8">
+    <div className=" flex flex-row bg-black text-white p-8">
       {/* Navigation */}
       <nav className="flex justify-between items-center mb-32">
         {/* <div className="flex gap-6">
@@ -79,15 +80,18 @@ function HeroP() {
           </button>
         </BoxReveal>
       </div>
+      <div>
+        <AboutP />
+      </div>
 
       {/* Background Pattern */}
-      <div className="fixed top-[100px] right-0 w-1/2 h-[75%] pointer-events-none">
+      {/* <div className="fixed top-[100px] right-0 w-1/2 h-[75%] pointer-events-none">
         <div className="w-full h-full grid grid-cols-12 gap-4 opacity-20">
           {Array.from({ length: 180 }).map((_, i) => (
             <div key={i} className="w-2 h-2 bg-gray-700 rounded-full"></div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
