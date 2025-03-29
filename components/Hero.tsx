@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import { counterData } from "@/data";
-import { motion } from "framer-motion";
 import { Meteors } from "./ui/meteors";
+import { counterData } from "@/data";
+import PerformanceCard from "./ui/PerformanceCard";
+
 const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
 
 const Hero = () => {
@@ -23,7 +22,7 @@ const Hero = () => {
 
   return (
     <div className="pb-10 pt-36 relative">
-      {/* Spotlight Effects */}
+      {/* Background Effects */}
       <Meteors number={30} className="absolute inset-0" />
 
       {/* Main Content */}
@@ -34,12 +33,6 @@ const Hero = () => {
           </p>
 
           {/* Text Animation */}
-          {/* <TextGenerateEffect
-            words="Transforming Ideas Into Seamless Digital Experiences"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            // animationStarted={animationStarted}
-          /> */}
-          {/* Text Animation */}
           <h1 className="text-center mb-5 text-[40px] md:text-5xl lg:text-6xl font-bold">
             Transforming Ideas Into{" "}
             <span className="text-red-700">Digital Experiences</span>
@@ -47,17 +40,23 @@ const Hero = () => {
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             System<span className="text-red-500">R</span> – Delivering{" "}
-            Delivering cutting-edge IT solutions with Next.js and modern web
-            technologies.
+            cutting-edge IT solutions with Next.js and modern web technologies.
           </p>
 
-          <a href="#contact">
-            <MagicButton
-              title="Get in Touch"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
+          {/* Button & Performance Card (Aligned in Laptop View) */}
+          <div className="w-full flex flex-col md:flex-row items-center md:justify-start gap-6 mt-6">
+            <PerformanceCard />
+            {/* Magic Button */}
+            <a href="#contact">
+              <MagicButton
+                title="Get in Touch"
+                icon={<FaLocationArrow />}
+                position="right"
+              />
+            </a>
+
+            {/* Performance Card (Aligned in Row for Laptops) */}
+          </div>
 
           {/* Counter Data (For Large Screens) */}
           <div className="hidden xl:flex absolute top-1/2 right-[-130px] transform -translate-y-1/2 flex-col gap-4">
