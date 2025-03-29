@@ -98,10 +98,10 @@ function IndustryCard({
   const colors = industryColors[title];
 
   return (
-    <div className="relative group">
+    <div className="relative group h-full">
       {/* Glowing border effect */}
       <div
-        className={`absolute -inset-0.5 bg-gradient-to-r ${colors.borderColor} rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300`}
+        className={`absolute -inset-0.5 bg-gradient-to-r ${colors.borderColor} rounded-2xl blur opacity-100 `}
       />
 
       {/* Card content */}
@@ -148,9 +148,28 @@ function Industries() {
   return (
     <div className="min-h-screen bg-black py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {industries.map((industry) => (
-            <IndustryCard key={industry.title} {...industry} />
+        <div className="text-center mb-16">
+          <h1 className="heading">
+            Industries <span className="text-red-700">We Touched With</span>
+          </h1>
+          <p className="text-gray-400 text-lg text-center md:mt-10 my-5">
+            We have worked with a diverse range of industries and helped them
+            grow their business with our cutting-edge solutions.
+          </p>
+        </div>
+        {/* Grid Layout Applied */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {industries.map((industry, index) => (
+            <div
+              key={index}
+              className={`relative group overflow-hidden rounded-2xl border border-neutral-700 transition-all duration-300  mx-auto
+              p-[2px]
+              ${index === 0 ? "md:col-span-1 lg:col-span-1" : ""} 
+              ${index === 1 ? "md:col-span-1 lg:col-span-2" : ""} 
+              ${index > 1 ? "md:col-span-1 lg:col-span-1" : ""}`}
+            >
+              <IndustryCard {...industry} />
+            </div>
           ))}
         </div>
       </div>

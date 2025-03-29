@@ -89,7 +89,7 @@ export const BentoGridItem = ({
           <img
             src={img}
             alt="Main Image"
-            className="absolute  object-cover w-full h-full object-center opacity-60"
+            className="absolute  object-cover w-full h-full object-center opacity-60  top-0 left-0 "
           />
         )}
         <div className="font-sans w-1/2 font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">

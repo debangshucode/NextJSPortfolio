@@ -43,8 +43,8 @@ const config = {
         },
         purple: "#9878D1",
         red: {
-          500: "#ef4444",
-          600: "#dc2626",
+          500: "#b91c1c",
+          600: "#b91c1c",
           700: "#b91c1c",
         },
         border: "hsl(var(--border))",

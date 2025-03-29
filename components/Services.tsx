@@ -445,11 +445,11 @@ function App() {
         </div>
 
         {/* Service Selection */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-5">
+        <div className="flex flex-wrap justify-center">
           {services.map((service, index) => (
             <div
               key={index}
-              className="flex flex-col items-center cursor-pointer p-4 md:p-6"
+              className="flex flex-col items-center flex-1 cursor-pointer p-4 md:p-6"
               onClick={() => handleServiceClick(service)}
             >
               <div
@@ -462,7 +462,7 @@ function App() {
               >
                 {service.icon}
               </div>
-              <span className="text-sm text-center text-white">
+              <span className="whitespace-normal break-words text-sm text-center text-white">
                 {service.category}
               </span>
             </div>
@@ -474,7 +474,7 @@ function App() {
           <AnimatePresence mode="wait">
             {showPortfolio && selectedService && (
               <div>
-                <div className="mb-12 flex justify-end items-center opacity-0 translate-y-10 animate-fadeInUp">
+                <div className="mb-10 flex justify-end items-center opacity-0 translate-y-10 animate-fadeInUp">
                   <div className="h-[2px] bg-[#ff3333] flex-grow mr-4"></div>
                   <div>
                     <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 text-right">

@@ -58,8 +58,8 @@ const Socialmedia = () => {
 const StyledWrapper = styled.div`
   .card {
     display: flex;
-    height: 70px;
-    width: 270px;
+    height: 40px;
+    width: 250px;
     justify-content: center;
   }
 
@@ -68,7 +68,7 @@ const StyledWrapper = styled.div`
     display: flex;
     width: 60%;
     height: 100%;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     opacity: 1;
     transition: opacity 0.25s;
@@ -84,9 +84,9 @@ const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 20%;
     color: whitesmoke;
-    font-size: 24px;
+    font-size: 18px;
     text-decoration: none;
     transition: 0.25s;
     border-radius: 50px;

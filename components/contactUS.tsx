@@ -161,7 +161,7 @@ const ContactUS = () => {
                       background: "transparent",
                       color: "white",
                       border: "none",
-                      fontSize: "2.2vw",
+                      fontSize: "1.2rem",
                       paddingLeft: "4rem",
                     }}
                     buttonStyle={{

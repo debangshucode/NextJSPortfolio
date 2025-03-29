@@ -39,12 +39,12 @@ const Footer = () => {
       </div>
 
       <div className="flex mt-5 md:flex-row flex-col gap-4 justify-between items-center">
-        <div className="flex items-center md:gap-3 gap-6">
-          <Socialmedia />
-        </div>
         <p className="md:text-base text-sm md:font-normal font-light">
           Created by DreamGuys
         </p>
+        <div className="flex items-center md:gap-3 gap-6">
+          <Socialmedia />
+        </div>
       </div>
     </footer>
   );

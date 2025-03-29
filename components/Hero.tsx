@@ -55,7 +55,7 @@ const Hero = () => {
           </p>
 
           <div className="flex xl:flex-col flex-row items-center justify-center  w-full px-8">
-            <div className="relative md:static my-2 xl:mt-0 xl:absolute left-0 top-[16.5rem]">
+            <div className="  my-2 mt-0 xl: absolute top-[16.5rem] left-[-75px]">
               <PerformanceCard />
             </div>
           </div>

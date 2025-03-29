@@ -70,64 +70,6 @@ function AboutP() {
                 </p>
               </BoxReveal>
             </div>
-
-            <div className="w-[50rem] space-y-8">
-              <BoxReveal>
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Plus className="text-red-500" />
-                    <h2 className="text-xl font-semibold">Stack</h2>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      "React",
-                      "Next.js",
-                      "JavaScript",
-                      "TypeScript",
-                      "Redux",
-                      "Tailwind",
-                      "Bootstrap",
-                      "Node.js",
-                    ].map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-zinc-900 rounded-md text-sm text-gray-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </BoxReveal>
-
-              <BoxReveal>
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Plus className="text-red-500" />
-                    <h2 className="text-xl font-semibold">Tools</h2>
-                  </div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {[
-                      "Git",
-                      "GitHub",
-                      "Copywriting",
-                      "SEO",
-                      "Figma",
-                      "Photoshop",
-                      "Git Copilot",
-                      "React Native",
-                    ].map((tool) => (
-                      <span
-                        key={tool}
-                        className="px-3 py-1 bg-zinc-900 rounded-md text-sm text-gray-300"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </BoxReveal>
-            </div>
           </div>
         </div>
       </div>

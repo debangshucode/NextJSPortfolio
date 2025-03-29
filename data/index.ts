@@ -38,7 +38,7 @@ export const gridItems = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
-    img: "/b1.jpg",
+    img: "/clients_about.jpeg",
     spareImg: "/grid.svg",
   },
   {
@@ -50,7 +50,7 @@ export const gridItems = [
     imgClassName: "",
     titleClassName: "justify-center",
     img: "",
-    spareImg: "",
+    spareImg: "/grid.svg",
   },
   {
     id: 4,

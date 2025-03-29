@@ -18,7 +18,7 @@ const Grid = () => {
           </p>
         </div>
       </div>
-      <BentoGrid className="w-full py-2 xl:py-20 ">
+      <BentoGrid className="w-full py-2 xl:py-5">
         {gridItems.map((item, i) => (
           <BentoGridItem
             id={item.id}
