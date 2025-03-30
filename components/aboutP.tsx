@@ -4,14 +4,14 @@ import { BoxReveal } from "./ui/BoxReveal";
 
 function AboutP() {
   return (
-    <div className="bg-black text-white p-8 mt-32">
+    <div className="bg-black text-white p-8 mt-5 md:mt-32">
       <div className=" mx-auto ">
         <BoxReveal>
           <div className="mb-10 flex items-center gap-4">
             <h1 className="text-6xl font-bold">
               About<span className="text-red-500">.</span>
             </h1>
-            <div className="w-[30rem] h-1 bg-gray-500"></div>
+            <div className="w-[8rem]  h-1 bg-gray-500 xl:w-[30rem]"></div>
           </div>
         </BoxReveal>
 
