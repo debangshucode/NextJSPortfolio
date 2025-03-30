@@ -15,7 +15,7 @@ import logo13 from "@/public/logo13.png";
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Services", link: "#services" },
-  { name: "Portfolio", link: "/project" },
+  { name: "Portfolio", link: "/portfolio" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ];

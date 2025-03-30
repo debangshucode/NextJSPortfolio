@@ -154,18 +154,19 @@ const ContactUS = () => {
                     inputProps={{
                       required: true,
                       autoComplete: "off",
-                      onKeyDown: handleKeyDown, // Attach keydown event
+                      onKeyDown: handleKeyDown,
+                      placeholder: phone ? "" : "Enter your number", // Attach keydown event
                     }}
                     inputStyle={{
                       width: "100%",
                       background: "transparent",
-                      color: "white",
+                      color: "#f4f3f3 ",
                       border: "none",
-                      fontSize: "1.2rem",
+                      fontSize: "1rem",
                       paddingLeft: "4rem",
                     }}
                     buttonStyle={{
-                      border: "2px solid #FFD700",
+                      border: "none",
                       background: "transparent",
                       borderRadius: "5px",
                       padding: "0.4rem",
@@ -181,6 +182,7 @@ const ContactUS = () => {
                       border: "none",
                       background: "#333",
                     }}
+                    placeholder="Enter your phone number"
                   />
                   {errors.phone && <p className="error">{errors.phone}</p>}
                 </div>
@@ -243,6 +245,11 @@ const StyledWrapper = styled.div`
   background-color: #000;
   padding: 2rem 0;
 
+  .react-tel-input .form-control::placeholder {
+    color: #ccc !important;
+    opacity: 1;
+  }
+
   .phone-input {
     display: flex;
     align-items: center;
@@ -268,7 +275,7 @@ const StyledWrapper = styled.div`
   .phone-input .react-tel-input .country-list {
     background: #222 !important; /* Dark background */
     border-radius: 8px !important;
-    border: 1px solid #ffd700 !important; /* Golden border */
+
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
   }
 

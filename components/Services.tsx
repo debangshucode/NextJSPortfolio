@@ -32,6 +32,12 @@ const services: Service[] = [
     category: "Web & Ecommerce Development",
     portfolioItems: [
       {
+        name: "Web Development",
+        description: "Custom websites and applications",
+        image:
+          "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800",
+      },
+      {
         name: "E-commerce Platform",
         description: "Full-featured online store",
         image:

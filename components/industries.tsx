@@ -50,38 +50,38 @@ const industryColors: Record<
   }
 > = {
   "Logistics Industry": {
-    borderColor: "from-pink-500/50 to-pink-500/0",
+    borderColor: "from-pink-500/80 to-pink-500/10",
     iconColor: "text-pink-500",
-    dotColor: "rgba(236, 72, 153, 0.5)",
-    gradientFrom: "rgba(236, 72, 153, 0.7)",
+    dotColor: "rgba(234, 12, 160, 0.9)",
+    gradientFrom: "rgba(233, 16, 139, 0.92)",
     gradientTo: "transparent",
   },
   "Fintech Industry": {
-    borderColor: "from-purple/50 to-purple/0",
+    borderColor: "from-purple/80 to-purple/10",
     iconColor: "text-purple-500",
-    dotColor: "rgba(168, 85, 247, 0.5)",
-    gradientFrom: "rgba(168, 85, 247, 0.7)",
+    dotColor: "rgba(156, 12, 239, 0.9)",
+    gradientFrom: "rgba(128, 11, 237, 0.93)",
     gradientTo: "transparent",
   },
   "Liquor Industry": {
-    borderColor: "from-blue-500/50 to-blue-500/0",
+    borderColor: "from-blue-500/80 to-blue-500/10",
     iconColor: "text-blue-500",
-    dotColor: "rgba(59, 130, 246, 0.5)",
-    gradientFrom: "rgba(59, 130, 246, 0.7)",
+    dotColor: "rgba(11, 100, 245, 0.94)",
+    gradientFrom: "rgba(12, 99, 240, 0.96)",
     gradientTo: "transparent",
   },
   "Ed-tech Industry": {
-    borderColor: "from-emerald-500/50 to-emerald-500/0",
+    borderColor: "from-emerald-500/80 to-emerald-500/10",
     iconColor: "text-emerald-500",
-    dotColor: "rgba(16, 185, 129, 0.5)",
-    gradientFrom: "rgba(16, 185, 129, 0.7)",
+    dotColor: "rgba(31, 221, 25, 0.79)",
+    gradientFrom: "rgba(21, 214, 40, 0.84)",
     gradientTo: "transparent",
   },
   "FMCG Industry": {
-    borderColor: "from-amber-500/50 to-amber-500/0",
+    borderColor: "from-amber-500/80 to-amber-500/10",
     iconColor: "text-amber-500",
-    dotColor: "rgba(245, 158, 11, 0.5)",
-    gradientFrom: "rgba(245, 158, 11, 0.7)",
+    dotColor: "rgba(245, 202, 11, 0.8)",
+    gradientFrom: "rgba(245, 198, 11, 0.83)",
     gradientTo: "transparent",
   },
 };
@@ -111,8 +111,8 @@ function IndustryCard({
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              radial-gradient(${colors.dotColor} 1.5px, transparent 1.5px),
-              radial-gradient(${colors.dotColor} 1.5px, transparent 1.5px)
+              radial-gradient(${colors.dotColor} 3px, transparent 3px),
+              radial-gradient(${colors.dotColor} 3px, transparent 3px)
             `,
             backgroundSize: "20px 20px",
             backgroundPosition: "0 0, 10px 10px",

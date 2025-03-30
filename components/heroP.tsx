@@ -17,27 +17,23 @@ function HeroP() {
 
         <BoxReveal boxColor="#ef4444" duration={0.5}>
           <h2 className="text-5xl text-red-500 font-bold mb-8">
-            Innovate Faster
+            Redefining Digital Excellence
           </h2>
         </BoxReveal>
 
         <div className="space-y-4 text-gray-400 text-xl">
           <BoxReveal boxColor="#ef4444" duration={0.5}>
             <p>
-              With 3+ years of expertise in React and Next.js, we create fast,
-              scalable, and user-friendly websites.
+              We don’t just build websites—we engineer high-performance,
+              scalable, and immersive digital experiences.
             </p>
           </BoxReveal>
 
           <BoxReveal boxColor="#ef4444" duration={0.5}>
             <p>
-              We embrace innovation, constantly refining our skills to deliver
-              cutting-edge solutions.
+              Fueled by innovation, we push boundaries to create solutions that
+              are lightning-fast, intuitive, and future-ready.
             </p>
-          </BoxReveal>
-
-          <BoxReveal boxColor="#ef4444" duration={0.5}>
-            <p>Let’s bring your vision to life.</p>
           </BoxReveal>
         </div>
 

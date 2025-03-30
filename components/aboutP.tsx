@@ -18,55 +18,38 @@ function AboutP() {
         <div className="space-y-8">
           <div className="flex gap-8">
             <div className="flex-grow space-y-6">
-              <BoxReveal>
+              {/* <BoxReveal>
                 <p className="text-xl">
                   <span className="text-2xl font-semibold">H</span>ello there!
                   We&aposre a team of passionate full-stack developers
                   specializing in creating engaging and responsive websites
                   tailored for businesses and individuals.
                 </p>
-              </BoxReveal>
-
-              {/* <BoxReveal>
-                <p className="text-gray-300">
-                  We specialize in **user-centered design**, crafting visually
-                  striking interfaces that enhance both usability and
-                  accessibility. Our goal is to create seamless digital
-                  experiences that captivate users.
-                </p>
-              </BoxReveal>
-
-              <BoxReveal>
-                <p className="text-gray-300">
-                  Our expertise lies in **React and Next.js** for frontend
-                  development, while our backend proficiency includes **Node.js,
-                  PostgreSQL, and MongoDB**, allowing us to build robust
-                  full-stack applications.
-                </p>
-              </BoxReveal>
-
-              <BoxReveal>
-                <p className="text-gray-300">
-                  Our workflow integrates AI-driven tools like **ChatGPT, GitHub
-                  Copilot, and Midjourney**, ensuring efficient development and
-                  innovative solutions tailored to your needs.
-                </p>
               </BoxReveal> */}
 
               <BoxReveal>
                 <p className="text-gray-300">
-                  Beyond coding, we focus on adaptability, communication, and
-                  organization to provide top-notch services. Whether it&aposs
-                  development, **SEO**, or performance optimization, we ensure
-                  your project stands out.
+                  Your vision deserves more than just development—it needs
+                  strategy, security, and seamless execution. We specialize in
+                  Web & E-commerce Development, App Development, UI/UX Design,
+                  SEO, Logo Design, Power BI, QA, and Cybersecurity, delivering
+                  tailored solutions that elevate brands.
                 </p>
               </BoxReveal>
 
               <BoxReveal>
                 <p className="text-gray-300">
-                  Let&aposs collaborate to bring your vision to life with
-                  **clean, efficient code**, ensuring a smooth and consistent
-                  experience across all devices. Get in touch today!
+                  From creating stunning digital experiences to securing your
+                  online presence, we blend creativity, technology, and
+                  analytics to help you grow. Whether it&apos;s crafting a
+                  high-performing website, optimizing for search engines, or
+                  ensuring top-tier security, we make every detail count.
+                </p>
+              </BoxReveal>
+
+              <BoxReveal>
+                <p className="text-gray-300">
+                  Let&apos;s build something remarkable together.
                 </p>
               </BoxReveal>
             </div>

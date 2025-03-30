@@ -248,7 +248,11 @@ const StyledWrapper = styled.div`
     align-items: center;
     border-radius: 20px;
     transition: 700ms;
-    background: linear-gradient(45deg, #1a1a1a, #262626);
+    background: linear-gradient(
+      45deg,
+      rgba(26, 26, 26, 0.23),
+      rgba(38, 38, 38, 0.22)
+    );
     border: 2px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.2);
