@@ -163,14 +163,14 @@ const ContactUS = () => {
                       color: "#a07c88",
                       border: "none",
                       fontSize: "1rem",
-                      paddingLeft: "4rem",
+                      paddingLeft: "",
                     }}
                     buttonStyle={{
                       border: "none",
                       background: "transparent",
                       borderRadius: "5px",
                       padding: "0.4rem",
-                      marginRight: "0.8rem",
+                      marginRight: "",
                       maxWidth: "50px",
                     }}
                     containerStyle={{
@@ -245,6 +245,12 @@ const StyledWrapper = styled.div`
   background-color: #000;
   padding: 2rem 0;
 
+  .react-tel-input .flag-dropdown {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -40px;
+  }
   .react-tel-input .form-control::placeholder {
     color: #ccc !important;
     opacity: 1 !important;
@@ -283,6 +289,7 @@ const StyledWrapper = styled.div`
 
   .phone-input .react-tel-input .country-list .country {
     color: white !important;
+    background: #333;
     padding: 10px !important;
     transition: background 0.3s ease-in-out;
   }
@@ -293,6 +300,7 @@ const StyledWrapper = styled.div`
 
   .phone-input .react-tel-input .selected-flag:focus {
     outline: none !important;
+    background: #000 !important;
     box-shadow: none !important;
   }
   .phone-input .react-tel-input .country-list {
