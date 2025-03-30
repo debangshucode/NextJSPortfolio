@@ -155,12 +155,12 @@ const ContactUS = () => {
                       required: true,
                       autoComplete: "off",
                       onKeyDown: handleKeyDown,
-                      placeholder: phone ? "" : "Enter your number", // Attach keydown event
+                      placeholder: "Enter your number", // Show placeholder if only country code exists
                     }}
                     inputStyle={{
                       width: "100%",
                       background: "transparent",
-                      color: "#f4f3f3 ",
+                      color: "#a07c88",
                       border: "none",
                       fontSize: "1rem",
                       paddingLeft: "4rem",
@@ -182,8 +182,8 @@ const ContactUS = () => {
                       border: "none",
                       background: "#333",
                     }}
-                    placeholder="Enter your phone number"
                   />
+
                   {errors.phone && <p className="error">{errors.phone}</p>}
                 </div>
 
@@ -247,7 +247,9 @@ const StyledWrapper = styled.div`
 
   .react-tel-input .form-control::placeholder {
     color: #ccc !important;
-    opacity: 1;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
   }
 
   .phone-input {

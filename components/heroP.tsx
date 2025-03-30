@@ -1,6 +1,4 @@
 import React from "react";
-import { Github, Linkedin, Mail, Download } from "lucide-react";
-import { BoxReveal } from "./ui/BoxReveal";
 
 function HeroP() {
   return (
@@ -9,39 +7,29 @@ function HeroP() {
 
       {/* Main Content */}
       <div className="max-w-3xl mt-32">
-        <BoxReveal boxColor="#ef4444" duration={0.5}>
-          <h1 className="text-7xl font-bold mb-8">
-            SystemR<span className="text-red-500">.</span>
-          </h1>
-        </BoxReveal>
+        <h1 className="text-7xl font-bold mb-8">
+          SystemR<span className="text-red-500">.</span>
+        </h1>
 
-        <BoxReveal boxColor="#ef4444" duration={0.5}>
-          <h2 className="text-5xl text-red-500 font-bold mb-8">
-            Redefining Digital Excellence
-          </h2>
-        </BoxReveal>
+        <h2 className="text-5xl text-red-500 font-bold mb-8">
+          Redefining Digital Excellence
+        </h2>
 
         <div className="space-y-4 text-gray-400 text-xl">
-          <BoxReveal boxColor="#ef4444" duration={0.5}>
-            <p>
-              We don’t just build websites—we engineer high-performance,
-              scalable, and immersive digital experiences.
-            </p>
-          </BoxReveal>
+          <p>
+            We don’t just build websites—we engineer high-performance, scalable,
+            and immersive digital experiences.
+          </p>
 
-          <BoxReveal boxColor="#ef4444" duration={0.5}>
-            <p>
-              Fueled by innovation, we push boundaries to create solutions that
-              are lightning-fast, intuitive, and future-ready.
-            </p>
-          </BoxReveal>
+          <p>
+            Fueled by innovation, we push boundaries to create solutions that
+            are lightning-fast, intuitive, and future-ready.
+          </p>
         </div>
 
-        <BoxReveal boxColor="#ef4444" duration={0.5}>
-          <button className="mt-12 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg text-lg transition-colors">
-            Contact
-          </button>
-        </BoxReveal>
+        <button className="mt-12 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg text-lg transition-colors">
+          Contact
+        </button>
       </div>
 
       {/* Background Pattern */}
