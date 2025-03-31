@@ -1,5 +1,4 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 

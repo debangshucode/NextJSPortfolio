@@ -1,9 +1,7 @@
-import Image, { StaticImageData } from "next/image";
-
 interface TestimonialCardProps {
   quote: string;
   name: string;
-  image: StaticImageData;
+  img: string;
   star: string;
   title: string;
 }
@@ -11,7 +9,7 @@ interface TestimonialCardProps {
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
   quote,
   name,
-  image,
+  img,
   star,
   title,
 }) => {
@@ -24,8 +22,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       }}
     >
       <div className="flex items-center gap-4 mb-4">
-        <Image
-          src={image}
+        <img
+          src={img}
           alt={name}
           width={40}
           height={40}

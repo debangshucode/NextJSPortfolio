@@ -1,4 +1,4 @@
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaFigma, FaExternalLinkAlt } from "react-icons/fa";
 import { BoxReveal } from "./ui/BoxReveal";
 const projects = [
   {
@@ -6,7 +6,45 @@ const projects = [
     tech: "React - Three.js - Tailwind - GSAP",
     description:
       "A clone of Apple's iPhone 15 Pro website using React.js and TailwindCSS. It highlights the effective use of Three.js and GSAP for 3D and animations.",
-    image: "/project1.jpg", // Replace with actual image URL
+    image: "/project1.jpg",
+    github: "#",
+    live: "#",
+  },
+  {
+    title: "Flowers Shop",
+    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
+    description:
+      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
+    image: "/project8.png",
+    github:
+      "https://www.figma.com/design/uEhFdZA5q7jwgOSugjb9IZ/Flowers-Shop?node-id=1-2&t=NZ6F2OCS1nzsK52w-0",
+    live: "#",
+  },
+  {
+    title: "Evently",
+    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
+    description:
+      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
+    image: "/project3.jpg",
+    github: "#",
+    live: "#",
+  },
+  {
+    title: "HK Shoes",
+    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
+    description:
+      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
+    image: "/project9.png",
+    github:
+      "https://www.figma.com/design/8CcFpBRf7TMQdGmKf0ttiE/HK-shoes?node-id=0-1&p=f&t=Wbb2jgk8MxYYXQXz-0",
+    live: "#",
+  },
+  {
+    title: "Evently",
+    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
+    description:
+      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
+    image: "/project5.jpg",
     github: "#",
     live: "#",
   },
@@ -15,43 +53,7 @@ const projects = [
     tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
     description:
       "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
-    image: "/project2.jpg", // Replace with actual image URL
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Evently",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
-    image: "/project3.jpg", // Replace with actual image URL
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Evently",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
-    image: "/project4.jpg", // Replace with actual image URL
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Evently",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
-    image: "/project5.jpg", // Replace with actual image URL
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Evently",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
-    image: "/project6.jpg", // Replace with actual image URL
+    image: "/project6.jpg",
     github: "#",
     live: "#",
   },
@@ -68,17 +70,6 @@ export default function ProjectP() {
         <div className="w-full h-px bg-gray-600 mt-3"></div>
       </div>
 
-      {/* Full Gallery Link */}
-      {/* <div className="text-center mt-6">
-        <a
-          href="#"
-          className="text-xl font-medium flex items-center justify-center gap-2 hover:underline"
-        >
-          <span>→ Full Gallery</span>
-        </a>
-      </div> */}
-
-      {/* Project Cards */}
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 mt-12">
         {projects.map((project, index) => (
           <div key={index} className="rounded-lg   overflow-hidden shadow-lg">
@@ -102,7 +93,7 @@ export default function ProjectP() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaGithub className="text-gray-400 hover:text-white text-lg" />
+                      <FaFigma className="text-gray-400 hover:text-white text-lg" />
                     </a>
                     <a
                       href={project.live}
@@ -121,12 +112,6 @@ export default function ProjectP() {
               <BoxReveal>
                 <p className="text-gray-400 mt-2">{project.description}</p>
               </BoxReveal>
-              {/* <a
-                href="#"
-                className="text-purple-500 mt-4 block hover:underline"
-              >
-                Details →
-              </a> */}
             </div>
           </div>
         ))}

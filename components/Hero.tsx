@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { counterData } from "@/data";
-import { motion } from "framer-motion";
 import { Meteors } from "./ui/meteors";
 const CounterCard = dynamic(() => import("./ui/CounterCard"), { ssr: false });
 const PerformanceCard = dynamic(() => import("./ui/PerformanceCard"), {
@@ -35,14 +32,6 @@ const Hero = () => {
           <p className="uppercase tracking-widest text-xs text-center text-red-100 max-w-80">
             Dynamic Web Magic with SystemR
           </p>
-
-          {/* Text Animation */}
-          {/* <TextGenerateEffect
-            words="Transforming Ideas Into Seamless Digital Experiences"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            // animationStarted={animationStarted}
-          /> */}
-          {/* Text Animation */}
           <h1 className="text-center mb-5 text-[40px] md:text-5xl lg:text-6xl font-bold">
             Transforming Ideas Into{" "}
             <span className="text-red-700">Digital Experiences</span>

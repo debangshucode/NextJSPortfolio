@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import {
   Globe,
@@ -392,7 +392,7 @@ function App() {
   const [showPortfolio, setShowPortfolio] = useState(false);
   const portfolioRef = useRef<HTMLDivElement | null>(null);
 
-  const [animationKey, setAnimationKey] = useState(0); // 🔥 New state to trigger animation reset
+  const [animation, setAnimationKey] = useState(0); // 🔥 New state to trigger animation reset
 
   const handleServiceClick = (service: Service) => {
     if (selectedService?.category === service.category) {

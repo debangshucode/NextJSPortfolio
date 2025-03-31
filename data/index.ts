@@ -144,7 +144,7 @@ export const testimonials = [
     quote:
       "Systemr transformed our vision into reality with a seamless and efficient web platform. Their attention to detail and commitment to quality are outstanding!",
     name: "Sarah M.",
-    image: logo1,
+    img: "/client.png",
     star: "⭐⭐⭐⭐⭐",
     title: "Exceptional Performance!",
   },
@@ -152,7 +152,7 @@ export const testimonials = [
     quote:
       "Working with Systemr was a game-changer for our business. The team is highly skilled, responsive, and delivers on time. Highly recommend!",
     name: "James L.",
-    image: logo2,
+    img: "/client1.png",
     star: "⭐⭐⭐⭐⭐",
     title: "Reliable & Professional",
   },
@@ -160,7 +160,7 @@ export const testimonials = [
     quote:
       "Systemr helped us build a scalable and high-performing app. Their expertise in modern tech stacks is truly impressive!",
     name: "Priya S.",
-    image: logo3,
+    img: "/client2.png",
     star: "⭐⭐⭐⭐⭐",
     title: "Cutting-Edge Solutions",
   },
@@ -168,7 +168,7 @@ export const testimonials = [
     quote:
       "From start to finish, Systemr provided top-notch service and ongoing support. Their dedication to client satisfaction is unmatched!",
     name: "David R.",
-    image: logo1,
+    img: "/client3.png",
     star: "⭐⭐⭐⭐⭐",
     title: "Great Support & Service",
   },

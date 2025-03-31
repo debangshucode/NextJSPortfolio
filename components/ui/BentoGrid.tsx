@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import Image from "next/image";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
 import { cn } from "@/lib/utils";
@@ -75,7 +74,7 @@ export const BentoGridItem = ({
 
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundBlendMode: "overlay", // Blends gradient and image
+        backgroundBlendMode: "overlay",
       }}
     >
       {/* Content */}
@@ -106,15 +105,12 @@ export const BentoGridItem = ({
           />
         )}
         {id === 6 && (
-          // add background animation , remove the p tag
           <BackgroundGradientAnimation>
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
         )}
-        {/* GitHub Globe */}
         {id === 1 && <TerminalDemo />}
 
-        {/* Tech Stack List */}
         {id === 3 && (
           <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
             <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
@@ -141,8 +137,6 @@ export const BentoGridItem = ({
             </div>
           </div>
         )}
-
-        {/* Copy Email Button */}
         {id === 6 && (
           <div className="mt-5 relative">
             <div
