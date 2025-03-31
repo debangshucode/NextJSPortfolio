@@ -34,6 +34,7 @@ const projects = [
     tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
     description:
       "A stylish and comfortable footwear store with the latest collections for all occasions.",
+    image: "/project9.png",
     github:
       "https://www.figma.com/design/8CcFpBRf7TMQdGmKf0ttiE/HK-shoes?node-id=0-1&p=f&t=Wbb2jgk8MxYYXQXz-0",
     live: "#",
