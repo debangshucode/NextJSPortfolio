@@ -160,7 +160,7 @@ const ContactUS = () => {
                     inputStyle={{
                       width: "100%",
                       background: "transparent",
-                      color: "#a07c88",
+                      color: "#b4a7a7",
                       border: "none",
                       fontSize: "1rem",
                       paddingLeft: "",
