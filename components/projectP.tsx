@@ -2,10 +2,10 @@ import { FaGithub, FaFigma, FaExternalLinkAlt } from "react-icons/fa";
 import { BoxReveal } from "./ui/BoxReveal";
 const projects = [
   {
-    title: "iPhone 15",
+    title: "Plant.",
     tech: "React - Three.js - Tailwind - GSAP",
     description:
-      "A clone of Apple's iPhone 15 Pro website using React.js and TailwindCSS. It highlights the effective use of Three.js and GSAP for 3D and animations.",
+      "A smart plant care guide that helps you track feeding, lighting, and overall plant health",
     image: "/project1.jpg",
     github: "#",
     live: "#",
@@ -14,17 +14,17 @@ const projects = [
     title: "Flowers Shop",
     tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
     description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
+      " An online flower shop offering fresh blooms for every occasion with doorstep delivery.",
     image: "/project8.png",
     github:
       "https://www.figma.com/design/uEhFdZA5q7jwgOSugjb9IZ/Flowers-Shop?node-id=1-2&t=NZ6F2OCS1nzsK52w-0",
     live: "#",
   },
   {
-    title: "Evently",
+    title: "QuickBite",
     tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
     description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
+      "A fast and reliable food delivery service bringing your favorite meals to your doorstep.",
     image: "/project3.jpg",
     github: "#",
     live: "#",
@@ -33,26 +33,25 @@ const projects = [
     title: "HK Shoes",
     tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
     description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
-    image: "/project9.png",
+      "A stylish and comfortable footwear store with the latest collections for all occasions.",
     github:
       "https://www.figma.com/design/8CcFpBRf7TMQdGmKf0ttiE/HK-shoes?node-id=0-1&p=f&t=Wbb2jgk8MxYYXQXz-0",
     live: "#",
   },
   {
-    title: "Evently",
+    title: "LifeTrackr",
     tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
     description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
+      "A personal dashboard to track your purchases, properties, health, and everything that matters.",
     image: "/project5.jpg",
     github: "#",
     live: "#",
   },
   {
-    title: "Evently",
+    title: "WebCrafters",
     tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
     description:
-      "Event management platform built on Next.js. This app serves as a hub for showcasing events and features secure payment through Stripe.",
+      "A creative web development agency that turns ideas into stunning, high-performance websites.",
     image: "/project6.jpg",
     github: "#",
     live: "#",
