@@ -2,7 +2,6 @@
 
 import React from "react";
 import { companies, testimonials } from "@/data";
-import Image from "next/image";
 import TestimonialCard from "./ui/TestimonialCard";
 
 const Clients = () => {
@@ -32,7 +31,7 @@ const Clients = () => {
                        transition-all duration-300"
             key={company.id}
           >
-            <Image
+            <img
               src={company.img}
               alt={company.name}
               width={40}
@@ -40,7 +39,7 @@ const Clients = () => {
               className="md:w-10 w-5"
             />
 
-            <Image
+            <img
               src={company.nameImg}
               alt={company.name}
               width={company.id === 4 || company.id === 5 ? 100 : 150}
