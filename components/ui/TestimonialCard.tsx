@@ -27,7 +27,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           alt={name}
           width={40}
           height={40}
-          className="rounded-full h-[40px] w-[40px]"
+          className="rounded-full h-[40px] w-[40px] object-cover"
         />
         <div>
           <h3 className="text-lg font-semibold">{name}</h3>

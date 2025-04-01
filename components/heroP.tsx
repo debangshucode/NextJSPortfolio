@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Button from "./ui/contactbtn";
+
 function HeroP() {
   return (
     <div className=" bg-black text-white p-8">
@@ -28,9 +30,7 @@ function HeroP() {
         </div>
 
         <Link href="/#contact" scroll={true}>
-          <button className="mt-12 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg text-lg transition-colors">
-            Contact
-          </button>
+          <Button />
         </Link>
       </div>
 
