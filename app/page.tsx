@@ -23,6 +23,17 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Check if there's a hash in the URL (indicating a section to scroll to)
+    const sectionId = window.location.hash;
+    if (sectionId) {
+      const targetSection = document.querySelector(sectionId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [loading]); // Run this effect once loading finishes
+
   // Render the loader immediately
   if (loading) {
     return <Loader />;
@@ -31,13 +42,11 @@ const Home = () => {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
-        {/* <FloatingNav navItems={navItems} /> */}
         <Hero />
         <Grid />
         <Services />
         <Approach />
         <Industries />
-        {/* <RecentProjects /> */}
         <Clients />
         <Footer />
       </div>
