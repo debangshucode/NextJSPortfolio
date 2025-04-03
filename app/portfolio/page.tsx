@@ -9,18 +9,17 @@ import FooterP from "@/components/footerp";
 
 const Portfolio = () => {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto">
+    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto ">
       <div className="w-full">
         {/* Hero and About side by side */}
-        <div className="flex flex-col sm:flex-row justify-between w-full">
-          <div className="w-full sm:w-1/2">
-            <HeroP />
-          </div>
-          <div className="w-full sm:w-1/2">
+        <HeroP />
+        {/* <div className="flex flex-col sm:flex-row justify-between w-full"> */}
+        {/* <div className="w-full ">
+          </div> */}
+        {/* <div className="w-full sm:w-1/2">
             <AboutP />
           </div>
         </div>
-        <TextRevealDemo />
 
         {/* Projects Section */}
         <ProjectP />
