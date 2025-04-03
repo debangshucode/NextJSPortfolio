@@ -1,47 +1,31 @@
 import React from "react";
 import Link from "next/link";
 import Button from "./ui/contactbtn";
-
+import MagicButton from "./MagicButton";
+import { FaLocationArrow } from "react-icons/fa6";
 function HeroP() {
   return (
-    <div className=" bg-black text-white p-8">
-      {/* Navigation */}
-
+    <div className="bg-gradient-to-b from-[#551515] via-black to-black text-white p-8 min-h-screen flex flex-col items-center justify-center  rounded-b-lg">
       {/* Main Content */}
-      <div className="max-w-3xl mt-32">
-        <h1 className="text-7xl font-bold mb-8">
-          SystemR<span className="text-red-500">.</span>
-        </h1>
-
-        <h2 className="text-5xl text-red-500 font-bold mb-8">
-          Redefining Digital Excellence
+      <div className="text-center">
+        <h2 className=" text-xl font-bold tracking-wider">
+          welcome <span className="text-red-500">to</span> our{" "}
         </h2>
-
-        <div className="space-y-4 text-gray-400 text-xl">
-          <p>
-            We don’t just build websites—we engineer high-performance, scalable,
-            and immersive digital experiences.
-          </p>
-
-          <p>
-            Fueled by innovation, we push boundaries to create solutions that
-            are lightning-fast, intuitive, and future-ready.
-          </p>
+        <h1 className="text-8xl font-extrabold mb-6 tracking-wide">
+          PORT<span className="text-gray-300">FOLIO</span>
+        </h1>
+        {/* Signature Style */}
+        <div className="text-red-500 italic text-xl font-bold mt-4">
+          SystemR
         </div>
-
-        <Link href="/#contact" scroll={true}>
-          <Button />
-        </Link>
+        <a href="#contact">
+          <MagicButton
+            title="Get in Touch"
+            icon={<FaLocationArrow />}
+            position="right"
+          />
+        </a>
       </div>
-
-      {/* Background Pattern */}
-      {/* <div className="fixed top-[100px] right-0 w-1/2 h-[75%] pointer-events-none">
-        <div className="w-full h-full grid grid-cols-12 gap-4 opacity-20">
-          {Array.from({ length: 180 }).map((_, i) => (
-            <div key={i} className="w-2 h-2 bg-gray-700 rounded-full"></div>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 }
