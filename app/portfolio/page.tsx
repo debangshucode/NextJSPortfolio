@@ -4,10 +4,12 @@ import HeroP from "@/components/heroP";
 import AboutP from "@/components/aboutP";
 import ProjectP from "@/components/projectP";
 import Loader from "@/components/ui/Loader";
+import { TextRevealDemo } from "@/components/textp";
+import FooterP from "@/components/footerp";
 
 const Portfolio = () => {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5">
+    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto">
       <div className="w-full">
         {/* Hero and About side by side */}
         <div className="flex flex-col sm:flex-row justify-between w-full">
@@ -18,9 +20,11 @@ const Portfolio = () => {
             <AboutP />
           </div>
         </div>
+        <TextRevealDemo />
 
         {/* Projects Section */}
         <ProjectP />
+        <FooterP />
       </div>
     </main>
   );

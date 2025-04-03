@@ -1,121 +1,182 @@
-import { FaGithub, FaFigma, FaExternalLinkAlt } from "react-icons/fa";
-import { BoxReveal } from "./ui/BoxReveal";
-const projects = [
-  {
-    title: "Plant.",
-    tech: "React - Three.js - Tailwind - GSAP",
-    description:
-      "A smart plant care guide that helps you track feeding, lighting, and overall plant health",
-    image: "/project1.jpg",
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Flowers Shop",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      " An online flower shop offering fresh blooms for every occasion with doorstep delivery.",
-    image: "/project8.png",
-    github:
-      "https://www.figma.com/design/uEhFdZA5q7jwgOSugjb9IZ/Flowers-Shop?node-id=1-2&t=NZ6F2OCS1nzsK52w-0",
-    live: "#",
-  },
-  {
-    title: "QuickBite",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      "A fast and reliable food delivery service bringing your favorite meals to your doorstep.",
-    image: "/project3.jpg",
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "HK Shoes",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      "A stylish and comfortable footwear store with the latest collections for all occasions.",
-    image: "/project9.png",
-    github:
-      "https://www.figma.com/design/8CcFpBRf7TMQdGmKf0ttiE/HK-shoes?node-id=0-1&p=f&t=Wbb2jgk8MxYYXQXz-0",
-    live: "#",
-  },
-  {
-    title: "LifeTrackr",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      "A personal dashboard to track your purchases, properties, health, and everything that matters.",
-    image: "/project5.jpg",
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "WebCrafters",
-    tech: "Next.js - TypeScript - MongoDB - Tailwind - Stripe",
-    description:
-      "A creative web development agency that turns ideas into stunning, high-performance websites.",
-    image: "/project6.jpg",
-    github: "#",
-    live: "#",
-  },
-];
+import React from "react";
+import {
+  Globe2,
+  X,
+  Home,
+  User,
+  Briefcase,
+  Wrench,
+  BookOpen,
+} from "lucide-react";
 
-export default function ProjectP() {
+// Updated ProjectCard to accept className
+function ProjectCard({
+  year,
+  title,
+  image,
+  tag,
+  link,
+  className = "",
+}: {
+  year: string;
+  title: string;
+  image: string;
+  tag: string;
+  link?: string;
+  className?: string;
+}) {
   return (
-    <section className="bg-black text-white py-16 px-6">
-      {/* Title */}
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-5xl font-extrabold relative inline-block">
-          Projects<span className="text-purple-500"></span>
-        </h2>
-        <div className="w-full h-px bg-gray-600 mt-3"></div>
+    <div
+      className={`relative group overflow-hidden rounded-[20px] bg-[#0A0A0B] border border-white/[0.08] ${className}`}
+    >
+      <img src={image} alt={title} className="w-full h-[200px] object-cover" />
+      <div className="absolute inset-0 flex flex-col justify-between p-6">
+        <div className="flex justify-between items-start">
+          <span className="text-white/70 text-sm">{year}</span>
+          <span className="text-white/70 text-sm">{tag}</span>
+        </div>
+        <div className="flex justify-between items-center w-full">
+          <h3 className="text-white text-xl font-medium">{title}</h3>
+          {link && (
+            <a
+              href={link}
+              className="text-white/70 hover:text-white transition-colors"
+            >
+              <Globe2 size={20} />
+            </a>
+          )}
+        </div>
       </div>
-
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 mt-12">
-        {projects.map((project, index) => (
-          <div key={index} className="rounded-lg   overflow-hidden shadow-lg">
-            <div className="bg-gray-700 p-6 pb-0">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-64 object-cover"
-              />
-            </div>
-
-            <div className="p-6">
-              <div className="flex items-center justify-between">
-                <BoxReveal>
-                  <h3 className="text-2xl font-semibold">{project.title}</h3>
-                </BoxReveal>
-                <BoxReveal>
-                  <div className="flex gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaFigma className="text-gray-400 hover:text-white text-lg" />
-                    </a>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaExternalLinkAlt className="text-gray-400 hover:text-white text-lg" />
-                    </a>
-                  </div>
-                </BoxReveal>
-              </div>
-              <div className="w-20 h-0.5 bg-gray-500 mt-2"></div>
-              <BoxReveal>
-                <p className="text-purple-400 mt-2">{project.tech}</p>
-              </BoxReveal>
-              <BoxReveal>
-                <p className="text-gray-400 mt-2">{project.description}</p>
-              </BoxReveal>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+    </div>
   );
 }
+
+function IconGrid() {
+  const logos = [
+    { id: "webflow", src: "https://i.imgur.com/8vLIBWa.png" },
+    { id: "wordpress", src: "https://i.imgur.com/5uQVVFt.png" },
+    { id: "wix", src: "https://i.imgur.com/ZWVlGm7.png" },
+    { id: "framer", src: "https://i.imgur.com/yPVZYV1.png" },
+    { id: "hostinger", src: "https://i.imgur.com/c0XuIwV.png" },
+    { id: "squarespace", src: "https://i.imgur.com/LvhD3XA.png" },
+    { id: "shopify", src: "https://i.imgur.com/SZ3NwZF.png" },
+    { id: "bubble", src: "https://i.imgur.com/6Dg2BBX.png" },
+  ];
+
+  return (
+    <div className="grid grid-cols-4 gap-4 bg-[#0A0A0B] rounded-[20px] p-8 border border-white/[0.08]">
+      {logos.map((logo) => (
+        <div
+          key={logo.id}
+          className="aspect-square bg-[#141415] rounded-2xl p-6 flex items-center justify-center"
+        >
+          <img
+            src={logo.src}
+            alt={logo.id}
+            className="w-12 h-12 object-contain opacity-50"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function FeatureCard({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="bg-[#0A0A0B] p-10 rounded-[20px] border border-white/[0.08] relative overflow-hidden">
+      <h3 className="text-white text-2xl font-medium mb-3">{title}</h3>
+      <p className="text-white/60 text-base leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+function ProjectP() {
+  return (
+    <div className="min-h-screen bg-black text-white p-8">
+      <div className="max-w-7xl mx-auto space-y-8">
+        {/* Updated Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* First Row - 4 Cards */}
+          <ProjectCard
+            year="2025"
+            title="My Portfolio"
+            image="..."
+            tag="Currently Viewing"
+            link="#"
+          />
+          <ProjectCard
+            year="2024"
+            title="School"
+            image="..."
+            tag="School"
+            link="#"
+          />
+          <ProjectCard
+            year="2025"
+            title="Blog"
+            image="..."
+            tag="Green Earth"
+            link="#"
+          />
+          <ProjectCard
+            year="2024"
+            title="Ecommerce"
+            image="..."
+            tag="Watches"
+            link="#"
+          />
+
+          {/* Second Row - 1 Large Card Spanning 2 Rows + 2 Cards (One Big, One Small) */}
+          <ProjectCard
+            year="2025"
+            title="Featured Project"
+            image="..."
+            tag="Highlight"
+            link="#"
+            className="md:row-span-2 md:col-span-1"
+          />
+          <ProjectCard
+            year="2024"
+            title="Tech Blog"
+            image="..."
+            tag="Articles"
+            link="#"
+            className="md:col-span-2 md:row-span-1"
+          />
+          <ProjectCard
+            year="2025"
+            title="Case Study"
+            image="..."
+            tag="Research"
+            link="#"
+          />
+
+          {/* Third Row - 2 Cards (One Big on Left, One Small on Right) */}
+          <ProjectCard
+            year="2024"
+            title="Startup Insights"
+            image="..."
+            tag="Entrepreneurship"
+            link="#"
+            className="md:col-span-2 md:row-span-1"
+          />
+          <ProjectCard
+            year="2025"
+            title="Photography"
+            image="..."
+            tag="Gallery"
+            link="#"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default ProjectP;
