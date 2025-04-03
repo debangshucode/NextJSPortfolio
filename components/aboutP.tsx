@@ -108,7 +108,7 @@ function AboutP() {
           </p>
           <div className="flex justify-center gap-6">
             <button className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-              Let's Connect
+              Let&apos;s Connect
             </button>
             <button className="px-6 py-3 border border-white text-white rounded-lg hover:bg-white/10 transition-colors">
               View Portfolio
