@@ -13,15 +13,8 @@ const Portfolio = () => {
       <div className="w-full">
         {/* Hero and About side by side */}
         <HeroP />
-        {/* <div className="flex flex-col sm:flex-row justify-between w-full"> */}
-        {/* <div className="w-full ">
-          </div> */}
-        {/* <div className="w-full sm:w-1/2">
-            <AboutP />
-          </div>
-        </div>
-
-        {/* Projects Section */}
+        <AboutP />
+        <TextRevealDemo />
         <ProjectP />
         <FooterP />
       </div>
