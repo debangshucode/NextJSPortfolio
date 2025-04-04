@@ -30,13 +30,13 @@ function ProjectCard({
       className={`relative group overflow-hidden rounded-[20px] bg-[#0A0A0B] border border-white/[0.08] ${className}`}
     >
       <img src={image} alt={title} className="w-full h-[200px] object-cover" />
-      <div className="absolute inset-0 flex flex-col justify-between p-6">
+      <div className="absolute inset-0 flex flex-col justify-between p-6 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="flex justify-between items-start">
-          <span className="text-white/70 text-sm">{year}</span>
-          <span className="text-white/70 text-sm">{tag}</span>
+          <span className="text-[#FFD700]  text-sm font-semibold">{year}</span>
+          <span className="text-red-500 text-sm">{tag}</span>
         </div>
         <div className="flex justify-between items-center w-full">
-          <h3 className="text-white text-xl font-medium">{title}</h3>
+          <h3 className="text-red-500 text-xl font-medium">{title}</h3>
           {link && (
             <a
               href={link}
@@ -106,28 +106,28 @@ function ProjectP() {
           <ProjectCard
             year="2025"
             title="My Portfolio"
-            image="..."
+            image="/project1.jpg"
             tag="Currently Viewing"
             link="#"
           />
           <ProjectCard
             year="2024"
             title="School"
-            image="..."
+            image="/project2.jpg"
             tag="School"
             link="#"
           />
           <ProjectCard
             year="2025"
             title="Blog"
-            image="..."
+            image="/project3.jpg"
             tag="Green Earth"
             link="#"
           />
           <ProjectCard
             year="2024"
             title="Ecommerce"
-            image="..."
+            image="/project4.jpg"
             tag="Watches"
             link="#"
           />
@@ -136,7 +136,7 @@ function ProjectP() {
           <ProjectCard
             year="2025"
             title="Featured Project"
-            image="..."
+            image="/project5.jpg"
             tag="Highlight"
             link="#"
             className="md:row-span-2 md:col-span-1"
@@ -144,7 +144,7 @@ function ProjectP() {
           <ProjectCard
             year="2024"
             title="Tech Blog"
-            image="..."
+            image="/project6.jpg"
             tag="Articles"
             link="#"
             className="md:col-span-2 md:row-span-1"
@@ -152,7 +152,7 @@ function ProjectP() {
           <ProjectCard
             year="2025"
             title="Case Study"
-            image="..."
+            image="/project7.jpg"
             tag="Research"
             link="#"
           />
@@ -161,7 +161,7 @@ function ProjectP() {
           <ProjectCard
             year="2024"
             title="Startup Insights"
-            image="..."
+            image="/project8.png"
             tag="Entrepreneurship"
             link="#"
             className="md:col-span-2 md:row-span-1"
@@ -169,7 +169,7 @@ function ProjectP() {
           <ProjectCard
             year="2025"
             title="Photography"
-            image="..."
+            image="/project9.png"
             tag="Gallery"
             link="#"
           />
